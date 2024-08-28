@@ -1,6 +1,7 @@
-package pi.nice.api.domain.usuario;
+package pi.nice.api.domain.usuario.dto;
 
 import pi.nice.api.domain.grupo.Grupo;
+import pi.nice.api.domain.usuario.Usuario;
 
 public record UsuarioCadastradoDTO(String nome,
                                    String cpf,

@@ -3,6 +3,7 @@ package pi.nice.api.domain.usuario;
 import jakarta.persistence.*;
 import lombok.*;
 import pi.nice.api.domain.grupo.Grupo;
+import pi.nice.api.domain.usuario.dto.UsuarioCadastroDTO;
 
 @Table(name = "usuarios")
 @Entity(name = "Usuario")
@@ -14,11 +15,12 @@ import pi.nice.api.domain.grupo.Grupo;
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     private String nome;
     private String cpf;
     private String email;
+    private String senha;
     @Enumerated(EnumType.STRING)
     private Grupo grupo;
     private boolean ativo;
@@ -31,11 +33,12 @@ public class Usuario {
         ativo = true;
     }
 
-    public Usuario(UsuarioCadastroDTO usuarioCadastroDTO) {
+    public Usuario(UsuarioCadastroDTO usuarioCadastroDTO, String senha) {
         this.nome = usuarioCadastroDTO.nome();
         this.cpf = usuarioCadastroDTO.cpf();
         this.email = usuarioCadastroDTO.email();
         this.grupo = usuarioCadastroDTO.grupoId();
+        this.senha = senha;
         ativo = true;
     }
 }
