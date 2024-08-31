@@ -15,12 +15,12 @@ public class UsuarioService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public String logar(UsuarioLoginDTO usuarioLogin) {
-        Optional<Usuario> usuario = usuarioRepository.findByEmail(usuarioLogin.email());
+    public Usuario logar(UsuarioLoginDTO usuarioLogin) {
+        Optional<Usuario> usuario = usuarioRepository.findByEmailAndAtivoTrue(usuarioLogin.email());
 
         if (usuario.isPresent()) {
             if (passwordEncoder.matches(usuarioLogin.senha(), usuario.get().getSenha())) {
-                return usuario.get().getId();
+                return usuario.get();
             }
         }
 

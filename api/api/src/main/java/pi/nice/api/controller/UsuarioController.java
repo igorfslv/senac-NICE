@@ -17,13 +17,16 @@ public class UsuarioController {
     @PostMapping("/login")
     public ResponseEntity<UsuarioLoginRealizadoDTO> login(@RequestBody UsuarioLoginDTO usuarioLogin) {
 
-        String idDoUsuario = usuarioService.logar(usuarioLogin);
+        Usuario usuario = usuarioService.logar(usuarioLogin);
 
-        return idDoUsuario != null ?
-                ResponseEntity.ok(new UsuarioLoginRealizadoDTO(idDoUsuario)) :
+        return usuario != null ?
+                ResponseEntity.ok(new UsuarioLoginRealizadoDTO(
+                        usuario.getId(),
+                        usuario.getNome(),
+                        usuario.getCpf(),
+                        usuario.getEmail(),
+                        usuario.getGrupo())
+                ) :
                 ResponseEntity.notFound().build();
-
     }
-
-
 }

@@ -3,6 +3,8 @@ package pi.nice.api.domain.usuario;
 import jakarta.persistence.*;
 import lombok.*;
 import pi.nice.api.domain.grupo.Grupo;
+import pi.nice.api.domain.usuario.dto.AlterarUsuarioDTO;
+import pi.nice.api.domain.usuario.dto.AlternarUsuarioDTO;
 import pi.nice.api.domain.usuario.dto.UsuarioCadastroDTO;
 
 @Table(name = "usuarios")
@@ -40,5 +42,13 @@ public class Usuario {
         this.grupo = usuarioCadastroDTO.grupoId();
         this.senha = senha;
         ativo = true;
+    }
+
+    public Usuario alterarDados(AlterarUsuarioDTO alternarUsuarioDTO, String senha) {
+        this.nome = alternarUsuarioDTO.nome();
+        this.cpf = alternarUsuarioDTO.cpf();
+        this.grupo = alternarUsuarioDTO.grupoId();
+        this.senha = senha;
+        return this;
     }
 }

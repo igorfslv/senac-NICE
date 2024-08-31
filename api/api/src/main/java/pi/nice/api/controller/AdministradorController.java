@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pi.nice.api.domain.usuario.*;
+import pi.nice.api.domain.usuario.dto.AlterarUsuarioDTO;
 import pi.nice.api.domain.usuario.dto.UsuarioCadastradoDTO;
 import pi.nice.api.domain.usuario.dto.UsuarioCadastroDTO;
 import org.springframework.data.domain.Page;
@@ -20,7 +21,7 @@ public class AdministradorController {
     @Autowired
     private AdministradorService administradorService;
 
-    @PostMapping("/cadastrar")
+    @PostMapping("/cadastrar/{admId}")
     public ResponseEntity cadastrarUsuario(@RequestBody UsuarioCadastroDTO usuarioCadastroDTO,
                                            @PathVariable String admId) {
 
@@ -33,9 +34,7 @@ public class AdministradorController {
     public ResponseEntity alternarStatusUsuario(@PathVariable String usuarioId,
                                                 @PathVariable String admId) {
 
-        return administradorService.alternarStatus(usuarioId, admId) ?
-                ResponseEntity.status(HttpStatus.NO_CONTENT).build() :
-                ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Você não é um administrador");
+        return administradorService.alternarStatus(usuarioId, admId);
     }
 
     @GetMapping("/getUsuarios/{admId}/{numeroDaPagina}")
@@ -49,5 +48,13 @@ public class AdministradorController {
                 ResponseEntity.ok(listaDeUsuarios.map(UsuarioCadastradoDTO::new)) :
                 ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Você não é um administrador");
 
+    }
+
+    @PutMapping("/alterarUsuario/{admId}")
+    public ResponseEntity alterarUsuario(
+            @RequestBody AlterarUsuarioDTO alterarUsuarioDTO,
+            @PathVariable String admId) {
+
+        return administradorService.alterarUsuario(alterarUsuarioDTO, admId);
     }
 }

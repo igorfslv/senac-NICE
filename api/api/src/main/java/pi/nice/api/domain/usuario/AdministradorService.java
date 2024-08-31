@@ -4,11 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import pi.nice.api.domain.grupo.Grupo;
+import pi.nice.api.domain.usuario.dto.AlterarUsuarioDTO;
 import pi.nice.api.domain.usuario.dto.AlternarUsuarioDTO;
+import pi.nice.api.domain.usuario.dto.UsuarioCadastradoDTO;
 import pi.nice.api.domain.usuario.dto.UsuarioCadastroDTO;
 
 import java.util.List;
@@ -34,20 +38,40 @@ public class AdministradorService {
         return null;
     }
 
+    public ResponseEntity alterarUsuario(AlterarUsuarioDTO alterarUsuarioDTO, String idAdm) {
+
+        Optional<Usuario> usuario = usuarioRepository.findById(alterarUsuarioDTO.id());
 
 
-    public boolean alternarStatus(String usuarioId, String admId) {
+        if (possuiPermissaoDeAdm(idAdm)) {
+            if (usuario.isPresent()) {
+                Usuario usuarioAlterado = usuario.get().alterarDados(alterarUsuarioDTO, passwordEncoder.encode(alterarUsuarioDTO.senha()));
+                usuarioRepository.save(usuarioAlterado);
+                return ResponseEntity.ok(new UsuarioCadastradoDTO(usuarioAlterado));
+
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+
+        }
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Você não é um administrador");
+    }
+
+    public ResponseEntity alternarStatus(String usuarioId, String admId) {
 
         if (possuiPermissaoDeAdm(admId)) {
             Optional<Usuario> usuario = usuarioRepository.findById(usuarioId);
             if (usuario.isPresent()) {
                 usuario.get().setAtivo(!usuario.get().isAtivo());
                 usuarioRepository.save(usuario.get());
-                return true;
+                return ResponseEntity.ok(new UsuarioCadastradoDTO(usuario.get()));
+            } else {
+                return ResponseEntity.notFound().build();
             }
         }
 
-        return false;
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Você não é um administrador");
     }
 
     public Page<Usuario> getListaDeUsuarios(String idAdm, Pageable pageable) {
