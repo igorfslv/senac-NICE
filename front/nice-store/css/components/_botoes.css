@@ -1,0 +1,13 @@
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primario {
+    background-color: #2682df;
+    color: white;
+}

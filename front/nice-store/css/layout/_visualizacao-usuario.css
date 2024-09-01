@@ -1,0 +1,124 @@
+.container-tela-visualizacao {
+    background-color: #ccc;
+}
+
+.barra-navegacao-backoffice {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+    ;
+}
+
+.barra-navegacao-lista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.nice-store-nome {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.usuario-logado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.usuario-logado p,
+.usuario-logado i {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.usuario-logado p {
+    font-weight: 600;
+}
+
+.usuario-logado i {
+    font-size: 18px;
+}
+
+.container-visualizacao-usuario,
+.container-visualizacao-produtos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 50px;
+    background-color: white;
+    margin: 30px;
+    border-radius: 10px;
+    height: 62vh;
+}
+
+.subtitulo {
+    margin: 40px 0px;
+    color: #ccc;
+}
+
+.opcoes-listagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.opcoes-listagem div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.opcoes-listagem div div {
+    margin: 20px;
+}
+
+.opcoes-listagem div div button {
+    padding: 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.opcoes-listagem div div button:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.listagem-1 button {
+    background-color: #afd7ff;
+    color: #1b5085;
+}
+
+.listagem-2 button {
+    background-color: #2682df;
+    color: white;
+}
+
+.btns-tela-usuario,
+.btns-tela-produtos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btns-tela-usuario button,
+.btns-tela-produtos button {
+    margin: 0 20px;
+}
+
+.btn-add-usuario,
+.btn-add-produto {
+    background-color: #0fc71e;
+    color: white;
+}
+
+.container-visualizacao-produtos table {
+    width: 80%;
+}

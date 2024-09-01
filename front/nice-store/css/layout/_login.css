@@ -1,0 +1,58 @@
+.container-tela-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ccc;
+}
+
+.login-container, 
+.formulario-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-container {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);;
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+} 
+
+.formulario-login {
+    margin-top: 30px;
+}
+
+.formulario-login label,
+.formulario-login input {
+    margin: 5px 0;
+}
+
+.formulario-login label {
+    font-weight: 500;
+}
+
+.formulario-login input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+    background-color: #e7e7e7;
+}
+
+.formulario-login button {
+    width: 270px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #2682df;
+    border: none;
+    color: white;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 800;
+}

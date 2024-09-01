@@ -1,0 +1,11 @@
+@import "layout/_login.css";
+@import "layout/_cadastro.css";
+@import "layout/_visualizacao-usuario.css";
+@import "components/_tabelas.css";
+@import "components/_botoes.css";
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+}

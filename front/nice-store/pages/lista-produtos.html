@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Lista de Produtos</title>
+</head>
+
+<body class="container-tela-visualizacao">
+    <header>
+        <nav class="barra-navegacao-backoffice">
+            <ul class="barra-navegacao-lista">
+                <li class="nice-store-nome">Nice Store Backoffice</li>
+                <li>
+                    <div class="usuario-logado">
+                        <p class="grupo-usuario-logado">Administrador</p>
+                        <i class='bx bx-log-out' title="Sair"></i>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container-visualizacao-produtos">
+        <h2>Lista de Produtos Cadastrados</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Imagem</th>
+                    <th>Nome Produto</th>
+                    <th>Preço</th>
+                    <th>Qtd Estoque</th>
+                    <th>Editar</th>
+                    <th>Atualizar Estoque</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><img src="imagem1.jpg" alt="Produto 1" width="50" height="50"></td>
+                    <td>Produto A</td>
+                    <td>R$ 100,00</td>
+                    <td>50</td>
+                    <td class="icone-editar">
+                        <i class='bx bxs-edit'></i>
+                    </td>
+                    <td class="icone-atualizar-estoque">
+                        <i class='bx bx-package'></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><img src="imagem2.jpg" alt="Produto 2" width="50" height="50"></td>
+                    <td>Produto B</td>
+                    <td>R$ 200,00</td>
+                    <td>30</td>
+                    <td class="icone-editar">
+                        <i class='bx bxs-edit'></i>
+                    </td>
+                    <td class="icone-atualizar-estoque">
+                        <i class='bx bx-package'></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="btns-tela-usuario-produtos">
+            <button class="btn-add-produto">Adicionar Novo Produto</button>
+        </div>
+    </div>
+
+    <script type="module" src="../js/main.js"></script>
+</body>
+
+</html>

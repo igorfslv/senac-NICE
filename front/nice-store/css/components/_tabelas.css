@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    margin: 40px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.icone-editar i,
+.icone-atualizar-estoque {
+    cursor: pointer;
+    color: #f5b400;
+    font-size: 20px;
+    margin: 0 15px;
+}

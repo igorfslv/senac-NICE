@@ -1,0 +1,126 @@
+.container-cadastro-usuario,
+.container-atualizacao-cadastro-usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 80px;
+    background-color: #ccc;
+}
+
+.container-atualizacao-cadastro-usuario {
+    margin: 100px 0;
+}
+
+.separador {
+    background-color: #ccc;
+    height: 0.3px;
+    margin: 20px;
+}
+
+.container-formulario {
+    background-color: white;
+    width: 600px;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.container-formulario h1 {
+    padding: 10px 20px;
+}
+
+.container-campos-cadastro {
+    height: auto;
+}
+
+.titulo-secao {
+    padding: 20px;
+    font-weight: 600;
+}
+
+.campos-conta,
+.campos-senha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.titulo-secao {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.inputs-conta {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 60%;
+}
+
+.inputs-senha {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    width: 60%;
+    margin: 0;
+}
+
+.inputs-senha div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0 25px 0 0;
+}
+
+.inputs-conta input,
+.inputs-senha input,
+.inputs-conta select {
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #e7e7e7;
+}
+
+.id-conta-usuario {
+    width: 100px;
+}
+
+.inputs-senha input {
+    width: 100%;
+}
+
+.inputs-conta label,
+.inputs-senha label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.botoes-formulario {
+    display: flex;
+    justify-content: end;
+    margin: 20px;
+    padding: 20px 0 0;
+}
+
+.botoes-formulario button {
+    border-radius: 5px;
+    border: none;
+    padding: 10px 25px;
+    margin: 0 5px;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    color: #ccc;
+    background: none;
+}
+
+.btn-enviar {
+    background-color: #2682df;
+    color: white;
+}
