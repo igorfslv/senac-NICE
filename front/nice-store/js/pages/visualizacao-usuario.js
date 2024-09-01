@@ -1,8 +1,11 @@
-import { listarUsuarios } from "../pages/listar-usuarios.js"
-import { listarProdutos } from "../pages/listar-produtos.js"
+import { listarUsuarios } from "../pages/listar-usuarios.js";
+import { listarProdutos } from "../pages/listar-produtos.js";
+import { logout } from "../connection/login.js";
+
 
 export function exibirOpcoesUsuario() {
     let grupoUsuarioLogado = document.querySelector(".grupo-usuario-logado");
+    let btnLogOut = document.querySelector(".bx-log-out");
 
     let listagem1 = document.querySelector(".listagem-1");
     let listagem2 = document.querySelector(".listagem-2");
@@ -22,6 +25,7 @@ export function exibirOpcoesUsuario() {
 
         btnListaUsuarios.addEventListener('click', listarUsuarios);
         btnListaProdutos.addEventListener('click', listarProdutos);
+        btnLogOut.addEventListener('click', logout);
     }
     else if (grupoUsuarioLogado.textContent === "Estoquista") {
 
@@ -38,6 +42,6 @@ export function exibirOpcoesUsuario() {
         listagem2.appendChild(btnListaPedidos);
 
         btnListaProdutos.addEventListener('click', listarProdutos);
+        btnLogOut.addEventListener('click', logout);
     }
 }
-

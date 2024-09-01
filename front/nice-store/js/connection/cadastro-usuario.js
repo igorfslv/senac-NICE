@@ -1,0 +1,1 @@
+//Escrever aqui os FETCHs de conexão com o back-end para o CADASTRO DE USUÁRIO
