@@ -1,5 +1,6 @@
 import { listarUsuarios } from "../pages/listar-usuarios.js";
 import { listarProdutos } from "../pages/listar-produtos.js";
+import { listarPedidos } from "../pages/listar-pedidos.js";
 import { logout } from "../connection/login.js";
 
 
@@ -42,6 +43,7 @@ export function exibirOpcoesUsuario() {
         listagem2.appendChild(btnListaPedidos);
 
         btnListaProdutos.addEventListener('click', listarProdutos);
+        btnListaPedidos.addEventListener('click', listarPedidos);
         btnLogOut.addEventListener('click', logout);
     }
 }

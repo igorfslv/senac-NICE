@@ -6,7 +6,6 @@
     background-color: white;
     padding: 20px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
-    ;
 }
 
 .barra-navegacao-lista {
@@ -42,7 +41,8 @@
 }
 
 .container-visualizacao-usuario,
-.container-visualizacao-produtos {
+.container-visualizacao-produtos,
+.container-visualizacao-pedidos {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,6 +119,7 @@
     color: white;
 }
 
-.container-visualizacao-produtos table {
+.container-visualizacao-produtos table,
+.container-visualizacao-pedidos table {
     width: 80%;
 }

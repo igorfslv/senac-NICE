@@ -79,7 +79,7 @@ export function listarUsuarios() {
         divBotoesTelaUsuario.className = "btns-tela-usuario";
         containerVisualizacaoUsuario.appendChild(divBotoesTelaUsuario);
 
-        const btnRetornarTelaAnterior = document.createElement("button");
+        let btnRetornarTelaAnterior = document.createElement("button");
         btnRetornarTelaAnterior.className = "btn-primario";
         btnRetornarTelaAnterior.textContent = "Retornar à tela anterior";
         divBotoesTelaUsuario.appendChild(btnRetornarTelaAnterior);
