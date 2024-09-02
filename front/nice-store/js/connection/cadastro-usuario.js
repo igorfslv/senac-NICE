@@ -47,12 +47,10 @@ botaoCadastro.addEventListener('click', function (event) {
         .then(response => response.json())
         .then(result => {
             console.log('Sucesso:', result);
+            // window.location.href = "./visualizacao-usuario.html";
         })
         .catch(error => {
             console.error('Erro:', error);
         });
-
-
-
 
 });

@@ -1,9 +1,3 @@
-//export function logout() {
-   // window.location.href = "./login.html";
-//}
-
-//Escrever aqui os FETCHs de conexão com o back-end para o LOGIN
-
 console.log("asd")
 
 const botaoLogin = document.getElementById('botao-login');
@@ -31,7 +25,7 @@ botaoLogin.addEventListener('click', function(event) {
     .then(result => {
       console.log('Sucesso:', result);
       localStorage.setItem('usuarioLogado', JSON.stringify(result));
-      window.location.replace('/nice-store/pages/visualizacao-usuario.html');
+      window.location.replace('./visualizacao-usuario.html');
 
     })
     .catch(error => {

@@ -1,17 +1,21 @@
 import { listarUsuarios } from "../pages/listar-usuarios.js";
 import { listarProdutos } from "../pages/listar-produtos.js";
 import { listarPedidos } from "../pages/listar-pedidos.js";
-import { logout } from "../connection/login.js";
-
 
 export function exibirOpcoesUsuario() {
+
+    let usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    usuarioLogado = JSON.stringify(usuarioLogado.grupoId);
+    usuarioLogado = usuarioLogado.replace(/"/g, '');
+
     let grupoUsuarioLogado = document.querySelector(".grupo-usuario-logado");
+    grupoUsuarioLogado.textContent = usuarioLogado;
     let btnLogOut = document.querySelector(".bx-log-out");
 
     let listagem1 = document.querySelector(".listagem-1");
     let listagem2 = document.querySelector(".listagem-2");
 
-    if (grupoUsuarioLogado.textContent === "Administrador") {
+    if (grupoUsuarioLogado.textContent === "ADMINISTRADOR") {
         let btnListaProdutos = document.createElement("button");
         let btnListaUsuarios = document.createElement("button");
 
@@ -28,7 +32,7 @@ export function exibirOpcoesUsuario() {
         btnListaProdutos.addEventListener('click', listarProdutos);
         btnLogOut.addEventListener('click', logout);
     }
-    else if (grupoUsuarioLogado.textContent === "Estoquista") {
+    else if (grupoUsuarioLogado.textContent === "ESTOQUISTA") {
 
         let btnListaPedidos = document.createElement("button");
         let btnListaProdutos = document.createElement("button");
@@ -47,3 +51,7 @@ export function exibirOpcoesUsuario() {
         btnLogOut.addEventListener('click', logout);
     }
 }
+
+function logout() {
+    window.location.href = "./login.html";
+ }
