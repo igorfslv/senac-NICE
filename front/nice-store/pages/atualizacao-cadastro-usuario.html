@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css">
-    <title>Atualizacação Cadastro de Usuário</title>
+    <title>Atualização Cadastro de Usuário</title>
 </head>
 
 <body class="container-atualizacao-cadastro-usuario">
@@ -34,7 +34,7 @@
                             required>
 
                         <label for="cpf-usuario">CPF</label>
-                        <input type="text" name="cpf-usuario" id="cpf-usuario" placeholder="000.000.000-00" required>
+                        <input type="text" name="cpf-usuario" id="cpf-usuario" placeholder="000.000.000-00" maxlength="14" oninput="mascaraCPF(this)" required>
 
                         <label for="email-usuario">E-mail</label>
                         <input type="text" name="email-usuario" id="email-usuario" placeholder="exemplo@email.com"
@@ -91,6 +91,7 @@
         </form>
     </div>
 
+    <script src="../js/utils/mascara-cpf.js"></script>
 </body>
 
 </html>

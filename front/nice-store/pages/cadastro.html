@@ -31,7 +31,7 @@
                             required>
 
                         <label for="cpf-usuario">CPF</label>
-                        <input type="text" name="cpf-usuario" id="cpf-usuario" placeholder="000.000.000-00" required>
+                        <input type="text" name="cpf-usuario" id="cpf-usuario" placeholder="000.000.000-00" maxlength="14" oninput="mascaraCPF(this)" required>
 
                         <label for="email-usuario">E-mail</label>
                         <input type="text" name="email-usuario" id="email-usuario" placeholder="exemplo@email.com"
@@ -84,6 +84,7 @@
 
     <script src="../js/main.js"></script>
     <script src="/nice-store/js/connection/cadastro-usuario.js"></script>
+    <script src="../js/utils/mascara-cpf.js"></script>
 </body>
 
 </html>
