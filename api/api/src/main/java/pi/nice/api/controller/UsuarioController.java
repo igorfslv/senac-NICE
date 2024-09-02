@@ -14,6 +14,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @CrossOrigin
     @PostMapping("/login")
     public ResponseEntity<UsuarioLoginRealizadoDTO> login(@RequestBody UsuarioLoginDTO usuarioLogin) {
 

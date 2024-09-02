@@ -21,6 +21,7 @@ public class AdministradorController {
     @Autowired
     private AdministradorService administradorService;
 
+    @CrossOrigin
     @PostMapping("/cadastrar/{admId}")
     public ResponseEntity cadastrarUsuario(@RequestBody UsuarioCadastroDTO usuarioCadastroDTO,
                                            @PathVariable String admId) {
@@ -30,14 +31,14 @@ public class AdministradorController {
                 ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Você não é um administrador");
     }
 
-    @PostMapping("/alternarStatus/{usuarioId}/{admId}")
+    @CrossOrigin @PostMapping("/alternarStatus/{usuarioId}/{admId}")
     public ResponseEntity alternarStatusUsuario(@PathVariable String usuarioId,
                                                 @PathVariable String admId) {
 
         return administradorService.alternarStatus(usuarioId, admId);
     }
 
-    @GetMapping("/getUsuarios/{admId}/{numeroDaPagina}")
+    @CrossOrigin @GetMapping("/getUsuarios/{admId}/{numeroDaPagina}")
     public ResponseEntity getListaDeUsuarios(
             @PageableDefault Pageable pageable,
             @PathVariable String admId,
@@ -50,7 +51,7 @@ public class AdministradorController {
 
     }
 
-    @PutMapping("/alterarUsuario/{admId}")
+    @CrossOrigin @PutMapping("/alterarUsuario/{admId}")
     public ResponseEntity alterarUsuario(
             @RequestBody AlterarUsuarioDTO alterarUsuarioDTO,
             @PathVariable String admId) {
