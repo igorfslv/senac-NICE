@@ -1,11 +1,15 @@
 package pi.nice.api.domain.usuario;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.hibernate.validator.constraints.br.CPF;
 import pi.nice.api.domain.grupo.Grupo;
 import pi.nice.api.domain.usuario.dto.AlterarUsuarioDTO;
 import pi.nice.api.domain.usuario.dto.AlternarUsuarioDTO;
 import pi.nice.api.domain.usuario.dto.UsuarioCadastroDTO;
+import jakarta.validation.constraints.Email;
 
 @Table(name = "usuarios")
 @Entity(name = "Usuario")
@@ -16,24 +20,29 @@ import pi.nice.api.domain.usuario.dto.UsuarioCadastroDTO;
 @EqualsAndHashCode(of = "id")
 public class Usuario {
 
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+    @NotBlank
+    @Size(min = 3, max = 36, message = "O nome de usuário deve ter entre 3 a 36 caracteres.")
     private String nome;
+    @CPF(message = "O CPF deve ser válido")
+    @NotBlank
     private String cpf;
+    @Email(message = "O e-mail deve ser válido")
+    @Size(max = 36, message = "O e-mail deve ter no maximo 256 caracteres.")
+    @NotBlank
     private String email;
+    @NotBlank
+    @Size(max = 60, message = "A senha deve ter no maximo 60 caracteres.")
     private String senha;
     @Enumerated(EnumType.STRING)
     private Grupo grupo;
     private boolean ativo;
 
-    public Usuario(String nome, String cpf, String email, Grupo grupoId) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
-        this.grupo = grupoId;
-        ativo = true;
-    }
 
     public Usuario(UsuarioCadastroDTO usuarioCadastroDTO, String senha) {
         this.nome = usuarioCadastroDTO.nome();
@@ -49,6 +58,7 @@ public class Usuario {
         this.cpf = alternarUsuarioDTO.cpf();
         this.grupo = alternarUsuarioDTO.grupoId();
         this.senha = senha;
+        this.ativo = alternarUsuarioDTO.ativo();
         return this;
     }
 }

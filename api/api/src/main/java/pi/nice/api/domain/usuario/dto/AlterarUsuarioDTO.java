@@ -6,5 +6,6 @@ public record AlterarUsuarioDTO(String id,
                                 String nome,
                                 String cpf,
                                 String senha,
-                                Grupo grupoId) {
+                                Grupo grupoId,
+                                boolean ativo) {
 }

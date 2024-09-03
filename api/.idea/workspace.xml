@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b562c48-3dd2-44c3-900b-eba5953e558a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/errors/ErrorHandlerMySql.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/configurations/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/configurations/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/AdministradorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/AdministradorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/nice-store/js/connection/cadastro-usuario.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/js/connection/cadastro-usuario.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/nice-store/js/connection/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/js/connection/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/nice-store/pages/cadastro.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/pages/cadastro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/nice-store/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/pages/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/dto/AlterarUsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/dto/AlterarUsuarioDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/db/migration/V1__criando_tabela_usuarios.sql" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/db/migration/V1__criando_tabela_usuarios.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
