@@ -7,6 +7,7 @@ const grupoUsuario = document.getElementById('grupo-usuario');
 const senhaUsuario = document.getElementById('senha-usuario');
 const confirmarSenhaUsuario = document.getElementById('confirmar-senha-usuario');
 const botaoCadastro = document.getElementById('botao-cadastro');
+const btnCancelar = document.querySelector('.btn-cancelar');
 
 botaoCadastro.addEventListener('click', function (event) {
 
@@ -53,4 +54,8 @@ botaoCadastro.addEventListener('click', function (event) {
             console.error('Erro:', error);
         });
 
+});
+
+btnCancelar.addEventListener('click' , () => {
+    window.location.href = "./visualizacao-usuario.html";
 });

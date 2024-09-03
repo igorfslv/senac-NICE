@@ -10,6 +10,7 @@ export function exibirOpcoesUsuario() {
 
     let grupoUsuarioLogado = document.querySelector(".grupo-usuario-logado");
     grupoUsuarioLogado.textContent = usuarioLogado;
+    
     let btnLogOut = document.querySelector(".bx-log-out");
 
     let listagem1 = document.querySelector(".listagem-1");
