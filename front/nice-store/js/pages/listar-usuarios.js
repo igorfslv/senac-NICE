@@ -1,5 +1,4 @@
-export function listarUsuarios() {
-    
+export async function listarUsuarios() {
     let containerVisualizacaoUsuario = document.querySelector(".container-visualizacao-usuario");
 
     containerVisualizacaoUsuario.innerHTML = "";
@@ -31,8 +30,13 @@ export function listarUsuarios() {
     tabelaUsuarios.appendChild(tabelaBody);
     listagemUsuarios.appendChild(tabelaUsuarios);
 
-    // Chamada à API (no momento dados estáticos num método)
-    buscarUsuarios().then(usuarios => {
+    try {
+        const usuarios = await buscarUsuarios();
+
+        if (usuarios.length === 0) {
+            console.log("Nenhum usuário encontrado.");
+        }
+
         usuarios.forEach(usuario => {
             let tabelaTrBody = document.createElement("tr");
 
@@ -49,10 +53,15 @@ export function listarUsuarios() {
             tabelaTdEmail.textContent = usuario.email;
 
             let tabelaTdGrupo = document.createElement("td");
-            tabelaTdGrupo.textContent = usuario.grupo;
+            tabelaTdGrupo.textContent = usuario.grupoId;
 
             let tabelaTdStatus = document.createElement("td");
-            tabelaTdStatus.textContent = usuario.status;
+
+            if (usuario.ativo === true) {
+                tabelaTdStatus.textContent = "ATIVO";
+            } else {
+                tabelaTdStatus.textContent = "INATIVO";
+            }
 
             let tabelaTdEditar = document.createElement("td");
             let tabelaTdEditarIcone = document.createElement("i");
@@ -75,7 +84,7 @@ export function listarUsuarios() {
             });
         });
 
-        const divBotoesTelaUsuario =  document.createElement("div");
+        const divBotoesTelaUsuario = document.createElement("div");
         divBotoesTelaUsuario.className = "btns-tela-usuario";
         containerVisualizacaoUsuario.appendChild(divBotoesTelaUsuario);
 
@@ -83,7 +92,7 @@ export function listarUsuarios() {
         btnRetornarTelaAnterior.className = "btn-primario";
         btnRetornarTelaAnterior.textContent = "Retornar à tela anterior";
         divBotoesTelaUsuario.appendChild(btnRetornarTelaAnterior);
-        
+
         retornarTelaInicialUsuario();
 
         const btnAdicionarNovoUsuario = document.createElement("button");
@@ -92,7 +101,9 @@ export function listarUsuarios() {
         divBotoesTelaUsuario.appendChild(btnAdicionarNovoUsuario);
 
         btnAdicionarNovoUsuario.addEventListener('click', redirecionarTelaCadastro);
-    });
+    } catch (error) {
+        console.error('Erro ao listar os usuários:', error);
+    }
 }
 
 function redirecionarTelaCadastro() {
@@ -107,28 +118,23 @@ function retornarTelaInicialUsuario() {
     });
 }
 
-
-// Exemplo de função fictícia para buscar os usuários do banco de dados
 async function buscarUsuarios() {
-    // Essa função deve fazer uma chamada ao banco de dados ou API e retornar um array de objetos
-    // Aqui é só um exemplo estático, que será substituido pelo código da nossa API
+    const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
+    const admId = admIdObj.id;
+    const numeroDaPaginaBancoDeDados = 0;
 
-    return [
-        {
-            id: 1,
-            nome: "João Silva",
-            cpf: "123.456.789-00",
-            email: "joao.silva@exemplo.com",
-            grupo: "Administrador",
-            status: "Ativo"
-        },
-        {
-            id: 2,
-            nome: "Maria Oliveira",
-            cpf: "987.654.321-00",
-            email: "maria.oliveira@exemplo.com",
-            grupo: "Estoquista",
-            status: "Inativo"
+    let url = `http://localhost:8080/admin/getUsuarios/${admId}/${numeroDaPaginaBancoDeDados}`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.statusText}`);
         }
-    ];
+        const data = await response.json();
+        console.log("Dados retornados pela API:", data); // Log dos dados
+        return data.content; // Retorna o array de usuários
+    } catch (error) {
+        console.error('Erro ao fazer a requisição:', error);
+        return [];
+    }
 }
