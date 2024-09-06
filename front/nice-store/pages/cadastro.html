@@ -25,13 +25,14 @@
                     <p class="titulo-secao">Conta</p>
 
                     <div class="inputs-conta">
-                        
+
                         <label for="nome-usuario">Nome Completo</label>
                         <input type="text" name="nome-usuario" id="nome-usuario" placeholder="Ex.: João da Silva"
                             required>
 
                         <label for="cpf-usuario">CPF</label>
-                        <input type="text" name="cpf-usuario" id="cpf-usuario" placeholder="000.000.000-00" required>
+                        <input type="text" name="cpf-usuario" id="cpf-usuario" placeholder="000.000.000-00"
+                            maxlength="14" oninput="mascaraCPF(this)" onkeyup="exibirValidacaoCPF(this)" required>
 
                         <label for="email-usuario">E-mail</label>
                         <input type="text" name="email-usuario" id="email-usuario" placeholder="exemplo@email.com"
@@ -82,9 +83,9 @@
         </form>
     </div>
 
-    <!-- <script type="module" src="../js/main.js"></script> -->
+    <script src="../js/utils/validador-cpf.js"></script>
     <script src="../js/connection/cadastro-usuario.js"></script>
-    <!-- <script src="../js/utils/mascara-cpf.js"></script> -->
+    <script src="../js/utils/mascara-cpf.js"></script>
 </body>
 
 </html>
