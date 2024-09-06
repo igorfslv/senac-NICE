@@ -39,36 +39,31 @@ export async function listarUsuarios() {
 
         usuarios.forEach(usuario => {
             let tabelaTrBody = document.createElement("tr");
-
+        
             let tabelaTdID = document.createElement("td");
             tabelaTdID.textContent = usuario.id;
-
+        
             let tabelaTdNome = document.createElement("td");
             tabelaTdNome.textContent = usuario.nome;
-
+        
             let tabelaTdCPF = document.createElement("td");
             tabelaTdCPF.textContent = usuario.cpf;
-
+        
             let tabelaTdEmail = document.createElement("td");
             tabelaTdEmail.textContent = usuario.email;
-
+        
             let tabelaTdGrupo = document.createElement("td");
             tabelaTdGrupo.textContent = usuario.grupoId;
-
+        
             let tabelaTdStatus = document.createElement("td");
-
-            if (usuario.ativo === true) {
-                tabelaTdStatus.textContent = "ATIVO";
-            } else {
-                tabelaTdStatus.textContent = "INATIVO";
-            }
-
+            tabelaTdStatus.textContent = usuario.ativo ? "ATIVO" : "INATIVO";
+        
             let tabelaTdEditar = document.createElement("td");
             let tabelaTdEditarIcone = document.createElement("i");
             tabelaTdEditarIcone.className = "bx bxs-edit";
             tabelaTdEditar.appendChild(tabelaTdEditarIcone);
             tabelaTdEditar.className = "icone-editar";
-
+        
             tabelaTrBody.appendChild(tabelaTdID);
             tabelaTrBody.appendChild(tabelaTdNome);
             tabelaTrBody.appendChild(tabelaTdCPF);
@@ -76,13 +71,21 @@ export async function listarUsuarios() {
             tabelaTrBody.appendChild(tabelaTdGrupo);
             tabelaTrBody.appendChild(tabelaTdStatus);
             tabelaTrBody.appendChild(tabelaTdEditar);
-
+        
             tabelaBody.appendChild(tabelaTrBody);
-
-            tabelaTdEditarIcone.addEventListener('click', () => {
-                window.location.href = "./atualizacao-cadastro-usuario.html";
+        
+            // Captura o ID do usuário ao clicar no ícone de edição
+            tabelaTdEditarIcone.addEventListener('click', (event) => {
+                // Localiza a linha da tabela que contém o botão clicado
+                const linha = event.target.closest('tr');
+        
+                // Acessa a primeira célula (ID) da linha
+                const userId = linha.querySelector('td').textContent;
+        
+                // Redireciona para a página de atualização com o ID do usuário na URL
+                window.location.href = `./atualizacao-cadastro-usuario.html?id=${userId}`;
             });
-        });
+        });        
 
         const divBotoesTelaUsuario = document.createElement("div");
         divBotoesTelaUsuario.className = "btns-tela-usuario";
