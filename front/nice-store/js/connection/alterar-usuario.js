@@ -7,11 +7,12 @@ const nomeUsuario = document.getElementById('nome-usuario');
 const cpfUsuario = document.getElementById('cpf-usuario');
 const emailUsuario = document.getElementById('email-usuario');
 const grupoUsuario = document.getElementById('grupo-usuario');
-const senhaUsuario = document.getElementById('senha-usuario'); 
+const senhaUsuario = document.getElementById('senha-usuario');
 const confirmarSenhaUsuario = document.getElementById('confirmar-senha-usuario');
 const btnCancelar = document.querySelector('.btn-cancelar');
 const btnEnviar = document.querySelector('.btn-enviar');
 const statusUsuario = document.getElementById('status-usuario');
+let responseAPI;
 
 //futuramente puxar a string do usuario a ser alterado do localstorage e botar nessa variavel ai que ja vai funcionar eu acho
 
@@ -83,12 +84,21 @@ btnEnviar.addEventListener('click', function (event) {
         },
         body: JSON.stringify(data)
     })
-        .then(response => response.json())
+        .then(response => {
+            responseAPI = response.status
+            return response.json();
+        })
+
         .then(result => {
 
-            alert(JSON.stringify(result))
+            if (responseAPI === 400) {
+                alert("Não foi possível alterar o usuário " + result.nome + ". \nCampo: " + result.campo + "\nMotivo: " + result.mensagem)
+            } else {
+                alert("Usuário " + result.nome + " criado com sucesso!")
+                location.reload()
+            }
 
-            
+
             // window.location.href = "./visualizacao-usuario.html";
         })
         .catch(error => {
@@ -99,6 +109,6 @@ btnEnviar.addEventListener('click', function (event) {
 
 });
 
-btnCancelar.addEventListener('click' , () => {
+btnCancelar.addEventListener('click', () => {
     window.location.href = "./visualizacao-usuario.html";
 });

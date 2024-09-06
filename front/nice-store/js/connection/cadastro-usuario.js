@@ -8,6 +8,7 @@ const senhaUsuario = document.getElementById('senha-usuario');
 const confirmarSenhaUsuario = document.getElementById('confirmar-senha-usuario');
 const botaoCadastro = document.getElementById('botao-cadastro');
 const btnCancelar = document.querySelector('.btn-cancelar');
+let responseAPI;
 
 botaoCadastro.addEventListener('click', function (event) {
 
@@ -45,12 +46,19 @@ botaoCadastro.addEventListener('click', function (event) {
         },
         body: JSON.stringify(data)
     })
-        .then(response => response.json())
+        .then(response => {
+            responseAPI = response.status
+            return response.json();
+        })
+
         .then(result => {
 
-            alert(JSON.stringify(result))
-
-            
+            if(responseAPI === 400) {
+                alert("Não foi possível cadastrar o usuário. \nCampo: " + result.campo + "\nMotivo: " + result.mensagem)
+           } else {
+                alert("Usuário " + result.nome + " criado com sucesso!")
+                location.reload()
+           }
             // window.location.href = "./visualizacao-usuario.html";
         })
         .catch(error => {
@@ -61,6 +69,6 @@ botaoCadastro.addEventListener('click', function (event) {
 
 });
 
-btnCancelar.addEventListener('click' , () => {
+btnCancelar.addEventListener('click', () => {
     window.location.href = "./visualizacao-usuario.html";
 });

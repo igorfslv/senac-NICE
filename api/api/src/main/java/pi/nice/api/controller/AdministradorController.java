@@ -31,20 +31,14 @@ public class AdministradorController {
                 ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Você não é um administrador");
     }
 
-    @CrossOrigin @PostMapping("/alternarStatus/{usuarioId}/{admId}")
-    public ResponseEntity alternarStatusUsuario(@PathVariable String usuarioId,
-                                                @PathVariable String admId) {
-
-        return administradorService.alternarStatus(usuarioId, admId);
-    }
-
     @CrossOrigin @GetMapping("/getUsuarios/{admId}/{numeroDaPagina}")
     public ResponseEntity getListaDeUsuarios(
             @PageableDefault Pageable pageable,
             @PathVariable String admId,
-            @PathVariable int numeroDaPagina) {
+            @PathVariable int numeroDaPagina,
+            @RequestParam(required = false) String nome) {
 
-        Page<Usuario> listaDeUsuarios = administradorService.getListaDeUsuarios(admId, PageRequest.of(numeroDaPagina, 10));
+        Page<Usuario> listaDeUsuarios = administradorService.getListaDeUsuarios(admId, PageRequest.of(numeroDaPagina, 10), nome);
         return listaDeUsuarios != null ?
                 ResponseEntity.ok(listaDeUsuarios.map(UsuarioCadastradoDTO::new)) :
                 ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Você não é um administrador");

@@ -74,10 +74,10 @@ public class AdministradorService {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Você não é um administrador");
     }
 
-    public Page<Usuario> getListaDeUsuarios(String idAdm, Pageable pageable) {
+    public Page<Usuario> getListaDeUsuarios(String idAdm, Pageable pageable, String nome) {
 
         if (possuiPermissaoDeAdm(idAdm)) {
-            return usuarioRepository.findAll(pageable);
+            return usuarioRepository.findByNomeContaining(nome != null ? nome : "", pageable);
         }
 
         return null;
