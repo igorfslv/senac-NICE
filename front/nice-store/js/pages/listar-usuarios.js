@@ -1,17 +1,27 @@
-export async function listarUsuarios() {
-    let containerVisualizacaoUsuario = document.querySelector(".container-visualizacao-usuario");
+function criarBarraDePesquisa(container) {
+    const divBarraDePesquisa = document.createElement("div");
+    divBarraDePesquisa.className = "container-barra-pesquisa";
 
-    containerVisualizacaoUsuario.innerHTML = "";
-    containerVisualizacaoUsuario.style.height = "auto";
+    const barraDePesquisa = document.createElement("input");
+    barraDePesquisa.id = "barra-pesquisa";
+    barraDePesquisa.className = "barra-pesquisa";
+    barraDePesquisa.type = "text";
+    barraDePesquisa.placeholder = "Digite o nome de um usuário:";
 
-    const tituloListaUsuarios = document.createElement("h2");
-    tituloListaUsuarios.textContent = "Lista de Usuários Cadastrados";
-    containerVisualizacaoUsuario.appendChild(tituloListaUsuarios);
+    const btnPesquisarUsuarioPeloNome = document.createElement("button");
+    btnPesquisarUsuarioPeloNome.id = "btn-pesquisar";
+    btnPesquisarUsuarioPeloNome.className = "btn-pesquisar";
+    btnPesquisarUsuarioPeloNome.textContent = "Buscar";
 
-    const listagemUsuarios = document.createElement("div");
-    listagemUsuarios.className = "listagem-usuarios";
-    containerVisualizacaoUsuario.appendChild(listagemUsuarios);
+    divBarraDePesquisa.appendChild(barraDePesquisa);
+    divBarraDePesquisa.appendChild(btnPesquisarUsuarioPeloNome);
 
+    container.appendChild(divBarraDePesquisa);
+
+    return { barraDePesquisa, btnPesquisarUsuarioPeloNome };
+}
+
+function criarTabelaUsuarios() {
     let tabelaUsuarios = document.createElement("table");
     let tabelaHead = document.createElement("thead");
     let tabelaTrHead = document.createElement("tr");
@@ -26,87 +36,135 @@ export async function listarUsuarios() {
     tabelaUsuarios.appendChild(tabelaHead);
     tabelaHead.appendChild(tabelaTrHead);
 
-    let tabelaBody = document.createElement("tbody");
+    const tabelaBody = document.createElement("tbody");
     tabelaUsuarios.appendChild(tabelaBody);
-    listagemUsuarios.appendChild(tabelaUsuarios);
+
+    return { tabelaUsuarios, tabelaBody };
+}
+
+function preencherTabelaUsuarios(tabelaBody, usuarios) {
+    usuarios.forEach(usuario => {
+        let tabelaTrBody = document.createElement("tr");
+
+        let tabelaTdID = document.createElement("td");
+        tabelaTdID.textContent = usuario.id;
+
+        let tabelaTdNome = document.createElement("td");
+        tabelaTdNome.textContent = usuario.nome;
+
+        let tabelaTdCPF = document.createElement("td");
+        tabelaTdCPF.textContent = usuario.cpf;
+
+        let tabelaTdEmail = document.createElement("td");
+        tabelaTdEmail.textContent = usuario.email;
+
+        let tabelaTdGrupo = document.createElement("td");
+        tabelaTdGrupo.textContent = usuario.grupoId;
+
+        let tabelaTdStatus = document.createElement("td");
+        tabelaTdStatus.textContent = usuario.ativo ? "ATIVO" : "INATIVO";
+
+        let tabelaTdEditar = document.createElement("td");
+        let tabelaTdEditarIcone = document.createElement("i");
+        tabelaTdEditarIcone.className = "bx bxs-edit";
+        tabelaTdEditar.appendChild(tabelaTdEditarIcone);
+        tabelaTdEditar.className = "icone-editar";
+
+        tabelaTrBody.appendChild(tabelaTdID);
+        tabelaTrBody.appendChild(tabelaTdNome);
+        tabelaTrBody.appendChild(tabelaTdCPF);
+        tabelaTrBody.appendChild(tabelaTdEmail);
+        tabelaTrBody.appendChild(tabelaTdGrupo);
+        tabelaTrBody.appendChild(tabelaTdStatus);
+        tabelaTrBody.appendChild(tabelaTdEditar);
+
+        tabelaBody.appendChild(tabelaTrBody);
+
+        tabelaTdEditarIcone.addEventListener('click', () => {
+            window.location.href = `./atualizacao-cadastro-usuario.html?id=${usuario.id}`;
+        });
+    });
+}
+
+function criarBotoesTelaUsuario(container) {
+
+    const divBotoesTelaUsuario = document.createElement("div");
+    divBotoesTelaUsuario.className = "btns-tela-usuario";
+    container.appendChild(divBotoesTelaUsuario);
+
+    const btnRetornarTelaAnterior = document.createElement("button");
+    btnRetornarTelaAnterior.className = "btn-primario";
+    btnRetornarTelaAnterior.textContent = "Retornar à tela anterior";
+    divBotoesTelaUsuario.appendChild(btnRetornarTelaAnterior);
+
+    btnRetornarTelaAnterior.addEventListener('click', retornarTelaInicialUsuario);
+
+    const btnAdicionarNovoUsuario = document.createElement("button");
+    btnAdicionarNovoUsuario.className = "btn-add-usuario";
+    btnAdicionarNovoUsuario.textContent = "Adicionar Novo Usuário";
+    divBotoesTelaUsuario.appendChild(btnAdicionarNovoUsuario);
+
+    btnAdicionarNovoUsuario.addEventListener('click', redirecionarTelaCadastro);
+}
+
+
+export async function listarUsuarios() {
+    let containerVisualizacaoUsuario = document.querySelector(".container-visualizacao-usuario");
+    containerVisualizacaoUsuario.innerHTML = "";
+    containerVisualizacaoUsuario.style.height = "auto";
+
+    const tituloListaUsuarios = document.createElement("h2");
+    tituloListaUsuarios.textContent = "Lista de Usuários Cadastrados";
+    containerVisualizacaoUsuario.appendChild(tituloListaUsuarios);
+
+    const { barraDePesquisa, btnPesquisarUsuarioPeloNome } = criarBarraDePesquisa(containerVisualizacaoUsuario);
+    const { tabelaUsuarios, tabelaBody } = criarTabelaUsuarios();
+
+    containerVisualizacaoUsuario.appendChild(tabelaUsuarios);
+
+    btnPesquisarUsuarioPeloNome.addEventListener('click', async () => {
+        const nomeUsuario = barraDePesquisa.value;
+
+        if (nomeUsuario !== "") {
+            await listarUsuariosPesquisados(nomeUsuario);
+        } else {
+            alert('Digite algum nome!');
+        }
+    });
 
     try {
         const usuarios = await buscarUsuarios();
+        preencherTabelaUsuarios(tabelaBody, usuarios);
 
-        if (usuarios.length === 0) {
-            console.log("Nenhum usuário encontrado.");
-        }
-
-        usuarios.forEach(usuario => {
-            let tabelaTrBody = document.createElement("tr");
-        
-            let tabelaTdID = document.createElement("td");
-            tabelaTdID.textContent = usuario.id;
-        
-            let tabelaTdNome = document.createElement("td");
-            tabelaTdNome.textContent = usuario.nome;
-        
-            let tabelaTdCPF = document.createElement("td");
-            tabelaTdCPF.textContent = usuario.cpf;
-        
-            let tabelaTdEmail = document.createElement("td");
-            tabelaTdEmail.textContent = usuario.email;
-        
-            let tabelaTdGrupo = document.createElement("td");
-            tabelaTdGrupo.textContent = usuario.grupoId;
-        
-            let tabelaTdStatus = document.createElement("td");
-            tabelaTdStatus.textContent = usuario.ativo ? "ATIVO" : "INATIVO";
-        
-            let tabelaTdEditar = document.createElement("td");
-            let tabelaTdEditarIcone = document.createElement("i");
-            tabelaTdEditarIcone.className = "bx bxs-edit";
-            tabelaTdEditar.appendChild(tabelaTdEditarIcone);
-            tabelaTdEditar.className = "icone-editar";
-        
-            tabelaTrBody.appendChild(tabelaTdID);
-            tabelaTrBody.appendChild(tabelaTdNome);
-            tabelaTrBody.appendChild(tabelaTdCPF);
-            tabelaTrBody.appendChild(tabelaTdEmail);
-            tabelaTrBody.appendChild(tabelaTdGrupo);
-            tabelaTrBody.appendChild(tabelaTdStatus);
-            tabelaTrBody.appendChild(tabelaTdEditar);
-        
-            tabelaBody.appendChild(tabelaTrBody);
-        
-            // Captura o ID do usuário ao clicar no ícone de edição
-            tabelaTdEditarIcone.addEventListener('click', (event) => {
-                // Localiza a linha da tabela que contém o botão clicado
-                const linha = event.target.closest('tr');
-        
-                // Acessa a primeira célula (ID) da linha
-                const userId = linha.querySelector('td').textContent;
-        
-                // Redireciona para a página de atualização com o ID do usuário na URL
-                window.location.href = `./atualizacao-cadastro-usuario.html?id=${userId}`;
-            });
-        });        
-
-        const divBotoesTelaUsuario = document.createElement("div");
-        divBotoesTelaUsuario.className = "btns-tela-usuario";
-        containerVisualizacaoUsuario.appendChild(divBotoesTelaUsuario);
-
-        let btnRetornarTelaAnterior = document.createElement("button");
-        btnRetornarTelaAnterior.className = "btn-primario";
-        btnRetornarTelaAnterior.textContent = "Retornar à tela anterior";
-        divBotoesTelaUsuario.appendChild(btnRetornarTelaAnterior);
-
-        retornarTelaInicialUsuario();
-
-        const btnAdicionarNovoUsuario = document.createElement("button");
-        btnAdicionarNovoUsuario.className = "btn-add-usuario";
-        btnAdicionarNovoUsuario.textContent = "Adicionar Novo Usuário";
-        divBotoesTelaUsuario.appendChild(btnAdicionarNovoUsuario);
-
-        btnAdicionarNovoUsuario.addEventListener('click', redirecionarTelaCadastro);
     } catch (error) {
         console.error('Erro ao listar os usuários:', error);
     }
+
+    criarBotoesTelaUsuario(containerVisualizacaoUsuario);
+}
+
+async function listarUsuariosPesquisados(nomeUsuario) {
+    let containerVisualizacaoUsuario = document.querySelector(".container-visualizacao-usuario");
+    containerVisualizacaoUsuario.innerHTML = "";
+    containerVisualizacaoUsuario.style.height = "auto";
+
+    const tituloListaUsuarios = document.createElement("h2");
+    tituloListaUsuarios.textContent = "Lista de Usuários Cadastrados";
+    containerVisualizacaoUsuario.appendChild(tituloListaUsuarios);
+
+    const { barraDePesquisa, btnPesquisarUsuarioPeloNome } = criarBarraDePesquisa(containerVisualizacaoUsuario);
+    const { tabelaUsuarios, tabelaBody } = criarTabelaUsuarios();
+
+    containerVisualizacaoUsuario.appendChild(tabelaUsuarios);
+
+    try {
+        const usuarios = await buscarUsuariosPorNome(nomeUsuario);
+        preencherTabelaUsuarios(tabelaBody, usuarios);
+    } catch (error) {
+        console.error('Erro ao listar os usuários:', error);
+    }
+    
+    criarBotoesTelaUsuario(containerVisualizacaoUsuario);
 }
 
 function redirecionarTelaCadastro() {
@@ -119,6 +177,30 @@ function retornarTelaInicialUsuario() {
     btnRetornarTelaAnterior.addEventListener('click', () => {
         location.reload();
     });
+}
+
+async function buscarUsuariosPorNome(nomeUsuario = "") {
+    const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
+    const admId = admIdObj.id;
+    const numeroDaPaginaBancoDeDados = 0;
+
+    // Adiciona o nome do usuário na URL da API, se fornecido
+    let url = `http://localhost:8080/admin/getUsuarios/${admId}/${numeroDaPaginaBancoDeDados}`;
+    if (nomeUsuario) {
+        url += `?nome=${encodeURIComponent(nomeUsuario)}`;
+    }
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.statusText}`);
+        }
+        const data = await response.json();
+        return data.content;
+    } catch (error) {
+        console.error('Erro ao fazer a requisição:', error);
+        return [];
+    }
 }
 
 async function buscarUsuarios() {
@@ -134,8 +216,8 @@ async function buscarUsuarios() {
             throw new Error(`Erro: ${response.statusText}`);
         }
         const data = await response.json();
-        console.log("Dados retornados pela API:", data); // Log dos dados
-        return data.content; // Retorna o array de usuários
+        console.log("Dados retornados pela API:", data);
+        return data.content;
     } catch (error) {
         console.error('Erro ao fazer a requisição:', error);
         return [];

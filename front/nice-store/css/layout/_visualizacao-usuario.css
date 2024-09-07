@@ -123,3 +123,26 @@
 .container-visualizacao-pedidos table {
     width: 80%;
 }
+
+.container-barra-pesquisa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0 10px;
+}
+
+.btn-pesquisar {
+    background-color: #f5b400;
+    color: white;
+    margin: 0 10px;
+    width: 110px;
+}
+
+.barra-pesquisa {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 600px;
+    font-size: 14px;
+    background-color: #e7e7e7;
+}
