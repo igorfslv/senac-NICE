@@ -86,10 +86,13 @@ public class AdministradorService {
 
     private boolean possuiPermissaoDeAdm(String idAdm) {
         Optional<Usuario> usuario = usuarioRepository.findById(idAdm);
-        if (usuario.isPresent()) {
-            return usuario.get().getGrupo() == Grupo.ADMINISTRADOR;
-        }
+        return usuario.isPresent() ? usuario.get().getGrupo() == Grupo.ADMINISTRADOR : false;
 
-        return false;
+
+
+    }
+
+    public ResponseEntity getUsuario(String idUsuario, String idAdm) {
+        return possuiPermissaoDeAdm(idAdm) ? ResponseEntity.ok(new UsuarioCadastradoDTO(usuarioRepository.findById(idUsuario).get())): ResponseEntity.notFound().build();
     }
 }

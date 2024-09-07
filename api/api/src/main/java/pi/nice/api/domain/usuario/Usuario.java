@@ -36,7 +36,6 @@ public class Usuario {
     @Size(max = 36, message = "O e-mail deve ter no maximo 256 caracteres.")
     @NotBlank
     private String email;
-    @NotBlank
     @Size(max = 60, message = "A senha deve ter no maximo 60 caracteres.")
     private String senha;
     @Enumerated(EnumType.STRING)
@@ -57,7 +56,8 @@ public class Usuario {
         this.nome = alternarUsuarioDTO.nome();
         this.cpf = alternarUsuarioDTO.cpf();
         this.grupo = alternarUsuarioDTO.grupoId();
-        this.senha = senha;
+        if (!(alternarUsuarioDTO.senha() == null || alternarUsuarioDTO.senha().isBlank()))
+            this.senha = senha;
         this.ativo = alternarUsuarioDTO.ativo();
         return this;
     }

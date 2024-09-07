@@ -37,7 +37,7 @@ botaoLogin.addEventListener('click', function (event) {
   
       .then(result => {
   
-        alert("Logado como " + result.nome + " - " + result.grupoId)
+        alert("Logado como '" + result.nome + "' - " + result.grupoId)
         localStorage.setItem('usuarioLogado', JSON.stringify(result));
         window.location.href = "./visualizacao-usuario.html";
       })

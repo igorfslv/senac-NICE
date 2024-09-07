@@ -12,52 +12,66 @@ const confirmarSenhaUsuario = document.getElementById('confirmar-senha-usuario')
 const btnCancelar = document.querySelector('.btn-cancelar');
 const btnEnviar = document.querySelector('.btn-enviar');
 const statusUsuario = document.getElementById('status-usuario');
-let responseAPI;
-
-//futuramente puxar a string do usuario a ser alterado do localstorage e botar nessa variavel ai que ja vai funcionar eu acho
-
-const usuarioQueVaiSerAlterado = `{
-    "id": "c3f2f85b-0a1e-4550-be14-ae29099d199b",
-    "nome": "testeAlteracao!",
-    "cpf": "977.169.980-64",
-    "email": "cartro1@outlook.com",
-    "senha": "$2a$10$BfB33d8MJ236jhSefoR9eez2KV/yYETtHlvEX0W8L/Db1t0aoIs6q",
-    "grupoId": "ADMINISTRADOR",
-    "ativo": true
-}`;
-
-const usuarioJson = JSON.parse(usuarioQueVaiSerAlterado);
 
 
-idUsuario.value = usuarioJson.id
-nomeUsuario.value = usuarioJson.nome
-cpfUsuario.value = usuarioJson.cpf
-emailUsuario.value = usuarioJson.email
-statusUsuario.value = usuarioJson.ativo ? statusUsuario.options[0].value : statusUsuario.options[1].value;
+const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+const urlId = new URL(window.location.href);
+const id = urlId.searchParams.get("id");
+
+console.log(usuarioLogado)
+
+console.log(usuarioLogado.id)
+console.log(id)
+
+const url = `http://localhost:8080/admin/getUsuario/${usuarioLogado.id}/${id}`;
+
+fetch(url)
+    .then(response => response.json())
+    .then(result => {
+
+        const usuarioJson = result;
+        console.log(usuarioJson)
+        idUsuario.value = usuarioJson.id
+        nomeUsuario.value = usuarioJson.nome
+        cpfUsuario.value = usuarioJson.cpf
+        emailUsuario.value = usuarioJson.email
+        statusUsuario.value = usuarioJson.ativo ? statusUsuario.options[0].value : statusUsuario.options[1].value;
+
+        console.log(usuarioLogado.id != id)
+
+        console.log(usuarioLogado.id)
+        console.log(id)
+
+        if (usuarioLogado.id !== id) {
+            for (let i = 0; i < grupoUsuario.options.length; i++) {
+                if (grupoUsuario.options[i].text.toUpperCase() === usuarioJson.grupoId) {
+                    grupoUsuario.value = grupoUsuario.options[i].value;
+                    break;
+                }
+            }
+        } else {
+            grupoUsuario.disabled = true
+        }
 
 
 
+    })
 
-for (let i = 0; i < grupoUsuario.options.length; i++) {
-    if (grupoUsuario.options[i].text.toUpperCase() === usuarioJson.grupoId) {
-        grupoUsuario.value = grupoUsuario.options[i].value;
-        break;
-    }
-}
+
 
 
 
 btnEnviar.addEventListener('click', function (event) {
 
     event.preventDefault();
-    const usuarioJSON = localStorage.getItem('usuarioLogado');
+    
 
-    if (!usuarioJSON) {
+    if (!usuarioLogado) {
         alert("Você não esta logado.")
         return
     }
-    if (!(nomeUsuario.value && cpfUsuario.value && emailUsuario.value && grupoUsuario.selectedIndex !== 0 &&
-        senhaUsuario.value && confirmarSenhaUsuario.value)) {
+    if (!(nomeUsuario.value && cpfUsuario.value && emailUsuario.value && (grupoUsuario.selectedIndex !== 0 || usuarioLogado.id === id))) {
         alert("Preencha todos os campos!")
         return
     }
@@ -66,16 +80,16 @@ btnEnviar.addEventListener('click', function (event) {
         return
     }
 
-    const usuario = JSON.parse(usuarioJSON);
-    const url = `http://localhost:8080/admin/alterarUsuario/${usuario.id}`;
+    const url = `http://localhost:8080/admin/alterarUsuario/${usuarioLogado.id}`;
     const data = {
         "id": idUsuario.value,
         "nome": nomeUsuario.value,
         "cpf": cpfUsuario.value,
         "senha": senhaUsuario.value,
-        "grupoId": grupoUsuario.options[grupoUsuario.selectedIndex].text.toUpperCase(),
-        "ativo": usuarioJson.selectedIndex === 0 ? true : false
+        "grupoId": usuarioLogado.id !== id ? grupoUsuario.options[grupoUsuario.selectedIndex].text.toUpperCase() : usuarioLogado.grupoId,
+        "ativo": statusUsuario.selectedIndex === 0 ? true : false
     };
+
 
     fetch(url, {
         method: 'PUT',
@@ -94,7 +108,7 @@ btnEnviar.addEventListener('click', function (event) {
             if (responseAPI === 400) {
                 alert("Não foi possível alterar o usuário " + result.nome + ". \nCampo: " + result.campo + "\nMotivo: " + result.mensagem)
             } else {
-                alert("Usuário " + result.nome + " criado com sucesso!")
+                alert("Usuário '" + result.nome + "' alterado com sucesso!")
                 location.reload()
             }
 

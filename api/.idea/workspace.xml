@@ -8,7 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/AdministradorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/AdministradorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/AdministradorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/AdministradorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

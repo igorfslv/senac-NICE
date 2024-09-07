@@ -52,4 +52,11 @@ public class AdministradorController {
 
         return administradorService.alterarUsuario(alterarUsuarioDTO, admId);
     }
+
+    @CrossOrigin @GetMapping("/getUsuario/{admId}/{usuarioId}")
+    public ResponseEntity getListaDeUsuarios(
+            @PathVariable String admId,
+            @PathVariable String usuarioId) {
+        return administradorService.getUsuario(usuarioId, admId);
+    }
 }
