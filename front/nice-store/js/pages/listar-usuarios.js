@@ -18,6 +18,12 @@ function criarBarraDePesquisa(container) {
 
     container.appendChild(divBarraDePesquisa);
 
+    btnPesquisarUsuarioPeloNome.addEventListener('click', async () => {
+        const nomeUsuario = barraDePesquisa.value;
+            await listarUsuariosPesquisados(nomeUsuario);
+    
+    });
+
     return { barraDePesquisa, btnPesquisarUsuarioPeloNome };
 }
 
@@ -122,15 +128,6 @@ export async function listarUsuarios() {
 
     containerVisualizacaoUsuario.appendChild(tabelaUsuarios);
 
-    btnPesquisarUsuarioPeloNome.addEventListener('click', async () => {
-        const nomeUsuario = barraDePesquisa.value;
-
-        if (nomeUsuario !== "") {
-            await listarUsuariosPesquisados(nomeUsuario);
-        } else {
-            alert('Digite algum nome!');
-        }
-    });
 
     try {
         const usuarios = await buscarUsuarios();
@@ -186,9 +183,9 @@ async function buscarUsuariosPorNome(nomeUsuario = "") {
 
     // Adiciona o nome do usuário na URL da API, se fornecido
     let url = `http://localhost:8080/admin/getUsuarios/${admId}/${numeroDaPaginaBancoDeDados}`;
-    if (nomeUsuario) {
+
         url += `?nome=${encodeURIComponent(nomeUsuario)}`;
-    }
+    
 
     try {
         const response = await fetch(url);

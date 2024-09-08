@@ -38,7 +38,7 @@ public class AdministradorController {
             @PathVariable int numeroDaPagina,
             @RequestParam(required = false) String nome) {
 
-        Page<Usuario> listaDeUsuarios = administradorService.getListaDeUsuarios(admId, PageRequest.of(numeroDaPagina, 10), nome);
+        Page<Usuario> listaDeUsuarios = administradorService.getListaDeUsuarios(admId, PageRequest.of(numeroDaPagina, 1000), nome);
         return listaDeUsuarios != null ?
                 ResponseEntity.ok(listaDeUsuarios.map(UsuarioCadastradoDTO::new)) :
                 ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Você não é um administrador");

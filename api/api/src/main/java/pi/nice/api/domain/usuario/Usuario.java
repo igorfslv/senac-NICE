@@ -36,6 +36,7 @@ public class Usuario {
     @Size(max = 36, message = "O e-mail deve ter no maximo 256 caracteres.")
     @NotBlank
     private String email;
+    @NotBlank
     @Size(max = 60, message = "A senha deve ter no maximo 60 caracteres.")
     private String senha;
     @Enumerated(EnumType.STRING)
