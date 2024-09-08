@@ -59,4 +59,12 @@ public class AdministradorController {
             @PathVariable String usuarioId) {
         return administradorService.getUsuario(usuarioId, admId);
     }
+
+    @CrossOrigin @DeleteMapping("/alternarStatus/{admId}/{usuarioId}")
+    public ResponseEntity alternarStatus(
+            @PathVariable String admId,
+            @PathVariable String usuarioId
+    ) {
+        return administradorService.alternarStatus(admId, usuarioId);
+    }
 }

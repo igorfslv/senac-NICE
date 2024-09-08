@@ -29,6 +29,11 @@ botaoLogin.addEventListener('click', function (event) {
         if (responseAPI === 404) {
           alert("Credenciais incorretas")
           return
+        } else if (responseAPI === 401) {
+          response.text().then(text => {
+            alert(text);
+          });
+          return
         } else {
           return response.json();
         }

@@ -102,6 +102,23 @@ function preencherTabelaUsuarios(tabelaBody, usuarios) {
 
         tabelaBody.appendChild(tabelaTrBody);
 
+        tabelaTdHabilitacaoBtn.addEventListener('click', () => {
+            const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
+            const url = `http://localhost:8080/admin/alternarStatus/${usuario.id}/${admIdObj.id}`;
+          
+            fetch(url, {
+              method: 'DELETE',
+            })
+              .then(response => response.json())
+              .then(result => {
+
+                alert("Usuario '" + result.nome + "' foi " + (result.ativo ? "Ativado" : "Desativado"))
+                listarUsuarios()
+              })
+
+
+        })
+
         tabelaTdEditarIcone.addEventListener('click', () => {
             window.location.href = `./atualizacao-cadastro-usuario.html?id=${usuario.id}`;
         });

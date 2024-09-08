@@ -16,18 +16,7 @@ public class UsuarioController {
 
     @CrossOrigin
     @PostMapping("/login")
-    public ResponseEntity<UsuarioLoginRealizadoDTO> login(@RequestBody UsuarioLoginDTO usuarioLogin) {
-
-        Usuario usuario = usuarioService.logar(usuarioLogin);
-
-        return usuario != null ?
-                ResponseEntity.ok(new UsuarioLoginRealizadoDTO(
-                        usuario.getId(),
-                        usuario.getNome(),
-                        usuario.getCpf(),
-                        usuario.getEmail(),
-                        usuario.getGrupo())
-                ) :
-                ResponseEntity.notFound().build();
+    public ResponseEntity login(@RequestBody UsuarioLoginDTO usuarioLogin) {
+        return usuarioService.logar(usuarioLogin);
     }
 }
