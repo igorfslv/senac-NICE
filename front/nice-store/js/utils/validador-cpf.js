@@ -1,13 +1,18 @@
 function exibirValidacaoCPF(input) {
     let cpf = document.getElementById('cpf-usuario');
+    let lblCpf = document.querySelector('.lbl-cpf');
     let cpfInserido = input.value;
 
     if (validarCPF(cpfInserido)) {
         console.log('É válido!');
         cpf.style.border = "2px solid #0fc71e";
+        lblCpf.textContent = "CPF Válido!";
+        lblCpf.style.color = "#0fc71e";
     } else {
         console.log('É inválido!');
         cpf.style.border = "2px solid red";
+        lblCpf.textContent = "CPF Inválido!";
+        lblCpf.style.color = "red";
     }
 }
 
