@@ -57,9 +57,8 @@ botaoCadastro.addEventListener('click', function (event) {
                 alert("Não foi possível cadastrar o usuário. \nCampo: " + result.campo + "\nMotivo: " + result.mensagem)
            } else {
                 alert("Usuário '" + result.nome + "' criado com sucesso!")
-                location.reload()
+                window.location.href = "./visualizacao-usuario.html";
            }
-            // window.location.href = "./visualizacao-usuario.html";
         })
         .catch(error => {
             console.error('Erro:', error);

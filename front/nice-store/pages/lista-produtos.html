@@ -21,7 +21,7 @@
                 <li>
                     <div class="usuario-logado">
                         <p class="grupo-usuario-logado">Administrador</p>
-                        <i class='bx bx-log-out' title="Sair"></i>
+                        <i class='bx bx-log-out' title="Sair" onclick="logout()"></i>
                     </div>
                 </li>
             </ul>
@@ -31,45 +31,19 @@
     <div class="container-visualizacao-produtos">
         <h2>Lista de Produtos Cadastrados</h2>
 
-        <table>
+        <table class="tabela-produtos">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>ID Produto</th>
                     <th>Imagem</th>
                     <th>Nome Produto</th>
                     <th>Preço</th>
                     <th>Qtd Estoque</th>
-                    <th>Editar</th>
-                    <th>Atualizar Estoque</th>
+                    <th id="tabela-produtos-acao">Ação</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td><img src="imagem1.jpg" alt="Produto 1" width="50" height="50"></td>
-                    <td>Produto A</td>
-                    <td>R$ 100,00</td>
-                    <td>50</td>
-                    <td class="icone-editar">
-                        <i class='bx bxs-edit'></i>
-                    </td>
-                    <td class="icone-atualizar-estoque">
-                        <i class='bx bx-package'></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><img src="imagem2.jpg" alt="Produto 2" width="50" height="50"></td>
-                    <td>Produto B</td>
-                    <td>R$ 200,00</td>
-                    <td>30</td>
-                    <td class="icone-editar">
-                        <i class='bx bxs-edit'></i>
-                    </td>
-                    <td class="icone-atualizar-estoque">
-                        <i class='bx bx-package'></i>
-                    </td>
-                </tr>
+                
             </tbody>
         </table>
 

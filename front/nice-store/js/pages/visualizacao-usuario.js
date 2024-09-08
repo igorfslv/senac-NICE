@@ -10,7 +10,7 @@ export function exibirOpcoesUsuario() {
 
     let grupoUsuarioLogado = document.querySelector(".grupo-usuario-logado");
     grupoUsuarioLogado.textContent = usuarioLogado;
-    
+
     let btnLogOut = document.querySelector(".bx-log-out");
 
     let listagem1 = document.querySelector(".listagem-1");
@@ -56,4 +56,4 @@ export function exibirOpcoesUsuario() {
 function logout() {
     localStorage.removeItem('usuarioLogado');
     window.location.href = "./login.html";
- }
+}

@@ -20,8 +20,8 @@ function criarBarraDePesquisa(container) {
 
     btnPesquisarUsuarioPeloNome.addEventListener('click', async () => {
         const nomeUsuario = barraDePesquisa.value;
-            await listarUsuariosPesquisados(nomeUsuario);
-    
+        await listarUsuariosPesquisados(nomeUsuario);
+
     });
 
     return { barraDePesquisa, btnPesquisarUsuarioPeloNome };
@@ -32,7 +32,7 @@ function criarTabelaUsuarios() {
     let tabelaHead = document.createElement("thead");
     let tabelaTrHead = document.createElement("tr");
 
-    const cabecalhos = ["ID", "Nome", "CPF", "E-mail", "Grupo", "Status", "Editar"];
+    const cabecalhos = ["ID", "Nome", "CPF", "E-mail", "Grupo", "Status", "Editar", "Habilitação"];
     cabecalhos.forEach(cabecalho => {
         let th = document.createElement("th");
         th.textContent = cabecalho;
@@ -76,6 +76,20 @@ function preencherTabelaUsuarios(tabelaBody, usuarios) {
         tabelaTdEditar.appendChild(tabelaTdEditarIcone);
         tabelaTdEditar.className = "icone-editar";
 
+        let tabelaTdHabilitacao = document.createElement("td");
+        let tabelaTdHabilitacaoBtn = document.createElement("button");
+        tabelaTdHabilitacao.appendChild(tabelaTdHabilitacaoBtn);
+        tabelaTdHabilitacaoBtn.textContent = usuario.ativo ? "INATIVAR" : "ATIVAR";
+
+        if (tabelaTdHabilitacaoBtn.textContent === "INATIVAR") {
+            tabelaTdHabilitacaoBtn.style.backgroundColor = "#f0f0f0";
+            tabelaTdHabilitacaoBtn.style.color = "#d15b5b";
+        }
+        else if (tabelaTdHabilitacaoBtn.textContent === "ATIVAR") {
+            tabelaTdHabilitacaoBtn.style.backgroundColor = "#f0f0f0";
+            tabelaTdHabilitacaoBtn.style.color = "#0fc71e";
+        }
+
         tabelaTrBody.appendChild(tabelaTdID);
         tabelaTrBody.appendChild(tabelaTdNome);
         tabelaTrBody.appendChild(tabelaTdCPF);
@@ -83,6 +97,7 @@ function preencherTabelaUsuarios(tabelaBody, usuarios) {
         tabelaTrBody.appendChild(tabelaTdGrupo);
         tabelaTrBody.appendChild(tabelaTdStatus);
         tabelaTrBody.appendChild(tabelaTdEditar);
+        tabelaTrBody.appendChild(tabelaTdHabilitacao);
 
         tabelaBody.appendChild(tabelaTrBody);
 
@@ -160,7 +175,7 @@ async function listarUsuariosPesquisados(nomeUsuario) {
     } catch (error) {
         console.error('Erro ao listar os usuários:', error);
     }
-    
+
     criarBotoesTelaUsuario(containerVisualizacaoUsuario);
 }
 
@@ -184,8 +199,8 @@ async function buscarUsuariosPorNome(nomeUsuario = "") {
     // Adiciona o nome do usuário na URL da API, se fornecido
     let url = `http://localhost:8080/admin/getUsuarios/${admId}/${numeroDaPaginaBancoDeDados}`;
 
-        url += `?nome=${encodeURIComponent(nomeUsuario)}`;
-    
+    url += `?nome=${encodeURIComponent(nomeUsuario)}`;
+
 
     try {
         const response = await fetch(url);

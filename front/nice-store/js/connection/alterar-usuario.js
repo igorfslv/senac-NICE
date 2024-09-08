@@ -109,11 +109,8 @@ btnEnviar.addEventListener('click', function (event) {
                 alert("Não foi possível alterar o usuário " + result.nome + ". \nCampo: " + result.campo + "\nMotivo: " + result.mensagem)
             } else {
                 alert("Usuário '" + result.nome + "' alterado com sucesso!")
-                location.reload()
+                window.location.href = "./visualizacao-usuario.html";
             }
-
-
-            // window.location.href = "./visualizacao-usuario.html";
         })
         .catch(error => {
             console.error('Erro:', error);
