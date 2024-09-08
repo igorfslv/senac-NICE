@@ -78,6 +78,7 @@ function preencherTabelaUsuarios(tabelaBody, usuarios) {
 
         let tabelaTdHabilitacao = document.createElement("td");
         let tabelaTdHabilitacaoBtn = document.createElement("button");
+        tabelaTdHabilitacaoBtn.className = "btn-habilitacao";
         tabelaTdHabilitacao.appendChild(tabelaTdHabilitacaoBtn);
         tabelaTdHabilitacaoBtn.textContent = usuario.ativo ? "INATIVAR" : "ATIVAR";
 
