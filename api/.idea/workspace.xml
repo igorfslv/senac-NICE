@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5b562c48-3dd2-44c3-900b-eba5953e558a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/AdministradorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/AdministradorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/dto/UsuarioLoginRealizadoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/dto/UsuarioLoginRealizadoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/nice-store/js/pages/listar-usuarios.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/js/pages/listar-usuarios.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
