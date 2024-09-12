@@ -1,16 +1,14 @@
 package pi.nice.api.controller;
 
 
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pi.nice.api.domain.produto.Produto;
 import pi.nice.api.domain.produto.ProdutoRepository;
+import pi.nice.api.domain.produto.ProdutoService;
 import pi.nice.api.domain.produto.dto.AlterarProdutoDTO;
 import pi.nice.api.domain.produto.dto.RegistrarProdutoDTO;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/produto")
@@ -19,48 +17,41 @@ public class ProdutoController {
     @Autowired
     private ProdutoRepository produtoRepository;
 
+    @Autowired
+    private ProdutoService produtoService;
+
+
+/*
     @GetMapping
-    public ResponseEntity getAllProducts(){
-        var allProdutos = produtoRepository.findAllByAtivoTrue();
+    public ResponseEntity allProdutos(){
+        var allProdutos = produtoRepository.findAll();
         return ResponseEntity.ok(allProdutos);
+    }
+*/
+
+    @GetMapping
+    public ResponseEntity allProdutosAtivos(){
+        var allProdutosAtivos = produtoRepository.findAllByAtivoTrue();
+        return ResponseEntity.ok(allProdutosAtivos);
     }
 
     @PostMapping
     public ResponseEntity registrarProduto(@RequestBody @Valid RegistrarProdutoDTO registrarProduto){
-        Produto novoProduto = new Produto(registrarProduto);
-        produtoRepository.save(novoProduto);
-        return ResponseEntity.ok().build();
+       return produtoService.novoProduto(registrarProduto);
     }
 
-    @PutMapping
-    @Transactional
-    public ResponseEntity alterarProduto(@RequestBody @Valid AlterarProdutoDTO alterarProduto){
-        Optional<Produto> optionalProduto = produtoRepository.findById(alterarProduto.id());
-        if (optionalProduto.isPresent()) {
-            Produto attProduto = optionalProduto.get();
-            attProduto.setNome(alterarProduto.nome());
-            attProduto.setPreco(alterarProduto.preco());
-            attProduto.setQtd_estoque(alterarProduto.qtd_estoque());
-            attProduto.setDescricao(alterarProduto.descricao());
-            attProduto.setAvaliacao(alterarProduto.avaliacao());
-            attProduto.setAtivo(alterarProduto.ativo());
-            return ResponseEntity.ok(attProduto);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-
+    @CrossOrigin @PutMapping("/{id}")
+    public ResponseEntity alterarProduto(@PathVariable String id, @RequestBody AlterarProdutoDTO alterarProdutoDTO){
+        return produtoService.alterarProduto(id, alterarProdutoDTO);
     }
 
-    @DeleteMapping("/{id}")
-    @Transactional
-    public ResponseEntity inativarProduto(@PathVariable String id) {
-        Optional<Produto> optionalProduto = produtoRepository.findById(id);
-        if (optionalProduto.isPresent()) {
-            Produto attProduto = optionalProduto.get();
-            attProduto.setAtivo(false);
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @CrossOrigin @PutMapping()
+    public ResponseEntity alterarProduto(@RequestBody AlterarProdutoDTO alterarProdutoDTO){
+       return produtoService.alterarProduto(alterarProdutoDTO);
+    }
+
+    @CrossOrigin @DeleteMapping("/{id}")
+    public ResponseEntity statusProduto(@PathVariable String id) {
+        return produtoService.statusProduto(id);
     }
 }

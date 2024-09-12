@@ -60,4 +60,15 @@ public class Produto {
         this.avaliacao = alterarProdutoDTO.avaliacao();
         this.ativo = alterarProdutoDTO.ativo();
     }
+
+    public Produto alterarDados(AlterarProdutoDTO alterarProdutoDTO){
+        this.nome = alterarProdutoDTO.nome();
+        this.preco = alterarProdutoDTO.preco();
+        this.qtd_estoque = alterarProdutoDTO.qtd_estoque();
+        this.descricao = alterarProdutoDTO.descricao();
+        this.avaliacao = alterarProdutoDTO.avaliacao();
+        this.ativo = alterarProdutoDTO.ativo();
+        return this;
+    }
+
 }
