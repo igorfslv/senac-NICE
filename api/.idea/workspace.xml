@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b562c48-3dd2-44c3-900b-eba5953e558a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/imagens/dto/ImagemDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/imagens/dto/RegistrarImagemDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/dto/ListarProdutoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/dto/ProdutoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/errors/exceptions/SemAutorizacaoException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/ProdutoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/imagens/Imagens.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/imagens/Imagem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/ProdutoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/ProdutoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/dto/AlterarProdutoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/dto/AlterarProdutoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/dto/RegistrarProdutoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/dto/RegistrarProdutoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/AdministradorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/AdministradorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/errors/RequestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/errors/RequestExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/db/migration/V2__criando_tabela_imagens_e_produtos.sql" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/db/migration/V2__criando_tabela_imagens_e_produtos.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +32,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Record" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>

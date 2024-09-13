@@ -2,20 +2,25 @@ package pi.nice.api.domain.produto.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import pi.nice.api.domain.imagens.dto.RegistrarImagemDTO;
+
+import java.util.List;
 
 public record AlterarProdutoDTO(
         @NotBlank
-        String id,
+        Long id,
         @NotBlank
         String nome,
         @NotNull
         Double preco,
         @NotNull
-        Integer qtd_estoque,
+        Integer qtdEstoque,
         @NotBlank
         String descricao,
         @NotNull
         Double avaliacao,
         @NotNull
-        boolean ativo) {
+        boolean ativo,
+        List<RegistrarImagemDTO> imagens
+) {
 }

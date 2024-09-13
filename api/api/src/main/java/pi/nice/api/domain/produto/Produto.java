@@ -5,9 +5,13 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-import pi.nice.api.domain.imagens.Imagens;
+import pi.nice.api.domain.imagens.Imagem;
 import pi.nice.api.domain.produto.dto.AlterarProdutoDTO;
 import pi.nice.api.domain.produto.dto.RegistrarProdutoDTO;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Table(name= "produtos")
 @Entity(name= "Produto")
@@ -19,9 +23,8 @@ import pi.nice.api.domain.produto.dto.RegistrarProdutoDTO;
 public class Produto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Size(max=36)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @NotBlank
     @Size(max=200, message = "O nome do produto deve conter no máximo 200 caracteres.")
@@ -33,7 +36,7 @@ public class Produto {
     @NotNull
     private Integer qtd_estoque;
 
-    @Size(max =2000, message = "A descrição deve conter no máximo 2000 caracteres.")
+    @Size(max = 2000, message = "A descrição deve conter no máximo 2000 caracteres.")
     private String descricao;
 
     @NotNull
@@ -42,12 +45,20 @@ public class Produto {
     @NotNull
     private boolean ativo;
 
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    private List<Imagem> imagens = new ArrayList<>();
+
+
     public Produto(RegistrarProdutoDTO produtoDTO){
         this.nome = produtoDTO.nome();
         this.preco = produtoDTO.preco();
-        this.qtd_estoque = produtoDTO.qtd_estoque();
+        this.qtd_estoque = produtoDTO.qtdEstoque();
         this.descricao = produtoDTO.descricao();
         this.avaliacao = produtoDTO.avaliacao();
+        this.imagens = produtoDTO.imagens()
+                .stream()
+                .map(registrarImagemDTO -> new Imagem(registrarImagemDTO, this))
+                .collect(Collectors.toList());
         this.ativo = true;
     }
 
@@ -55,7 +66,7 @@ public class Produto {
         this.id = alterarProdutoDTO.id();
         this.nome = alterarProdutoDTO.nome();
         this.preco = alterarProdutoDTO.preco();
-        this.qtd_estoque = alterarProdutoDTO.qtd_estoque();
+        this.qtd_estoque = alterarProdutoDTO.qtdEstoque();
         this.descricao = alterarProdutoDTO.descricao();
         this.avaliacao = alterarProdutoDTO.avaliacao();
         this.ativo = alterarProdutoDTO.ativo();
@@ -64,11 +75,16 @@ public class Produto {
     public Produto alterarDados(AlterarProdutoDTO alterarProdutoDTO){
         this.nome = alterarProdutoDTO.nome();
         this.preco = alterarProdutoDTO.preco();
-        this.qtd_estoque = alterarProdutoDTO.qtd_estoque();
+        this.qtd_estoque = alterarProdutoDTO.qtdEstoque();
         this.descricao = alterarProdutoDTO.descricao();
         this.avaliacao = alterarProdutoDTO.avaliacao();
         this.ativo = alterarProdutoDTO.ativo();
         return this;
     }
+
+    public void desativar() {
+        this.ativo = !ativo;
+    }
+
 
 }
