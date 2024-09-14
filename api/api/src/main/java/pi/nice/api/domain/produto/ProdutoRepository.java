@@ -13,4 +13,6 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
     List<Produto> findAllByAtivoTrue();
     Page<Produto> findByNomeContaining(String nome, Pageable pageable);
+
+
 }

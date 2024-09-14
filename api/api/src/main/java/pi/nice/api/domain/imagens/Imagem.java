@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.boot.autoconfigure.web.WebProperties;
+import pi.nice.api.domain.imagens.dto.AlterarImagemDTO;
+import pi.nice.api.domain.imagens.dto.ImagemDTO;
 import pi.nice.api.domain.imagens.dto.RegistrarImagemDTO;
 import pi.nice.api.domain.produto.Produto;
 
@@ -25,14 +27,10 @@ public class Imagem {
     @ManyToOne
     @JoinColumn(name = "id_produto")
     private Produto produto;
-
     private String nome;
-
     @NotBlank
     private String caminho;
-
     private boolean principal;
-
 
     public Imagem(RegistrarImagemDTO registrarImagemDTO, Produto produto) {
         this.caminho = registrarImagemDTO.caminho();

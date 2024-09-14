@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pi.nice.api.domain.produto.ProdutoRepository;
 import pi.nice.api.domain.produto.ProdutoService;
+import pi.nice.api.domain.produto.dto.AlterarEstoqueDTO;
 import pi.nice.api.domain.produto.dto.AlterarProdutoDTO;
 import pi.nice.api.domain.produto.dto.RegistrarProdutoDTO;
 import pi.nice.api.domain.usuario.Usuario;
@@ -29,14 +30,13 @@ public class ProdutoController {
     private ProdutoService produtoService;
 
     @CrossOrigin
-    @GetMapping("/getProdutos/{admId}/{numeroDaPagina}")
+    @GetMapping("/getProdutos/{numeroDaPagina}")
     public ResponseEntity<?> getListaDeProdutos(
             @PageableDefault Pageable pageable,
-            @PathVariable String admId,
             @PathVariable int numeroDaPagina,
             @RequestParam(required = false) String nome) {
 
-        return produtoService.getListaDeProdutos(admId, PageRequest.of(numeroDaPagina, 10), nome);
+        return produtoService.getListaDeProdutos(PageRequest.of(numeroDaPagina, 10), nome);
 
     }
 
@@ -67,5 +67,13 @@ public class ProdutoController {
             @PathVariable String admId,
             @PathVariable Long produtoId) {
         return produtoService.alternarStatusProduto(admId, produtoId);
+    }
+
+    @Transactional
+    @CrossOrigin
+    @PutMapping("/estoque/{estoquistaId}")
+    public ResponseEntity<?> alterarProduto(@PathVariable String estoquistaId,
+                                            @RequestBody AlterarEstoqueDTO alterarEstoqueDTO) {
+        return produtoService.atualizarEstoque(estoquistaId, alterarEstoqueDTO);
     }
 }

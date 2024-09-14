@@ -9,10 +9,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import pi.nice.api.domain.grupo.Grupo;
-import pi.nice.api.domain.produto.dto.AlterarProdutoDTO;
-import pi.nice.api.domain.produto.dto.ListarProdutoDTO;
-import pi.nice.api.domain.produto.dto.ProdutoDTO;
-import pi.nice.api.domain.produto.dto.RegistrarProdutoDTO;
+import pi.nice.api.domain.imagens.Imagem;
+import pi.nice.api.domain.imagens.ImagemRepository;
+import pi.nice.api.domain.produto.dto.*;
 import pi.nice.api.domain.usuario.Usuario;
 import pi.nice.api.domain.usuario.UsuarioRepository;
 import pi.nice.api.domain.usuario.dto.UsuarioCadastradoDTO;
@@ -30,6 +29,9 @@ public class ProdutoService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private ImagemRepository imagemRepository;
+
     public ResponseEntity<?> novoProduto(RegistrarProdutoDTO registrarProdutoDTO){
         Produto novoProduto = new Produto(registrarProdutoDTO);
         produtoRepository.save(novoProduto);
@@ -40,8 +42,7 @@ public class ProdutoService {
         possuiPermissaoDeAdm(admId);
         Optional<Produto> optionalProduto = produtoRepository.findById(alterarProdutoDTO.id());
         Produto produto = produtoExistente(optionalProduto);
-        produto.alterarDados(alterarProdutoDTO);
-        return ResponseEntity.ok(new ProdutoDTO(produto));
+        return ResponseEntity.ok(new ProdutoDTO(produto.alterarDados(alterarProdutoDTO)));
     }
 
     public ResponseEntity<?> alternarStatusProduto(String admId, Long produtoId) {
@@ -52,7 +53,7 @@ public class ProdutoService {
         return ResponseEntity.ok(new ProdutoDTO(produto));
     }
 
-    public ResponseEntity<?> getListaDeProdutos(String idAdm, PageRequest pageable, String nome) {
+    public ResponseEntity<?> getListaDeProdutos(PageRequest pageable, String nome) {
         return ResponseEntity.ok(produtoRepository.findByNomeContaining(nome != null ? nome : "", pageable).map(ListarProdutoDTO::new));
     }
 
@@ -76,4 +77,27 @@ public class ProdutoService {
         throw new SemAutorizacaoException("Você não possui permissões de administrador.");
 
     }
+
+
+
+
+
+
+    public ResponseEntity<?> atualizarEstoque(String estoquistaId, AlterarEstoqueDTO alterarEstoqueDTO) {
+        possuiPermissaoDeEstoquista(estoquistaId);
+        Optional<Produto> optionalProduto = produtoRepository.findById(alterarEstoqueDTO.id());
+        Produto produto = produtoExistente(optionalProduto);
+        produto.setQtd_estoque(alterarEstoqueDTO.qtdEstoque());
+        return ResponseEntity.ok(new ProdutoDTO(produto));
+    }
+
+    private void possuiPermissaoDeEstoquista(String estoquistaId) {
+        Optional<Usuario> usuario = usuarioRepository.findById(estoquistaId);
+        if (usuario.isPresent())
+            if (usuario.get().getGrupo() == Grupo.ESTOQUISTA)
+                return;
+        throw new SemAutorizacaoException("Você não possui permissões de estoquista.");
+
+    }
+
 }

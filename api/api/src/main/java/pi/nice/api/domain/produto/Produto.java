@@ -40,12 +40,13 @@ public class Produto {
     private String descricao;
 
     @NotNull
+    @AvaliacaoValida
     private Double avaliacao;
 
     @NotNull
     private boolean ativo;
 
-    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Imagem> imagens = new ArrayList<>();
 
 
@@ -79,7 +80,13 @@ public class Produto {
         this.descricao = alterarProdutoDTO.descricao();
         this.avaliacao = alterarProdutoDTO.avaliacao();
         this.ativo = alterarProdutoDTO.ativo();
+        this.imagens.clear();
+        this.imagens.addAll(alterarProdutoDTO.imagens()
+                .stream()
+                .map(registrarImagemDTO -> new Imagem(registrarImagemDTO, this))
+                .collect(Collectors.toList()));
         return this;
+
     }
 
     public void desativar() {
