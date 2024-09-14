@@ -32,7 +32,7 @@ function criarTabelaUsuarios() {
     let tabelaHead = document.createElement("thead");
     let tabelaTrHead = document.createElement("tr");
 
-    const cabecalhos = ["ID", "Nome", "CPF", "E-mail", "Grupo", "Status", "Editar", "Habilitação"];
+    const cabecalhos = ["ID", "Nome", "E-mail", "Grupo", "Status", "Editar", "Habilitação"];
     cabecalhos.forEach(cabecalho => {
         let th = document.createElement("th");
         th.textContent = cabecalho;
@@ -57,9 +57,6 @@ function preencherTabelaUsuarios(tabelaBody, usuarios) {
 
         let tabelaTdNome = document.createElement("td");
         tabelaTdNome.textContent = usuario.nome;
-
-        let tabelaTdCPF = document.createElement("td");
-        tabelaTdCPF.textContent = usuario.cpf;
 
         let tabelaTdEmail = document.createElement("td");
         tabelaTdEmail.textContent = usuario.email;
@@ -93,7 +90,6 @@ function preencherTabelaUsuarios(tabelaBody, usuarios) {
 
         tabelaTrBody.appendChild(tabelaTdID);
         tabelaTrBody.appendChild(tabelaTdNome);
-        tabelaTrBody.appendChild(tabelaTdCPF);
         tabelaTrBody.appendChild(tabelaTdEmail);
         tabelaTrBody.appendChild(tabelaTdGrupo);
         tabelaTrBody.appendChild(tabelaTdStatus);
@@ -103,21 +99,30 @@ function preencherTabelaUsuarios(tabelaBody, usuarios) {
         tabelaBody.appendChild(tabelaTrBody);
 
         tabelaTdHabilitacaoBtn.addEventListener('click', () => {
-            const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
-            const url = `http://localhost:8080/admin/alternarStatus/${usuario.id}/${admIdObj.id}`;
-          
-            fetch(url, {
-              method: 'DELETE',
-            })
-              .then(response => response.json())
-              .then(result => {
 
-                alert("Usuario '" + result.nome + "' foi " + (result.ativo ? "Ativado" : "Desativado"))
-                listarUsuarios()
-              })
+            let msgConfirmacao = window.prompt("Tem certeza que quer realizar as alterações? Digite '1 - SIM' ou '2 - NÃO'");
 
+            if (msgConfirmacao == 1) {
 
-        })
+                const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
+                const url = `http://localhost:8080/admin/alternarStatus/${usuario.id}/${admIdObj.id}`;
+
+                fetch(url, {
+                    method: 'DELETE',
+                })
+                    .then(response => response.json())
+                    .then(result => {
+
+                        alert("Usuario '" + result.nome + "' foi " + (result.ativo ? "Ativado" : "Desativado"))
+                        listarUsuarios()
+                    })
+
+            } else if (msgConfirmacao == 2) {
+                alert("Alteração de status cancelada.");
+            } else {
+                alert("Opção Inválida.");
+            }
+        });
 
         tabelaTdEditarIcone.addEventListener('click', () => {
             window.location.href = `./atualizacao-cadastro-usuario.html?id=${usuario.id}`;

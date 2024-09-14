@@ -1,7 +1,3 @@
-//Escrever aqui os FETCHs de conexão com o back-end para o ALTERAÇÃO CADASTRO USUÁRIO
-
-//Escrever aqui os FETCHs de conexão com o back-end para o CADASTRO DE USUÁRIO
-
 const idUsuario = document.getElementById('id-conta-usuario');
 const nomeUsuario = document.getElementById('nome-usuario');
 const cpfUsuario = document.getElementById('cpf-usuario');
@@ -12,7 +8,6 @@ const confirmarSenhaUsuario = document.getElementById('confirmar-senha-usuario')
 const btnCancelar = document.querySelector('.btn-cancelar');
 const btnEnviar = document.querySelector('.btn-enviar');
 const statusUsuario = document.getElementById('status-usuario');
-
 
 const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
 
@@ -53,81 +48,61 @@ fetch(url)
         } else {
             grupoUsuario.disabled = true
         }
-
-
-
-    })
-
-
-
-
+    });
 
 btnEnviar.addEventListener('click', function (event) {
 
-    let msgConfirmacao = window.prompt("Tem certeza que quer realizar as alterações? Digite '1 - SIM' ou '2 - NÃO'");
+    event.preventDefault();
 
-    if (msgConfirmacao == 1) {
-        
-        event.preventDefault();
-    
-        if (!usuarioLogado) {
-            alert("Você não esta logado.")
-            return
-        }
-        if (!(nomeUsuario.value && cpfUsuario.value && emailUsuario.value && (grupoUsuario.selectedIndex !== 0 || usuarioLogado.id === id))) {
-            alert("Preencha todos os campos!")
-            return
-        }
-        if (senhaUsuario.value != confirmarSenhaUsuario.value) {
-            alert("As senhas devem ser iguais")
-            return
-        }
-    
-        const url = `http://localhost:8080/admin/alterarUsuario/${usuarioLogado.id}`;
-        const data = {
-            "id": idUsuario.value,
-            "nome": nomeUsuario.value,
-            "cpf": cpfUsuario.value,
-            "senha": senhaUsuario.value,
-            "grupoId": usuarioLogado.id !== id ? grupoUsuario.options[grupoUsuario.selectedIndex].text.toUpperCase() : usuarioLogado.grupoId,
-            "ativo": statusUsuario.selectedIndex === 0 ? true : false
-        };
-    
-    
-        fetch(url, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(response => {
-                responseAPI = response.status
-                return response.json();
-            })
-    
-            .then(result => {
-    
-                if (responseAPI === 400) {
-                    alert("Não foi possível alterar o usuário " + result.nome + ". \nCampo: " + result.campo + "\nMotivo: " + result.mensagem)
-                } else {
-                    alert("Usuário '" + result.nome + "' alterado com sucesso!")
-                    window.location.href = "./visualizacao-usuario.html";
-                }
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                const erro = JSON.stringify(error)
-    
-            });
-    } else if (msgConfirmacao == 2) {
-        window.location.href = "./visualizacao-usuario.html";
-    } else {
-        alert("Opção Inválida.");
+    if (!usuarioLogado) {
+        alert("Você não esta logado.")
+        return
+    }
+    if (!(nomeUsuario.value && cpfUsuario.value && emailUsuario.value && (grupoUsuario.selectedIndex !== 0 || usuarioLogado.id === id))) {
+        alert("Preencha todos os campos!")
+        return
+    }
+    if (senhaUsuario.value != confirmarSenhaUsuario.value) {
+        alert("As senhas devem ser iguais")
+        return
     }
 
-    
+    const url = `http://localhost:8080/admin/alterarUsuario/${usuarioLogado.id}`;
+    const data = {
+        "id": idUsuario.value,
+        "nome": nomeUsuario.value,
+        "cpf": cpfUsuario.value,
+        "senha": senhaUsuario.value,
+        "grupoId": usuarioLogado.id !== id ? grupoUsuario.options[grupoUsuario.selectedIndex].text.toUpperCase() : usuarioLogado.grupoId,
+        "ativo": statusUsuario.selectedIndex === 0 ? true : false
+    };
 
+    fetch(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            responseAPI = response.status
+            return response.json();
+        })
+
+        .then(result => {
+
+            if (responseAPI === 400) {
+                alert("Não foi possível alterar o usuário " + result.nome + ". \nCampo: " + result.campo + "\nMotivo: " + result.mensagem)
+            } else {
+                alert("Usuário '" + result.nome + "' alterado com sucesso!")
+                window.location.href = "./visualizacao-usuario.html";
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            const erro = JSON.stringify(error)
+
+        });
 });
 
 btnCancelar.addEventListener('click', () => {
