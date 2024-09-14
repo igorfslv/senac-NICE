@@ -100,7 +100,7 @@ function preencherTabelaUsuarios(tabelaBody, usuarios) {
 
         tabelaTdHabilitacaoBtn.addEventListener('click', () => {
 
-            let msgConfirmacao = window.prompt("Tem certeza que quer realizar as alterações? Digite '1 - SIM' ou '2 - NÃO'");
+            let msgConfirmacao = window.prompt("Tem certeza que deseja alterar o status do usuário em questão? Digite '1 - SIM' ou '2 - NÃO'");
 
             if (msgConfirmacao == 1) {
 
@@ -150,7 +150,6 @@ function criarBotoesTelaUsuario(container) {
 
     btnAdicionarNovoUsuario.addEventListener('click', redirecionarTelaCadastro);
 }
-
 
 export async function listarUsuarios() {
     let containerVisualizacaoUsuario = document.querySelector(".container-visualizacao-usuario");

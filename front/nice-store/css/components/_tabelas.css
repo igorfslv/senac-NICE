@@ -17,7 +17,8 @@ th {
 }
 
 .icone-editar,
-.icone-atualizar-estoque {
+.icone-atualizar-estoque,
+.icone-visualizar {
     cursor: pointer;
     color: #f5b400;
     font-size: 20px;
