@@ -138,16 +138,24 @@ function preencherTabelaProdutos(tabelaBody, produtos) {
         tabelaTrBody.appendChild(tabelaTdHabilitacao);
 
         tabelaBody.appendChild(tabelaTrBody);
+        const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
 
+        if(admIdObj.grupoId === "ESTOQUISTA") {
+            tabelaTdHabilitacaoBtn.disabled = true
+            tabelaTdHabilitacaoBtn.style.backgroundColor = "#   ";
+            tabelaTdHabilitacaoBtn.style.color = "#A9A9A9";
+        }
+
+        
         tabelaTdHabilitacaoBtn.addEventListener('click', () => {
             let msgConfirmacao = window.prompt("Tem certeza que deseja alterar o status do produto? Digite '1 - SIM' ou '2 - NÃO'");
 
             if (msgConfirmacao == 1) {
-                const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
-                const url = `http://localhost:8080/admin/alternarStatus/${admIdObj.id}/${produto.id}`;
+                
+                const url = `http://localhost:8080/produto/alternarStatus/${admIdObj.id}/${produto.id}`;
 
                 fetch(url, {
-                    method: 'PATCH',
+                    method: 'DELETE',
                 })
                 .then(response => response.json())
                 .then(result => {
@@ -162,6 +170,10 @@ function preencherTabelaProdutos(tabelaBody, produtos) {
                 alert("Opção Inválida.");
             }
         });
+
+        
+
+
 
         tabelaTdEditarIcone.addEventListener('click', () => {
             // window.location.href = `./atualizacao-produto.html?id=${produto.id}`;
