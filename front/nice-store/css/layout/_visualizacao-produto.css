@@ -1,0 +1,131 @@
+.container-principal-visualizacao-produto {
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+.container-visualizacao-produto {
+    background-color: white;
+    margin: 10px;
+    padding: 30px;
+    border-radius: 10px;
+
+}
+
+.container-visualizacao-produto h1 {
+    font-size: 27px;
+    margin: 10px 30px;
+}
+
+.container-informacoes-gerais-produto {
+    display: flex;
+    justify-content: center;
+}
+
+.container-imagens-produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.img-principal {
+    width: 350px;
+    height: 350px;
+}
+
+.carrousel-imagens {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrousel-imagens i {
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.carrousel-imagens .imagens-secundarias img {
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.informacoes-visualizacao-produto {
+    margin: 10px;
+    padding: 20px;
+    width: 50%;
+}
+
+.informacoes-visualizacao-produto h2 {
+    margin-bottom: 15px;
+}
+
+.informacoes-visualizacao-produto p {
+    margin-bottom: 15px;
+}
+
+.informacoes-individuais ul {
+    list-style: none;
+}
+
+.informacoes-individuais ul li {
+    margin: 10px 0;
+}
+
+.titulo-item {
+    font-weight: 600;
+}
+
+.avaliacao {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.avaliacao div i {
+    font-size: 20px;
+    color: #2682df;
+}
+
+.estrelas {
+    margin: 0;
+}
+
+.descricao-item {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.preco-item {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.preco-item p {
+    margin: 50px 5px 30px;
+}
+
+.preco {
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.condicao {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.btn-add-carrinho {
+    display: flex;
+    justify-content: end;
+}
+
+.btn-add-carrinho button {
+    background-color: #0fc71e;
+    color: white;
+}

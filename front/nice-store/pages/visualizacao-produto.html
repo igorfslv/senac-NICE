@@ -1,11 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
+    
+    
+    <link rel="stylesheet" href="../css/main.css">
+    
+    <title>Visualização de Produto</title>
+</head>
+
+<body>
+    <header>
+        <nav class="barra-navegacao-backoffice">
+            <ul class="barra-navegacao-lista">
+                <li class="nice-store-nome">Nice Store Backoffice</li>
+                <li>
+                    <div class="usuario-logado">
+                        <p class="grupo-usuario-logado">Administrador</p>
+                        <i class='bx bx-log-out' title="Sair"></i>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="container-principal-visualizacao-produto">
+        
+        <div class="container-visualizacao-produto">
+            <h1>Visualização de Produto - Cliente</h1>
+            <div class="separador"></div>
+            
+            <div class="container-informacoes-gerais-produto">
+                <div class="container-imagens-produto">
+                    
+                    <img src="../img/relogio-1.jpg" class="img-principal" alt="Imagem Principal Produto">
+                    
+                    <div class="carrousel-imagens">
+                        
+                        <i class='bx bx-chevron-left'></i>
+                        
+                        <div class="imagens-secundarias">
+                            <img src="../img/relogio-1.jpg" alt="Imagem Carrousel">
+                            <img src="../img/relogio-2.jpg" alt="Imagem Carrousel">
+                            <img src="../img/relogio-3.jpg" alt="Imagem Carrousel">
+                            <img src="../img/relogio-4.jpg" alt="Imagem Carrousel">
+                            <img src="../img/relogio-5.jpg" alt="Imagem Carrousel">
+                            <img src="../img/relogio-6.jpg" alt="Imagem Carrousel">
+                        </div>
+                        
+                        <i class='bx bx-chevron-right'></i>
+                        
+                    </div>
+                    
+                </div>
+
+                <div class="informacoes-visualizacao-produto">
+                    <h2>Samsung Galaxy Watch FE 40mm Bluetooth Display de 1.19"</h2>
+                    <p>Tela Super AMOLED | Preto</p>
+                    
+                    <div class="informacoes-individuais">
+                        <ul>
+                            <li>
+                                <div class="avaliacao">
+                                    <div class="estrelas">
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star'></i>
+                                        <i class='bx bxs-star-half'></i>
+                                        <i class='bx bx-star'></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <p class="titulo-item">Qtd Estoque: 100</p>
+                            </li>
+                            <li>
+                                <div class="descricao">
+                                    <p class="titulo-item">Descrição:</p>
+                                    <p class="descricao-item">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Consequuntur dolor est quaerat ipsa aut. Vel dicta rerum non, nobis perferendis
+                                        architecto nesciunt quibusdam fuga! Autem praesentium sequi laborum dicta
+                                        impedit.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="preco-item">
+                        <p class="preco">R$ 809,10</p>
+                        <p class="condicao">à vista</p>
+                    </div>
+                    
+                    <div class="btn-add-carrinho">
+                        <button disabled>Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script src="../js/pages/visualizacao-produto.js"></script>
 </body>
+
 </html>
