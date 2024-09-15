@@ -1,0 +1,125 @@
+.container-principal-cadastro-produto {
+    background-color: #f0f0f0;
+    height: auto;
+    padding: 20px;
+}
+
+.cadastro-produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.cadastro-produto h1 {
+    font-size: 27px;
+    margin: 10px 30px;
+}
+
+.formulario-cadastro-produto {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-secoes {
+    display: flex;
+    flex-direction: row;
+}
+
+.informacoes-produto,
+.imagens-produto {
+    display: flex;
+    flex-direction: column;
+}
+
+.informacoes-produto,
+.imagens-produto {
+    /* background-color: #ccc; */
+    padding: 30px;
+}
+
+.informacoes-produto input,
+.informacoes-produto textarea {
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #e7e7e7;
+}
+
+.informacoes-produto label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.imagens-produto {
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    /* background-color: #f0f0f0; */
+    width: 100%;
+}
+
+.header-imagens-produto p {
+    margin: 20px 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.secao-carregar-imagens {
+    /* background-color: #ccc; */
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.icone-nuvem i {
+    font-size: 100px;
+    color: #0fc71e;
+}
+
+.carregar-imagens {
+    margin: 20px 0;
+}
+
+.carregar-imagens input {
+    display: none;   
+}
+
+.btn-carregar-arquivos {
+    padding: 10px 20px;
+    background-color: #0fc71e;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+    margin-right: 10px;
+}
+
+.imagens-carregadas-corpo-lista tr {
+    font-size: 14px;
+}
+
+.img-previa {
+    width: 500px;
+    height: 500px;
+    object-fit: cover; 
+}
+
+.btns-formulario {
+    display: flex;
+    justify-content: end;
+    margin: 10px;
+    width: 90%;
+}
+
+.btns-formulario button {
+    margin-left: 10px;
+    font-size: 14px;
+    width: 100px;
+}
