@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Atualizacão Cadastro Produtos</title>
+</head>
+
+<body>
+    <header>
+        <nav class="barra-navegacao-backoffice">
+            <ul class="barra-navegacao-lista">
+                <li class="nice-store-nome">Nice Store Backoffice</li>
+                <li>
+                    <div class="usuario-logado">
+                        <p class="grupo-usuario-logado">Administrador</p>
+                        <i class='bx bx-log-out' title="Sair"></i>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-principal-cadastro-produto">
+        <div class="cadastro-produto">
+
+            <h1>Atualização de Cadastro de Produto</h1>
+
+            <div class="separador"></div>
+
+            <form class="formulario-cadastro-produto">
+
+                <div class="formulario-secoes">
+                    <div class="informacoes-produto">
+
+                        <label for="id-produto">ID</label>
+                        <input type="text" name="id-produto" id="id-produto" placeholder="12345" disabled>
+
+                        <label for="nome-produto">Nome:</label>
+                        <input type="text" name="nome-produto" id="nome-produto" maxlength="200"
+                            placeholder="Ex.: Notebook DELL Inspiron">
+
+                        <label for="avaliacao-produto">Avaliação:</label>
+                        <input type="number" name="avaliacao-produto" id="avaliacao-produto" min="1" max="5" step="0.5"
+                            placeholder="Avalie de 1 a 5">
+
+                        <label for="preco-produto">Preço:</label>
+                        <input type="number" name="preco-produto" id="preco-produto" placeholder="R$ 0,00">
+
+                        <label for="qtd-estoque-produto">Qtd Estoque:</label>
+                        <input type="number" name="qtd-estoque-produto" id="qtd-estoque-produto" placeholder="Ex.: 100">
+
+                        <label for="descricao-produto">Descrição:</label>
+                        <textarea name="descricao-produto" id="descricao-produto" rows="4" cols="50" maxlength="2000"
+                            placeholder="Descreva aqui as específicações do produto. Máximo de 2000 caracteres."></textarea>
+
+                    </div>
+
+                    <div class="imagens-produto">
+                        <div class="header-imagens-produto">
+                            <p>Carregue as Imagens para o Produto</p>
+                        </div>
+                        <div class="secao-carregar-imagens">
+                            <div class="icone-nuvem">
+                                <i class='bx bx-cloud-upload'></i>
+                            </div>
+                    
+                            <div class="carregar-imagens">
+                                <button id="btn-carregar-arquivos" class="btn-carregar-arquivos">Escolher Arquivos</button>
+                                <input type="file" id="input-carregar-imagens" multiple style="display: none;">
+                                <span id="nome-arquivo">Nenhum arquivo selecionado</span>
+                            </div>
+                        </div>
+                        <div class="secao-lista-imagens-carregadas">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Imagem</th>
+                                        <th>Nome</th>
+                                        <th>Principal</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="imagens-carregadas-corpo-lista"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="btns-formulario">
+                    <button class="btn-cancelar">CANCELAR</button>
+                    <button class="btn-enviar" type="submit">ENVIAR</button>
+                </div>
+
+            </form>
+
+        </div>
+    </main>
+
+    <script src="../js/utils/carregar-imagens.js"></script>
+</body>
+
+</html>

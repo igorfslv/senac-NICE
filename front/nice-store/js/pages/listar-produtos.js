@@ -172,15 +172,12 @@ function preencherTabelaProdutos(tabelaBody, produtos) {
         });
 
         
-
-
-
         tabelaTdEditarIcone.addEventListener('click', () => {
-            // window.location.href = `./atualizacao-produto.html?id=${produto.id}`;
+            window.location.href = `./atualizacao-cadastro-produto.html?id=${produto.id}`;
         });
 
         tabelaTdVisualizarIcone.addEventListener('click', () => {
-            // window.location.href = `./visualizacao-produto.html?id=${produto.id}`;
+            window.location.href = `./visualizacao-produto.html?id=${produto.id}`;
         });
     });
 }
