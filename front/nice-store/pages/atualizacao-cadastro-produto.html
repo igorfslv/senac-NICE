@@ -45,21 +45,21 @@
 
                         <label for="nome-produto">Nome:</label>
                         <input type="text" name="nome-produto" id="nome-produto" maxlength="200"
-                            placeholder="Ex.: Notebook DELL Inspiron">
+                            placeholder="Ex.: Notebook DELL Inspiron" required>
 
                         <label for="avaliacao-produto">Avaliação:</label>
                         <input type="number" name="avaliacao-produto" id="avaliacao-produto" min="1" max="5" step="0.5"
-                            placeholder="Avalie de 1 a 5">
+                            placeholder="Avalie de 1 a 5" required>
 
                         <label for="preco-produto">Preço:</label>
-                        <input type="number" name="preco-produto" id="preco-produto" placeholder="R$ 0,00">
+                        <input type="number" name="preco-produto" id="preco-produto" placeholder="R$ 0,00" required>
 
                         <label for="qtd-estoque-produto">Qtd Estoque:</label>
-                        <input type="number" name="qtd-estoque-produto" id="qtd-estoque-produto" placeholder="Ex.: 100">
+                        <input type="number" name="qtd-estoque-produto" id="qtd-estoque-produto" placeholder="Ex.: 100" required>
 
                         <label for="descricao-produto">Descrição:</label>
                         <textarea name="descricao-produto" id="descricao-produto" rows="4" cols="50" maxlength="2000"
-                            placeholder="Descreva aqui as específicações do produto. Máximo de 2000 caracteres."></textarea>
+                            placeholder="Descreva aqui as específicações do produto. Máximo de 2000 caracteres." required></textarea>
 
                     </div>
 
@@ -104,6 +104,7 @@
         </div>
     </main>
 
+    <script src="../js/connection/alterar-produto.js"></script>
     <script src="../js/utils/carregar-imagens.js"></script>
 </body>
 

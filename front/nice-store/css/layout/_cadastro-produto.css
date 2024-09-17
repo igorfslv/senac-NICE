@@ -105,9 +105,13 @@
     font-size: 14px;
 }
 
+.imagens-carregadas-corpo-lista tr td {
+    text-align: center;
+}
+
 .img-previa {
-    width: 500px;
-    height: 500px;
+    width: 150px;
+    height: 150px;
     object-fit: cover; 
 }
 
