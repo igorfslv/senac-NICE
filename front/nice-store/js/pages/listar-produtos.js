@@ -140,29 +140,32 @@ function preencherTabelaProdutos(tabelaBody, produtos) {
         tabelaBody.appendChild(tabelaTrBody);
         const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
 
-        if(admIdObj.grupoId === "ESTOQUISTA") {
+        if (admIdObj.grupoId === "ESTOQUISTA") {
             tabelaTdHabilitacaoBtn.disabled = true
             tabelaTdHabilitacaoBtn.style.backgroundColor = "#   ";
             tabelaTdHabilitacaoBtn.style.color = "#A9A9A9";
         }
 
-        
+
         tabelaTdHabilitacaoBtn.addEventListener('click', () => {
             let msgConfirmacao = window.prompt("Tem certeza que deseja alterar o status do produto? Digite '1 - SIM' ou '2 - NÃO'");
 
             if (msgConfirmacao == 1) {
-                
+
                 const url = `http://localhost:8080/produto/alternarStatus/${admIdObj.id}/${produto.id}`;
 
                 fetch(url, {
                     method: 'DELETE',
                 })
-                .then(response => response.json())
-                .then(result => {
-                    alert("Produto '" + result.nome + "' foi " + (result.ativo ? "Ativado" : "Desativado"));
-                    listarProdutosPesquisados();
-                })
-                .catch(error => console.error("Erro ao alterar status do produto:", error));
+                    .then(response => {
+                        console.log(response)
+                        return response.json()
+                    })
+                    .then(result => {
+                        alert("Produto '" + result.nome + "' foi " + (result.ativo ? "Ativado" : "Desativado"));
+                        listarProdutosPesquisados();
+                    })
+                    .catch(error => console.error("Erro ao alterar status do produto:", error));
 
             } else if (msgConfirmacao == 2) {
                 alert("Alteração de status cancelada.");
@@ -171,7 +174,7 @@ function preencherTabelaProdutos(tabelaBody, produtos) {
             }
         });
 
-        
+
         tabelaTdEditarIcone.addEventListener('click', () => {
             window.location.href = `./atualizacao-cadastro-produto.html?id=${produto.id}`;
         });
@@ -250,32 +253,6 @@ async function buscarProdutosPorNome(nomeProduto = "") {
     }
 }
 
-export async function listarProdutos() {
-    let containerVisualizacaoUsuario = document.querySelector(".container-visualizacao-usuario");
-    containerVisualizacaoUsuario.innerHTML = "";
-    containerVisualizacaoUsuario.style.height = "auto";
-
-    const tituloListaProdutos = document.createElement("h2");
-    tituloListaProdutos.textContent = "Lista de Produtos Cadastrados";
-    containerVisualizacaoUsuario.appendChild(tituloListaProdutos);
-
-    const { barraDePesquisa, btnPesquisarProdutoPeloNome } = criarBarraDePesquisa(containerVisualizacaoUsuario);
-    const { tabelaProdutos, tabelaBody } = criarTabelaProdutos();
-
-    containerVisualizacaoUsuario.appendChild(tabelaProdutos);
-
-
-    try {
-        const produtos = await buscarProdutos();
-        preencherTabelaProdutos(tabelaBody, produtos);
-
-    } catch (error) {
-        console.error('Erro ao listar os usuários:', error);
-    }
-
-    criarBotoesTelaUsuario(containerVisualizacaoUsuario);
-}
-
 async function buscarProdutos() {
     const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
     const admId = admIdObj.id;
@@ -295,6 +272,87 @@ async function buscarProdutos() {
         console.error('Erro ao fazer a requisição:', error);
         return [];
     }
+}
+
+function criarPaginacao(container, paginaAtual, totalPaginas, buscarProdutosPagina) {
+    const divPaginacao = document.createElement("div");
+    divPaginacao.className = "paginacao";
+    container.appendChild(divPaginacao);
+
+    // Botão de página anterior
+    const btnAnterior = document.createElement("button");
+    btnAnterior.textContent = "Anterior";
+    btnAnterior.className = "btn-paginacao";
+    btnAnterior.disabled = paginaAtual === 0;
+    divPaginacao.appendChild(btnAnterior);
+
+    btnAnterior.addEventListener("click", () => {
+        if (paginaAtual > 0) {
+            buscarProdutosPagina(paginaAtual - 1);
+        }
+    });
+
+    // Exibe a página atual e o total de páginas
+    const spanPaginaAtual = document.createElement("span");
+    spanPaginaAtual.textContent = `Página ${paginaAtual + 1} de ${totalPaginas}`;
+    divPaginacao.appendChild(spanPaginaAtual);
+
+    // Botão de próxima página
+    const btnProximo = document.createElement("button");
+    btnProximo.textContent = "Próximo";
+    btnProximo.className = "btn-paginacao";
+    btnProximo.disabled = paginaAtual === totalPaginas - 1;
+    divPaginacao.appendChild(btnProximo);
+
+    btnProximo.addEventListener("click", () => {
+        if (paginaAtual < totalPaginas - 1) {
+            buscarProdutosPagina(paginaAtual + 1);
+        }
+    });
+
+    if (paginaAtual === 0) {
+        btnAnterior.style.backgroundColor = "#ccc";
+    } else if (paginaAtual === totalPaginas - 1) {
+        btnProximo.style.backgroundColor = "#ccc";
+    }
+}
+
+async function buscarProdutosPagina(pagina = 0, nomeProduto = "") {
+    const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
+    let url = `http://localhost:8080/produto/getProdutos/${pagina}`;
+    url += `?nome=${encodeURIComponent(nomeProduto)}`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.statusText}`);
+        }
+        const data = await response.json();
+        const { content, totalPages } = data;
+
+        let containerVisualizacaoUsuario = document.querySelector(".container-visualizacao-usuario");
+        containerVisualizacaoUsuario.innerHTML = "";
+
+        const tituloListaProdutos = document.createElement("h2");
+        tituloListaProdutos.textContent = "Lista de Produtos Cadastrados";
+        containerVisualizacaoUsuario.appendChild(tituloListaProdutos);
+
+        const { tabelaProdutos, tabelaBody } = criarTabelaProdutos();
+        containerVisualizacaoUsuario.appendChild(tabelaProdutos);
+        preencherTabelaProdutos(tabelaBody, content);
+
+        // Criar a paginação
+        criarPaginacao(containerVisualizacaoUsuario, pagina, totalPages, buscarProdutosPagina);
+
+        criarBotoesTelaUsuario(containerVisualizacaoUsuario);
+
+    } catch (error) {
+        console.error('Erro ao fazer a requisição:', error);
+    }
+}
+
+export async function listarProdutos() {
+    buscarProdutosPagina();
 }
 
 function redirecionarTelaCadastroProduto() {
