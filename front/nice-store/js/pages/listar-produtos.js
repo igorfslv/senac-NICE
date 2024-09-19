@@ -227,7 +227,11 @@ async function listarProdutosPesquisados(nomeProduto) {
         console.error('Erro ao listar os usuários:', error);
     }
 
+    buscarProdutosPagina();
+
     criarBotoesTelaUsuario(containerVisualizacaoUsuario);
+
+
 }
 
 async function buscarProdutosPorNome(nomeProduto = "") {

@@ -3,50 +3,127 @@ const inputCarregarImagens = document.getElementById("input-carregar-imagens");
 const nomeArquivoSpan = document.getElementById("nome-arquivo");
 const corpoListaImagens = document.querySelector(".imagens-carregadas-corpo-lista");
 
-// Quando clicar no botão, abre o seletor de arquivos
-btnCarregarArquivos.addEventListener("click", function(event) {
-    event.preventDefault(); // Impede comportamento padrão do botão
+export let vetorImagens = [];
+let arquivosSelecionados = []; // Array para manter os arquivos
+
+btnCarregarArquivos.addEventListener("click", function (event) {
+    event.preventDefault();
     inputCarregarImagens.click();
 });
 
-// Quando arquivos forem selecionados
-inputCarregarImagens.addEventListener("change", function() {
-    const arquivos = inputCarregarImagens.files;
+inputCarregarImagens.addEventListener("change", function () {
+    carregarImagens();
+});
 
-    console.log('Arquivos selecionados:', arquivos); // Verifica se arquivos estão sendo selecionados
+function carregarImagens() {
+    const arquivos = Array.from(inputCarregarImagens.files);
+    arquivosSelecionados = arquivosSelecionados.concat(arquivos);
+    
+    if (arquivosSelecionados.length > 0) {
+        nomeArquivoSpan.textContent = `${arquivosSelecionados.length} arquivo(s) selecionado(s)`;
 
-    if (arquivos.length > 0) {
-        nomeArquivoSpan.textContent = `${arquivos.length} arquivo(s) selecionado(s)`;
+        corpoListaImagens.innerHTML = "";
 
-        corpoListaImagens.innerHTML = '';
+        vetorImagens = arquivosSelecionados.map((arquivo, index) => ({
+            caminho: "../img/" + arquivo.name,
+            principal: false
+        }));
 
-        const urlsImagens = [];
-
-        for (let i = 0; i < arquivos.length; i++) {
-            const arquivo = arquivos[i];
-
-            // Cria um objeto URL para a pré-visualização da imagem
-            const urlImagem = URL.createObjectURL(arquivo);
-            urlsImagens.push(urlImagem); // Armazena o URL para liberar mais tarde
-
-            console.log(`URL da imagem criada: ${urlImagem}`); // Verifica o URL criado
+        vetorImagens.forEach((imagem, index) => {
+            const urlImagem = URL.createObjectURL(arquivosSelecionados[index]);
 
             const novaLinha = document.createElement("tr");
 
             novaLinha.innerHTML = `
                 <td><img src="${urlImagem}" alt="Imagem Produto" class="img-previa"></td>
-                <td>${arquivo.name}</td>
+                <td>${arquivosSelecionados[index].name}</td>
                 <td>
-                    <input type="radio" name="principal" value="${i + 1}">
+                    <input type="radio" name="principal" value="${index}">
+                </td>
+                <td>
+                    <button class="btn-remover" data-index="${index}">X</button>
                 </td>
             `;
 
             corpoListaImagens.appendChild(novaLinha);
-        }
 
-        // Libera os URLs depois de usá-los
-        urlsImagens.forEach((url) => URL.revokeObjectURL(url));
+            const radioButton = novaLinha.querySelector('input[type="radio"]');
+            radioButton.addEventListener("change", function () {
+                vetorImagens.forEach((img, i) => {
+                    img.principal = i === index;
+                });
+
+                console.log('Imagem principal marcada:', vetorImagens[index]);
+                console.log('Vetor de imagens atualizado:', vetorImagens);
+            });
+
+            const btnRemover = novaLinha.querySelector('.btn-remover');
+            btnRemover.style.backgroundColor = 'red';
+            btnRemover.style.color = 'white';
+            btnRemover.style.border = 'none';
+            btnRemover.style.padding = '5px 10px';
+            btnRemover.style.cursor = 'pointer';
+            btnRemover.style.fontWeight = 'bold';
+            btnRemover.addEventListener("click", function () {
+                const rowIndex = parseInt(this.dataset.index); 
+                removerImagem(rowIndex); 
+            });
+        });
+
+        console.log('Vetor de imagens:', vetorImagens);
     } else {
         nomeArquivoSpan.textContent = "Nenhum arquivo selecionado";
     }
-});
+}
+
+function removerImagem(index) {
+    vetorImagens.splice(index, 1);
+    arquivosSelecionados.splice(index, 1); 
+    recarregarTabela();
+}
+
+function recarregarTabela() {
+    corpoListaImagens.innerHTML = "";
+
+    vetorImagens.forEach((imagem, index) => {
+        const urlImagem = URL.createObjectURL(arquivosSelecionados[index]);
+
+        const novaLinha = document.createElement("tr");
+
+        novaLinha.innerHTML = `
+            <td><img src="${urlImagem}" alt="Imagem Produto" class="img-previa"></td>
+            <td>${imagem.caminho.split("/").pop()}</td>
+            <td>
+                <input type="radio" name="principal" value="${index}" ${imagem.principal ? "checked" : ""}>
+            </td>
+            <td>
+                <button class="btn-remover" data-index="${index}">X</button>
+            </td>
+        `;
+
+        corpoListaImagens.appendChild(novaLinha);
+
+        const radioButton = novaLinha.querySelector('input[type="radio"]');
+
+        radioButton.addEventListener("change", function () {
+            vetorImagens.forEach((img, i) => {
+                img.principal = i === index;
+            });
+
+            console.log('Imagem principal marcada:', vetorImagens[index]);
+            console.log('Vetor de imagens atualizado:', vetorImagens);
+        });
+
+        const btnRemover = novaLinha.querySelector('.btn-remover');
+        btnRemover.style.backgroundColor = 'red';
+        btnRemover.style.color = 'white';
+        btnRemover.style.border = 'none';
+        btnRemover.style.padding = '5px 10px';
+        btnRemover.style.cursor = 'pointer';
+        btnRemover.style.fontWeight = 'bold';
+        btnRemover.addEventListener("click", function () {
+            const rowIndex = parseInt(this.dataset.index); 
+            removerImagem(rowIndex);
+        });
+    });
+}
