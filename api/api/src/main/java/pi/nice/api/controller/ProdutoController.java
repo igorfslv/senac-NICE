@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,18 +33,19 @@ public class ProdutoController {
     @CrossOrigin
     @GetMapping("/getProdutos/{numeroDaPagina}")
     public ResponseEntity<?> getListaDeProdutos(
-            @PageableDefault Pageable pageable,
+            @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
             @PathVariable int numeroDaPagina,
             @RequestParam(required = false) String nome) {
 
-        return produtoService.getListaDeProdutos(PageRequest.of(numeroDaPagina, 10), nome);
+        return produtoService.getListaDeProdutos(PageRequest.of(numeroDaPagina, 10, pageable.getSort()), nome);
 
     }
 
     @CrossOrigin
-    @PostMapping("/registrar")
-    public ResponseEntity<?> registrarProduto(@RequestBody @Valid RegistrarProdutoDTO registrarProduto) {
-        return produtoService.novoProduto(registrarProduto);
+    @PostMapping("/registrar/{admId}")
+    public ResponseEntity<?> registrarProduto(@PathVariable String admId,
+                                              @RequestBody @Valid RegistrarProdutoDTO registrarProduto) {
+        return produtoService.novoProduto(admId, registrarProduto);
     }
 
     @CrossOrigin

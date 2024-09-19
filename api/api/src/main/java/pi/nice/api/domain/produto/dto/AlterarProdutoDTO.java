@@ -21,8 +21,6 @@ public record AlterarProdutoDTO(
         String descricao,
         @NotNull
         Double avaliacao,
-        @NotNull
-        boolean ativo,
         List<RegistrarImagemDTO> imagens
 ) {
 }

@@ -63,23 +63,12 @@ public class Produto {
         this.ativo = true;
     }
 
-    public Produto(AlterarProdutoDTO alterarProdutoDTO){
-        this.id = alterarProdutoDTO.id();
-        this.nome = alterarProdutoDTO.nome();
-        this.preco = alterarProdutoDTO.preco();
-        this.qtd_estoque = alterarProdutoDTO.qtdEstoque();
-        this.descricao = alterarProdutoDTO.descricao();
-        this.avaliacao = alterarProdutoDTO.avaliacao();
-        this.ativo = alterarProdutoDTO.ativo();
-    }
-
     public Produto alterarDados(AlterarProdutoDTO alterarProdutoDTO){
         this.nome = alterarProdutoDTO.nome();
         this.preco = alterarProdutoDTO.preco();
         this.qtd_estoque = alterarProdutoDTO.qtdEstoque();
         this.descricao = alterarProdutoDTO.descricao();
         this.avaliacao = alterarProdutoDTO.avaliacao();
-        this.ativo = alterarProdutoDTO.ativo();
         this.imagens.clear();
         this.imagens.addAll(alterarProdutoDTO.imagens()
                 .stream()

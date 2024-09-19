@@ -32,7 +32,8 @@ public class ProdutoService {
     @Autowired
     private ImagemRepository imagemRepository;
 
-    public ResponseEntity<?> novoProduto(RegistrarProdutoDTO registrarProdutoDTO){
+    public ResponseEntity<?> novoProduto(String admId, RegistrarProdutoDTO registrarProdutoDTO){
+        possuiPermissaoDeAdm(admId);
         Produto novoProduto = new Produto(registrarProdutoDTO);
         produtoRepository.save(novoProduto);
         return ResponseEntity.ok(new ProdutoDTO(novoProduto));
