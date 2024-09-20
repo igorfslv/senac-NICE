@@ -20,4 +20,6 @@ public record RegistrarProdutoDTO(
         Double avaliacao,
         List<RegistrarImagemDTO> imagens
 ) {
+
+
 }

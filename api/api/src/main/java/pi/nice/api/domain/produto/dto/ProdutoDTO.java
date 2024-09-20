@@ -2,6 +2,7 @@ package pi.nice.api.domain.produto.dto;
 
 import pi.nice.api.domain.imagens.Imagem;
 import pi.nice.api.domain.imagens.dto.ImagemDTO;
+import pi.nice.api.domain.imagens.dto.RegistrarImagemDTO;
 import pi.nice.api.domain.produto.Produto;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public record ProdutoDTO (
         String descricao,
         Double avaliacao,
         boolean ativo,
-        List<ImagemDTO> imagens
+        List<RegistrarImagemDTO> imagens
 ){
 
     public ProdutoDTO(Produto produto) {
@@ -25,7 +26,7 @@ public record ProdutoDTO (
                 produto.getDescricao(),
                 produto.getAvaliacao(),
                 produto.isAtivo(),
-                produto.getImagens().stream().map(imagem -> new ImagemDTO(imagem)).toList());
+                produto.getImagens().stream().map(imagem -> new RegistrarImagemDTO(imagem)).toList());
 
     }
 }
