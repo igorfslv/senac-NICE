@@ -1,38 +1,3 @@
-// async function exibirOpcaoAcaoUsuario() {
-//     const grupoUsuarioLogado = document.querySelector('.grupo-usuario-logado').textContent;
-//     let containerVisualizacaoUsuario = document.querySelector('.container-visualizacao-usuario');
-//     containerVisualizacaoUsuario.innerHTML = ""; // Limpa o container
-//     containerVisualizacaoUsuario.style.height = "auto"; // Ajusta o layout
-
-//     // Cria e exibe a barra de pesquisa e tabela de produtos
-//     const { barraDePesquisa, btnPesquisarProdutoPeloNome } = criarBarraDePesquisa(containerVisualizacaoUsuario);
-//     const { tabelaProdutos, tabelaBody } = criarTabelaProdutos();
-
-//     // Adiciona a tabela no container de visualização
-//     containerVisualizacaoUsuario.appendChild(tabelaProdutos);
-
-//     try {
-//         // Buscar produtos da API, caso esteja conectado a uma.
-//         const produtos = await buscarProdutosPorNome();
-
-//         // Preenche a tabela de produtos com os dados obtidos
-//         preencherTabelaProdutos(tabelaBody, produtos);
-
-//         // Atualiza a coluna de ações com base no grupo do usuário logado
-//         if (grupoUsuarioLogado === "ADMINISTRADOR") {
-//             document.querySelector('#tabela-produtos-acao').textContent = "Editar";
-//         } else if (grupoUsuarioLogado === "ESTOQUISTA") {
-//             document.querySelector('#tabela-produtos-acao').textContent = "Atualizar Estoque";
-//         }
-
-//     } catch (error) {
-//         console.error("Erro ao listar produtos:", error);
-//     }
-
-
-//     preencherTabelaProdutos(tabelaBody, produtos);
-// };
-
 function criarBarraDePesquisa(container) {
     const divBarraDePesquisa = document.createElement("div");
     divBarraDePesquisa.className = "container-barra-pesquisa";
@@ -55,6 +20,7 @@ function criarBarraDePesquisa(container) {
 
     btnPesquisarProdutoPeloNome.addEventListener('click', async () => {
         const nomeProduto = barraDePesquisa.value;
+        console.log(nomeProduto);
         await listarProdutosPesquisados(nomeProduto);
 
     });
@@ -208,7 +174,7 @@ function criarBotoesTelaUsuario(container) {
 
 async function listarProdutosPesquisados(nomeProduto) {
     let containerVisualizacaoUsuario = document.querySelector(".container-visualizacao-usuario");
-    containerVisualizacaoUsuario.innerHTML = "";
+    containerVisualizacaoUsuario.innerHTML = ""; // Limpa o container
     containerVisualizacaoUsuario.style.height = "auto";
 
     const tituloListaProdutos = document.createElement("h2");
@@ -221,18 +187,28 @@ async function listarProdutosPesquisados(nomeProduto) {
     containerVisualizacaoUsuario.appendChild(tabelaProdutos);
 
     try {
+        // Faz a busca pelos produtos pelo nome
         const produtos = await buscarProdutosPorNome(nomeProduto);
-        preencherTabelaProdutos(tabelaBody, produtos);
+        console.log(produtos);
+        
+        // Verifica se encontrou produtos com o nome pesquisado
+        if (produtos.length > 0) {
+            // Preenche a tabela com os produtos encontrados
+            preencherTabelaProdutos(tabelaBody, produtos);
+        } else {
+            // Caso não haja produtos encontrados, mostra uma mensagem
+            const mensagemSemProdutos = document.createElement("p");
+            mensagemSemProdutos.textContent = "Nenhum produto encontrado.";
+            containerVisualizacaoUsuario.appendChild(mensagemSemProdutos);
+        }
+
     } catch (error) {
-        console.error('Erro ao listar os usuários:', error);
+        console.error('Erro ao listar os produtos pesquisados:', error);
     }
 
-    buscarProdutosPagina();
-
     criarBotoesTelaUsuario(containerVisualizacaoUsuario);
-
-
 }
+
 
 async function buscarProdutosPorNome(nomeProduto = "") {
     const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
@@ -243,13 +219,14 @@ async function buscarProdutosPorNome(nomeProduto = "") {
 
     url += `?nome=${encodeURIComponent(nomeProduto)}`;
 
-
+    console.log(url);
     try {
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Erro: ${response.statusText}`);
         }
         const data = await response.json();
+        console.log(data.content);
         return data.content;
     } catch (error) {
         console.error('Erro ao fazer a requisição:', error);
@@ -257,26 +234,6 @@ async function buscarProdutosPorNome(nomeProduto = "") {
     }
 }
 
-async function buscarProdutos() {
-    const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
-    const admId = admIdObj.id;
-    const numeroDaPaginaBancoDeDados = 0;
-
-    let url = `http://localhost:8080/produto/getProdutos/${numeroDaPaginaBancoDeDados}`;
-
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Erro: ${response.statusText}`);
-        }
-        const data = await response.json();
-        console.log("Dados retornados pela API:", data);
-        return data.content;
-    } catch (error) {
-        console.error('Erro ao fazer a requisição:', error);
-        return [];
-    }
-}
 
 function criarPaginacao(container, paginaAtual, totalPaginas, buscarProdutosPagina) {
     const divPaginacao = document.createElement("div");
@@ -340,6 +297,8 @@ async function buscarProdutosPagina(pagina = 0, nomeProduto = "") {
         const tituloListaProdutos = document.createElement("h2");
         tituloListaProdutos.textContent = "Lista de Produtos Cadastrados";
         containerVisualizacaoUsuario.appendChild(tituloListaProdutos);
+
+        const { barraDePesquisa, btnPesquisarProdutoPeloNome } = criarBarraDePesquisa(containerVisualizacaoUsuario);
 
         const { tabelaProdutos, tabelaBody } = criarTabelaProdutos();
         containerVisualizacaoUsuario.appendChild(tabelaProdutos);
