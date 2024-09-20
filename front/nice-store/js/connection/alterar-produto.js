@@ -4,12 +4,15 @@ const avaliacaoProduto = document.getElementById('avaliacao-produto');
 const precoProduto = document.getElementById('preco-produto');
 const qtdEstoqueProduto = document.getElementById('qtd-estoque-produto');
 const descricaoProduto = document.getElementById('descricao-produto');
-const tabelaImagensProduto = document.querySelector('.imagens-carregadas-corpo-lista');
+const corpoListaImagens = document.querySelector('.imagens-carregadas-corpo-lista'); 
 const btnCancelar = document.getElementById('btn-cancelar');
 const btnEnviar = document.getElementById('btn-enviar');
 
 import { vetorImagens } from '../utils/carregar-imagens.js'
+import { carregarImagens } from '../utils/carregar-imagens.js'
+
 let imagensProduto = [];
+let responseAPI;
 const urlID = new URL(window.location.href);
 const id = urlID.searchParams.get("id");
 
@@ -28,45 +31,12 @@ fetch(url)
         descricaoProduto.value = produtoJSON.descricao;
 
         imagensProduto = produtoJSON.imagens;
-
-        for (let i = 0; i < imagensProduto.length; i++) {
-            const imagem = imagensProduto[i];
-            const novaLinha = document.createElement("tr");
-            const principal = imagem.principal === "true" || imagem.principal === true ? 1 : 0;
-
-            novaLinha.innerHTML = `
-            <td><img src="${imagem.caminho}" alt="Imagem Produto" class="img-previa"></td>
-            <td>${imagem.nome}</td>
-            <td>
-                <input type="radio" name="principal" value="${i}" ${principal === 1 ? 'checked' : ''}>
-            </td>
-            <td>
-                <button class="btn-remover">X</button> <!-- Botão de remover -->
-            </td>
-        `;
-
-            tabelaImagensProduto.append(novaLinha);
-
-            const radioButton = novaLinha.querySelector('input[type="radio"]');
-            radioButton.addEventListener("change", function() {
-                vetorImagens.forEach((img, i) => {
-                    img.principal = i === index;
-                });
-
-                console.log('Imagem principal marcada:', vetorImagens[index]);
-                console.log('Vetor de imagens atualizado:', vetorImagens);
-            });
-
-            const btnRemover = novaLinha.querySelector('.btn-remover');
-            btnRemover.addEventListener("click", function() {
-                const rowIndex = parseInt(this.dataset.index); 
-                removerImagem(rowIndex); 
-            });
-
-        }
+        carregarImagens(imagensProduto)
+       
     });
 
 console.log(id);
+
 
 btnEnviar.addEventListener('click', function (event) {
 
@@ -79,11 +49,42 @@ btnEnviar.addEventListener('click', function (event) {
         "qtdEstoque": parseInt(qtdEstoqueProduto.value, 10),
         "descricao": descricaoProduto.value,
         "avaliacao": parseFloat(avaliacaoProduto.value),
-        "imagens": imagensProduto 
+        "imagens": vetorImagens 
     };
 
     console.log('Dados a serem enviados:', JSON.stringify(data, null, 2));
-    alert("a")
+
+    const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    const urlAtualizar = `http://localhost:8080/produto/alterar/${usuarioLogado.id}`;
+
+    fetch(urlAtualizar, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            responseAPI = response.status
+            return response.json();
+        })
+
+        .then(result => {
+
+            if (responseAPI === 400) {
+                alert("Não foi possível alterar o usuário " + result.nome + ". \nCampo: " + result.campo + "\nMotivo: " + result.mensagem)
+            } else {
+                alert("Usuário '" + result.nome + "' alterado com sucesso!")
+                window.location.href = "./visualizacao-usuario.html";
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            const erro = JSON.stringify(error)
+
+        });
+
+
 });
 
 

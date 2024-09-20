@@ -4,7 +4,7 @@ const nomeArquivoSpan = document.getElementById("nome-arquivo");
 const corpoListaImagens = document.querySelector(".imagens-carregadas-corpo-lista");
 
 export let vetorImagens = [];
-let arquivosSelecionados = []; // Array para manter os arquivos
+export let arquivosSelecionados = []; // Array para manter os arquivos
 
 btnCarregarArquivos.addEventListener("click", function (event) {
     event.preventDefault();
@@ -12,33 +12,47 @@ btnCarregarArquivos.addEventListener("click", function (event) {
 });
 
 inputCarregarImagens.addEventListener("change", function () {
-    carregarImagens();
+    carregarImagens([]);
 });
 
-function carregarImagens() {
+export function carregarImagens(preArquivos) {
     const arquivos = Array.from(inputCarregarImagens.files);
     arquivosSelecionados = arquivosSelecionados.concat(arquivos);
+    console.log(preArquivos)
     
-    if (arquivosSelecionados.length > 0) {
+
         nomeArquivoSpan.textContent = `${arquivosSelecionados.length} arquivo(s) selecionado(s)`;
 
         corpoListaImagens.innerHTML = "";
 
-        vetorImagens = arquivosSelecionados.map((arquivo, index) => ({
+        const arquivosCarregados = arquivosSelecionados.map((arquivo, index) => ({
             caminho: "../img/" + arquivo.name,
             principal: false
         }));
 
-        vetorImagens.forEach((imagem, index) => {
-            const urlImagem = URL.createObjectURL(arquivosSelecionados[index]);
+        vetorImagens.push(...arquivosCarregados)
 
+        arquivosSelecionados = []
+
+        if (preArquivos.length > 0)  {
+            vetorImagens.push(...preArquivos)
+            
+        }  else {
+            console.log("vazio")
+        }
+        
+        console.log(vetorImagens)
+        
+
+        vetorImagens.forEach((imagem, index) => {
+            
             const novaLinha = document.createElement("tr");
 
             novaLinha.innerHTML = `
-                <td><img src="${urlImagem}" alt="Imagem Produto" class="img-previa"></td>
-                <td>${arquivosSelecionados[index].name}</td>
+                <td><img src="${imagem.caminho}" alt="Imagem Produto" class="img-previa"></td>
+                <td>${imagem.caminho.split("/").pop()}</td>
                 <td>
-                    <input type="radio" name="principal" value="${index}">
+                    <input type="radio" name="principal" value="${index}" ${imagem.principal ? 'checked' : ''}>
                 </td>
                 <td>
                     <button class="btn-remover" data-index="${index}">X</button>
@@ -71,9 +85,7 @@ function carregarImagens() {
         });
 
         console.log('Vetor de imagens:', vetorImagens);
-    } else {
-        nomeArquivoSpan.textContent = "Nenhum arquivo selecionado";
-    }
+ 
 }
 
 function removerImagem(index) {
@@ -84,17 +96,17 @@ function removerImagem(index) {
 
 function recarregarTabela() {
     corpoListaImagens.innerHTML = "";
+    console.log(vetorImagens)
 
     vetorImagens.forEach((imagem, index) => {
-        const urlImagem = URL.createObjectURL(arquivosSelecionados[index]);
 
         const novaLinha = document.createElement("tr");
 
         novaLinha.innerHTML = `
-            <td><img src="${urlImagem}" alt="Imagem Produto" class="img-previa"></td>
+            <td><img src="${imagem.caminho}" alt="Imagem Produto" class="img-previa"></td>
             <td>${imagem.caminho.split("/").pop()}</td>
             <td>
-                <input type="radio" name="principal" value="${index}" ${imagem.principal ? "checked" : ""}>
+                <input type="radio" name="principal" value="${index}" ${imagem.principal ? 'checked' : ''}>
             </td>
             <td>
                 <button class="btn-remover" data-index="${index}">X</button>
