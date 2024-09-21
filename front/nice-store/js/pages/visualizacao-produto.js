@@ -1,5 +1,6 @@
 const nomeProdutoIndividual = document.getElementById('nome-principal-produto');
 const avaliacaoProdutoIndividual = document.getElementById('avaliacao-produto');
+const pontosProdutoAvaliacao = document.getElementById('pontos-avaliacao');
 const precoProdutoIndividual = document.getElementById('preco-produto');
 const qtdEstoqueProdutoIndividual = document.getElementById('qtd-estoque-produto');
 const descricaoProdutoIndividual = document.getElementById('descricao-produto');
@@ -26,8 +27,9 @@ fetch(url)
         // Preenche as outras informações do produto
         nomeProdutoIndividual.textContent = produtoJSON.nome;
         precoProdutoIndividual.textContent = produtoJSON.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-        qtdEstoqueProdutoIndividual.textContent = "Qtd Estoque: " + produtoJSON.qtdEstoque;
+        qtdEstoqueProdutoIndividual.textContent = produtoJSON.qtdEstoque;
         descricaoProdutoIndividual.textContent = produtoJSON.descricao;
+        pontosProdutoAvaliacao.textContent = produtoJSON.avaliacao;
 
         // Preenche as estrelas de acordo com a avaliação
         preencherEstrelas(produtoJSON.avaliacao);

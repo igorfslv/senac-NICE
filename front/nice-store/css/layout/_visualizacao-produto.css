@@ -82,13 +82,27 @@
 
 .avaliacao {
     display: flex;
-    align-items: center;
+    align-items: start;
     font-weight: 600;
+    color: #2682df;
 }
 
 .avaliacao div i {
     font-size: 20px;
-    color: #2682df;
+}
+
+.avaliacao p {
+    margin-left: 5px;
+}
+
+.qtd-estoque {
+    display: flex;
+    align-items: start;
+}
+
+#qtd-estoque-produto {
+    font-weight: 400;
+    margin-left: 5px;
 }
 
 .estrelas {
@@ -125,7 +139,7 @@
     justify-content: end;
 }
 
-.btn-add-carrinho button {
-    background-color: #0fc71e;
+.btn-add-carrinho button:disabled {
+    background-color: #ccc;
     color: white;
 }
