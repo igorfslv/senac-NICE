@@ -101,6 +101,16 @@
     margin-right: 10px;
 }
 
+.btn-atualizar-estoque {
+    padding: 10px 20px;
+    background-color: #0fc71e;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+}
+
 .imagens-carregadas-corpo-lista tr {
     font-size: 14px;
 }

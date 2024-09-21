@@ -146,3 +146,7 @@
     font-size: 14px;
     background-color: #e7e7e7;
 }
+
+.tabela-produtos tr td {
+    text-align: center;
+}

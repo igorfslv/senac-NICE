@@ -2,7 +2,7 @@ const nomeProdutoIndividual = document.getElementById('nome-principal-produto');
 const avaliacaoProdutoIndividual = document.getElementById('avaliacao-produto');
 const pontosProdutoAvaliacao = document.getElementById('pontos-avaliacao');
 const precoProdutoIndividual = document.getElementById('preco-produto');
-const qtdEstoqueProdutoIndividual = document.getElementById('qtd-estoque-produto');
+const qtdEstoqueProdutoIndividual = document.getElementById('qtd-estoque-produto-p');
 const descricaoProdutoIndividual = document.getElementById('descricao-produto');
 let imagensProduto = [];
 

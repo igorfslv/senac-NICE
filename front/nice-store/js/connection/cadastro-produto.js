@@ -1,4 +1,4 @@
-const btnCancelar = document.getElementById('btn-cancelar');
+const btnCancelar = document.querySelector('.btn-cancelar');
 const btnEnviar = document.getElementById('btn-enviar');
 const nomeProduto = document.getElementById('nome-produto');
 const avaliacaoProduto = document.getElementById('avaliacao-produto');
@@ -54,5 +54,5 @@ btnEnviar.addEventListener('click', function (event) {
 });
 
 btnCancelar.addEventListener('click', () => {
-    window.location.href = "./cadastro-produto.html";
+    window.location.href = "./visualizacao-usuario.html";
 });

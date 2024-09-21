@@ -2,9 +2,14 @@ const btnCarregarArquivos = document.getElementById("btn-carregar-arquivos");
 const inputCarregarImagens = document.getElementById("input-carregar-imagens");
 const nomeArquivoSpan = document.getElementById("nome-arquivo");
 const corpoListaImagens = document.querySelector(".imagens-carregadas-corpo-lista");
+const colunaRadios = document.getElementById("th-principal");
+const colunaRemover = document.getElementById("th-remover");
+
 
 export let vetorImagens = [];
 export let arquivosSelecionados = []; // Array para manter os arquivos
+
+import { verificarGrupoUsuarioLogado } from "../utils/verificar-grupo-usuario-logado.js";
 
 btnCarregarArquivos.addEventListener("click", function (event) {
     event.preventDefault();
@@ -26,14 +31,14 @@ export function carregarImagens(preArquivos) {
         caminho: "../img/" + arquivo.name,
         principal: false
     }));
-    
+
     vetorImagens.push(...arquivosCarregados);
     arquivosSelecionados = [];
 
     if (preArquivos.length > 0) {
         vetorImagens.push(...preArquivos);
     }
-    
+
     recarregarTabela();
 }
 
@@ -48,40 +53,57 @@ function recarregarTabela() {
     vetorImagens.forEach((imagem, index) => {
         const novaLinha = document.createElement("tr");
 
-        novaLinha.innerHTML = `
+        if (verificarGrupoUsuarioLogado() === "ADMINISTRADOR") {
+
+            novaLinha.innerHTML = `
             <td><img src="${imagem.caminho}" alt="Imagem Produto" class="img-previa"></td>
             <td>${imagem.caminho.split("/").pop()}</td>
             <td>
-                <input type="radio" name="principal" value="${index}" ${imagem.principal ? 'checked' : ''} required>
+                <input class="rd-principal" type="radio" name="principal" value="${index}" ${imagem.principal ? 'checked' : ''} required>
             </td>
             <td>
                 <button class="btn-remover" data-index="${index}">X</button>
             </td>
-        `;
+            `;
 
-        corpoListaImagens.appendChild(novaLinha);
+            corpoListaImagens.appendChild(novaLinha);
 
-        const radioButton = novaLinha.querySelector('input[type="radio"]');
-        radioButton.addEventListener("change", function () {
-            vetorImagens.forEach((img, i) => {
-                img.principal = i === index;
+            const radioButton = novaLinha.querySelector('input[type="radio"]');
+            radioButton.addEventListener("change", function () {
+                vetorImagens.forEach((img, i) => {
+                    img.principal = i === index;
+                });
+
+                console.log('Imagem principal marcada:', vetorImagens[index]);
+                console.log('Vetor de imagens atualizado:', vetorImagens);
             });
 
-            console.log('Imagem principal marcada:', vetorImagens[index]);
-            console.log('Vetor de imagens atualizado:', vetorImagens);
-        });
+            const btnRemover = novaLinha.querySelector('.btn-remover');
+            btnRemover.style.backgroundColor = 'red';
+            btnRemover.style.color = 'white';
+            btnRemover.style.border = 'none';
+            btnRemover.style.padding = '5px 10px';
+            btnRemover.style.cursor = 'pointer';
+            btnRemover.style.fontWeight = 'bold';
+            btnRemover.addEventListener("click", function () {
+                const rowIndex = parseInt(this.dataset.index);
+                removerImagem(rowIndex);
+            });
 
-        const btnRemover = novaLinha.querySelector('.btn-remover');
-        btnRemover.style.backgroundColor = 'red';
-        btnRemover.style.color = 'white';
-        btnRemover.style.border = 'none';
-        btnRemover.style.padding = '5px 10px';
-        btnRemover.style.cursor = 'pointer';
-        btnRemover.style.fontWeight = 'bold';
-        btnRemover.addEventListener("click", function () {
-            const rowIndex = parseInt(this.dataset.index); 
-            removerImagem(rowIndex);
-        });
+        } else if (verificarGrupoUsuarioLogado() === "ESTOQUISTA") {
+
+            colunaRadios.style.display = "none";
+            colunaRemover.style.display = "none";
+
+            novaLinha.innerHTML = `
+            <td><img src="${imagem.caminho}" alt="Imagem Produto" class="img-previa"></td>
+            <td>${imagem.caminho.split("/").pop()}</td>
+            `;
+
+            corpoListaImagens.appendChild(novaLinha);
+        }
+
+
     });
 
     // Atualiza a contagem de arquivos

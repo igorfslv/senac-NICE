@@ -1,3 +1,5 @@
+import { verificarGrupoUsuarioLogado } from "../utils/verificar-grupo-usuario-logado.js";
+
 function criarBarraDePesquisa(container) {
     const divBarraDePesquisa = document.createElement("div");
     divBarraDePesquisa.className = "container-barra-pesquisa";
@@ -30,15 +32,27 @@ function criarBarraDePesquisa(container) {
 
 function criarTabelaProdutos() {
     let tabelaProdutos = document.createElement("table");
+    tabelaProdutos.className = "tabela-produtos";
     let tabelaHead = document.createElement("thead");
     let tabelaTrHead = document.createElement("tr");
 
-    const cabecalhos = ["ID Produto", "Nome", "Qtd Estoque", "Valor", "Status", "Editar", "Visualizar", "Habilitação"];
-    cabecalhos.forEach(cabecalho => {
-        let th = document.createElement("th");
-        th.textContent = cabecalho;
-        tabelaTrHead.appendChild(th);
-    });
+    if (verificarGrupoUsuarioLogado() === "ADMINISTRADOR") {
+        const cabecalhos = ["ID Produto", "Nome", "Qtd Estoque", "Valor", "Status", "Editar", "Visualizar", "Habilitação"];
+        cabecalhos.forEach(cabecalho => {
+            let th = document.createElement("th");
+            th.textContent = cabecalho;
+            tabelaTrHead.appendChild(th);
+        });
+
+    } else if (verificarGrupoUsuarioLogado() === "ESTOQUISTA") {
+        const cabecalhos = ["ID Produto", "Nome", "Qtd Estoque", "Valor", "Status", "Editar"];
+        cabecalhos.forEach(cabecalho => {
+            let th = document.createElement("th");
+            th.textContent = cabecalho;
+            tabelaTrHead.appendChild(th);
+        });
+    }
+
 
     tabelaProdutos.appendChild(tabelaHead);
     tabelaHead.appendChild(tabelaTrHead);
@@ -51,103 +65,139 @@ function criarTabelaProdutos() {
 
 function preencherTabelaProdutos(tabelaBody, produtos) {
     produtos.forEach(produto => {
-        let tabelaTrBody = document.createElement("tr");
 
-        let tabelaTdID = document.createElement("td");
-        tabelaTdID.textContent = produto.id;
+        if (verificarGrupoUsuarioLogado() === "ADMINISTRADOR") {
+            const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
 
-        let tabelaTdNome = document.createElement("td");
-        tabelaTdNome.textContent = produto.nome;
+            let tabelaTrBody = document.createElement("tr");
 
-        let tabelaTdQtdEstoque = document.createElement("td");
-        tabelaTdQtdEstoque.textContent = produto.qtdEstoque;
+            let tabelaTdID = document.createElement("td");
+            tabelaTdID.textContent = produto.id;
 
-        let tabelaTdValor = document.createElement("td");
-        tabelaTdValor.textContent = produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            let tabelaTdNome = document.createElement("td");
+            tabelaTdNome.textContent = produto.nome;
 
-        let tabelaTdStatus = document.createElement("td");
-        tabelaTdStatus.textContent = produto.ativo ? "ATIVO" : "INATIVO";
+            let tabelaTdQtdEstoque = document.createElement("td");
+            tabelaTdQtdEstoque.textContent = produto.qtdEstoque;
 
-        let tabelaTdEditar = document.createElement("td");
-        let tabelaTdEditarIcone = document.createElement("i");
-        tabelaTdEditarIcone.className = "bx bxs-edit";
-        tabelaTdEditar.appendChild(tabelaTdEditarIcone);
-        tabelaTdEditar.className = "icone-editar";
+            let tabelaTdValor = document.createElement("td");
+            tabelaTdValor.textContent = produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-        let tabelaTdVisualizar = document.createElement("td");
-        let tabelaTdVisualizarIcone = document.createElement("i");
-        tabelaTdVisualizarIcone.className = "bx bx-show-alt";
-        tabelaTdVisualizar.appendChild(tabelaTdVisualizarIcone);
-        tabelaTdVisualizar.className = "icone-visualizar";
+            let tabelaTdStatus = document.createElement("td");
+            tabelaTdStatus.textContent = produto.ativo ? "ATIVO" : "INATIVO";
 
-        let tabelaTdHabilitacao = document.createElement("td");
-        let tabelaTdHabilitacaoBtn = document.createElement("button");
-        tabelaTdHabilitacaoBtn.className = "btn-habilitacao";
-        tabelaTdHabilitacao.appendChild(tabelaTdHabilitacaoBtn);
-        tabelaTdHabilitacaoBtn.textContent = produto.ativo ? "DESATIVAR" : "ATIVAR";
+            let tabelaTdEditar = document.createElement("td");
+            let tabelaTdEditarIcone = document.createElement("i");
+            tabelaTdEditarIcone.className = "bx bxs-edit";
+            tabelaTdEditar.appendChild(tabelaTdEditarIcone);
+            tabelaTdEditar.className = "icone-editar";
 
-        if (produto.ativo) {
-            tabelaTdHabilitacaoBtn.style.backgroundColor = "#f0f0f0";
-            tabelaTdHabilitacaoBtn.style.color = "#d15b5b";
-        } else {
-            tabelaTdHabilitacaoBtn.style.backgroundColor = "#f0f0f0";
-            tabelaTdHabilitacaoBtn.style.color = "#0fc71e";
-        }
+            let tabelaTdVisualizar = document.createElement("td");
+            let tabelaTdVisualizarIcone = document.createElement("i");
+            tabelaTdVisualizarIcone.className = "bx bx-show-alt";
+            tabelaTdVisualizar.appendChild(tabelaTdVisualizarIcone);
+            tabelaTdVisualizar.className = "icone-visualizar";
 
-        tabelaTrBody.appendChild(tabelaTdID);
-        tabelaTrBody.appendChild(tabelaTdNome);
-        tabelaTrBody.appendChild(tabelaTdQtdEstoque);
-        tabelaTrBody.appendChild(tabelaTdValor);
-        tabelaTrBody.appendChild(tabelaTdStatus);
-        tabelaTrBody.appendChild(tabelaTdEditar);
-        tabelaTrBody.appendChild(tabelaTdVisualizar);
-        tabelaTrBody.appendChild(tabelaTdHabilitacao);
+            let tabelaTdHabilitacao = document.createElement("td");
+            let tabelaTdHabilitacaoBtn = document.createElement("button");
+            tabelaTdHabilitacaoBtn.className = "btn-habilitacao";
+            tabelaTdHabilitacao.appendChild(tabelaTdHabilitacaoBtn);
+            tabelaTdHabilitacaoBtn.textContent = produto.ativo ? "DESATIVAR" : "ATIVAR";
 
-        tabelaBody.appendChild(tabelaTrBody);
-        const admIdObj = JSON.parse(localStorage.getItem('usuarioLogado'));
-
-        if (admIdObj.grupoId === "ESTOQUISTA") {
-            tabelaTdHabilitacaoBtn.disabled = true
-            tabelaTdHabilitacaoBtn.style.backgroundColor = "#   ";
-            tabelaTdHabilitacaoBtn.style.color = "#A9A9A9";
-        }
-
-
-        tabelaTdHabilitacaoBtn.addEventListener('click', () => {
-            let msgConfirmacao = window.prompt("Tem certeza que deseja alterar o status do produto? Digite '1 - SIM' ou '2 - NÃO'");
-
-            if (msgConfirmacao == 1) {
-
-                const url = `http://localhost:8080/produto/alternarStatus/${admIdObj.id}/${produto.id}`;
-
-                fetch(url, {
-                    method: 'DELETE',
-                })
-                    .then(response => {
-                        console.log(response)
-                        return response.json()
-                    })
-                    .then(result => {
-                        alert("Produto '" + result.nome + "' foi " + (result.ativo ? "Ativado" : "Desativado"));
-                        listarProdutosPesquisados();
-                    })
-                    .catch(error => console.error("Erro ao alterar status do produto:", error));
-
-            } else if (msgConfirmacao == 2) {
-                alert("Alteração de status cancelada.");
+            if (produto.ativo) {
+                tabelaTdHabilitacaoBtn.style.backgroundColor = "#f0f0f0";
+                tabelaTdHabilitacaoBtn.style.color = "#d15b5b";
             } else {
-                alert("Opção Inválida.");
+                tabelaTdHabilitacaoBtn.style.backgroundColor = "#f0f0f0";
+                tabelaTdHabilitacaoBtn.style.color = "#0fc71e";
             }
-        });
 
+            tabelaTrBody.appendChild(tabelaTdID);
+            tabelaTrBody.appendChild(tabelaTdNome);
+            tabelaTrBody.appendChild(tabelaTdQtdEstoque);
+            tabelaTrBody.appendChild(tabelaTdValor);
+            tabelaTrBody.appendChild(tabelaTdStatus);
+            tabelaTrBody.appendChild(tabelaTdEditar);
+            tabelaTrBody.appendChild(tabelaTdVisualizar);
+            tabelaTrBody.appendChild(tabelaTdHabilitacao);
 
-        tabelaTdEditarIcone.addEventListener('click', () => {
-            window.location.href = `./atualizacao-cadastro-produto.html?id=${produto.id}`;
-        });
+            tabelaBody.appendChild(tabelaTrBody);
 
-        tabelaTdVisualizarIcone.addEventListener('click', () => {
-            window.location.href = `./visualizacao-produto.html?id=${produto.id}`;
-        });
+            tabelaTdHabilitacaoBtn.addEventListener('click', () => {
+                let msgConfirmacao = window.prompt("Tem certeza que deseja alterar o status do produto? Digite '1 - SIM' ou '2 - NÃO'");
+
+                if (msgConfirmacao == 1) {
+
+                    const url = `http://localhost:8080/produto/alternarStatus/${admIdObj.id}/${produto.id}`;
+
+                    fetch(url, {
+                        method: 'DELETE',
+                    })
+                        .then(response => {
+                            console.log(response)
+                            return response.json()
+                        })
+                        .then(result => {
+                            alert("Produto '" + result.nome + "' foi " + (result.ativo ? "Ativado" : "Desativado"));
+                            listarProdutosPesquisados();
+                        })
+                        .catch(error => console.error("Erro ao alterar status do produto:", error));
+
+                } else if (msgConfirmacao == 2) {
+                    alert("Alteração de status cancelada.");
+                } else {
+                    alert("Opção Inválida.");
+                }
+            });
+
+            tabelaTdEditarIcone.addEventListener('click', () => {
+                window.location.href = `./atualizacao-cadastro-produto.html?id=${produto.id}`;
+            });
+
+            tabelaTdVisualizarIcone.addEventListener('click', () => {
+                window.location.href = `./visualizacao-produto.html?id=${produto.id}`;
+            });
+
+        } else if (verificarGrupoUsuarioLogado() === "ESTOQUISTA") {
+
+            let tabelaTrBody = document.createElement("tr");
+
+            let tabelaTdID = document.createElement("td");
+            tabelaTdID.textContent = produto.id;
+
+            let tabelaTdNome = document.createElement("td");
+            tabelaTdNome.textContent = produto.nome;
+
+            let tabelaTdQtdEstoque = document.createElement("td");
+            tabelaTdQtdEstoque.textContent = produto.qtdEstoque;
+
+            let tabelaTdValor = document.createElement("td");
+            tabelaTdValor.textContent = produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+            let tabelaTdStatus = document.createElement("td");
+            tabelaTdStatus.textContent = produto.ativo ? "ATIVO" : "INATIVO";
+
+            let tabelaTdEditar = document.createElement("td");
+            let tabelaTdEditarIcone = document.createElement("i");
+            tabelaTdEditarIcone.className = "bx bxs-edit";
+            tabelaTdEditar.appendChild(tabelaTdEditarIcone);
+            tabelaTdEditar.className = "icone-editar";
+
+            tabelaTrBody.appendChild(tabelaTdID);
+            tabelaTrBody.appendChild(tabelaTdNome);
+            tabelaTrBody.appendChild(tabelaTdQtdEstoque);
+            tabelaTrBody.appendChild(tabelaTdValor);
+            tabelaTrBody.appendChild(tabelaTdStatus);
+            tabelaTrBody.appendChild(tabelaTdEditar);
+
+            tabelaBody.appendChild(tabelaTrBody);
+
+            tabelaTdEditarIcone.addEventListener('click', () => {
+                window.location.href = `./atualizacao-cadastro-produto.html?id=${produto.id}`;
+            });
+
+        }
+
     });
 }
 
@@ -157,19 +207,33 @@ function criarBotoesTelaUsuario(container) {
     divBotoesTelaUsuario.className = "btns-tela-usuario";
     container.appendChild(divBotoesTelaUsuario);
 
-    const btnRetornarTelaAnterior = document.createElement("button");
-    btnRetornarTelaAnterior.className = "btn-primario";
-    btnRetornarTelaAnterior.textContent = "Retornar à tela anterior";
-    divBotoesTelaUsuario.appendChild(btnRetornarTelaAnterior);
+    if (verificarGrupoUsuarioLogado() === "ADMINISTRADOR") {
+        
+        const btnRetornarTelaAnterior = document.createElement("button");
+        btnRetornarTelaAnterior.className = "btn-primario";
+        btnRetornarTelaAnterior.textContent = "Retornar à tela anterior";
+        divBotoesTelaUsuario.appendChild(btnRetornarTelaAnterior);
 
-    btnRetornarTelaAnterior.addEventListener('click', retornarTelaInicialUsuario);
+        btnRetornarTelaAnterior.addEventListener('click', retornarTelaInicialUsuario);
 
-    const btnAdicionarNovoProduto = document.createElement("button");
-    btnAdicionarNovoProduto.className = "btn-add-usuario";
-    btnAdicionarNovoProduto.textContent = "Adicionar Novo Produto";
-    divBotoesTelaUsuario.appendChild(btnAdicionarNovoProduto);
+        const btnAdicionarNovoProduto = document.createElement("button");
+        btnAdicionarNovoProduto.className = "btn-add-usuario";
+        btnAdicionarNovoProduto.textContent = "Adicionar Novo Produto";
+        divBotoesTelaUsuario.appendChild(btnAdicionarNovoProduto);
 
-    btnAdicionarNovoProduto.addEventListener('click', redirecionarTelaCadastroProduto);
+        btnAdicionarNovoProduto.addEventListener('click', redirecionarTelaCadastroProduto);
+        
+    } else if (verificarGrupoUsuarioLogado() === "ESTOQUISTA") {
+
+        const btnRetornarTelaAnterior = document.createElement("button");
+        btnRetornarTelaAnterior.className = "btn-primario";
+        btnRetornarTelaAnterior.textContent = "Retornar à tela anterior";
+        divBotoesTelaUsuario.appendChild(btnRetornarTelaAnterior);
+
+        btnRetornarTelaAnterior.addEventListener('click', retornarTelaInicialUsuario);
+    }
+
+
 }
 
 async function listarProdutosPesquisados(nomeProduto) {
@@ -190,11 +254,12 @@ async function listarProdutosPesquisados(nomeProduto) {
         // Faz a busca pelos produtos pelo nome
         const produtos = await buscarProdutosPorNome(nomeProduto);
         console.log(produtos);
-        
+
         // Verifica se encontrou produtos com o nome pesquisado
         if (produtos.length > 0) {
             // Preenche a tabela com os produtos encontrados
             preencherTabelaProdutos(tabelaBody, produtos);
+            criarPaginacao(containerVisualizacaoUsuario, 0, 1, buscarProdutosPagina);
         } else {
             // Caso não haja produtos encontrados, mostra uma mensagem
             const mensagemSemProdutos = document.createElement("p");
