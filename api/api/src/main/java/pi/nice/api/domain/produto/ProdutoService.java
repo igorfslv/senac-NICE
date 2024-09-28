@@ -79,11 +79,6 @@ public class ProdutoService {
 
     }
 
-
-
-
-
-
     public ResponseEntity<?> atualizarEstoque(String estoquistaId, AlterarEstoqueDTO alterarEstoqueDTO) {
         possuiPermissaoDeEstoquista(estoquistaId);
         Optional<Produto> optionalProduto = produtoRepository.findById(alterarEstoqueDTO.id());
@@ -101,4 +96,11 @@ public class ProdutoService {
 
     }
 
+
+    public ResponseEntity<?> getListaVitrineProdutos(PageRequest pageable, String nome) {
+        Page<Produto> produtos = produtoRepository.findByNomeContaining(nome != null ? nome : "", pageable);
+        Page<VitrineProdutoDTO> produtosDTO = produtos.map(produto -> new VitrineProdutoDTO(
+                produto.getId(), produto.getImagemPrincipal().getCaminho(), produto.getNome(), produto.getPreco()));
+        return ResponseEntity.ok(produtosDTO);
+    }
 }

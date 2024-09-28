@@ -58,7 +58,7 @@ public class ProdutoController {
     @CrossOrigin
     @PutMapping("/alterar/{admId}")
     public ResponseEntity<?> alterarProduto(@PathVariable String admId,
-                                         @RequestBody AlterarProdutoDTO alterarProdutoDTO) {
+                                            @RequestBody AlterarProdutoDTO alterarProdutoDTO) {
         return produtoService.alterarProduto(admId, alterarProdutoDTO);
     }
 
@@ -78,4 +78,18 @@ public class ProdutoController {
                                             @RequestBody AlterarEstoqueDTO alterarEstoqueDTO) {
         return produtoService.atualizarEstoque(estoquistaId, alterarEstoqueDTO);
     }
+
+    @CrossOrigin
+    @GetMapping("/vitrine/{numeroDaPagina}")
+    public ResponseEntity<?> getVitrine(
+            @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+            @PathVariable int numeroDaPagina,
+            @RequestParam(required = false) String nome) {
+
+        return produtoService.getListaVitrineProdutos(PageRequest.of(numeroDaPagina, 20, pageable.getSort()), nome);
+
+
+    }
+
+
 }

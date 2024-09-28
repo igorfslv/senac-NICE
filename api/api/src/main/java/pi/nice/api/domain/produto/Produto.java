@@ -12,7 +12,6 @@ import pi.nice.api.domain.produto.dto.RegistrarProdutoDTO;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 @Table(name= "produtos")
 @Entity(name= "Produto")
 @Getter
@@ -76,6 +75,16 @@ public class Produto {
                 .collect(Collectors.toList()));
         return this;
 
+    }
+
+    public Imagem getImagemPrincipal() {
+        for (Imagem imagem : imagens) {
+            if (imagem.isPrincipal()) {
+                return imagem;
+            }
+        }
+
+        return imagens.get(0);
     }
 
     public void desativar() {
