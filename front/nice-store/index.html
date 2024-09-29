@@ -1,11 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Nice Store - Página Inicial</title>
 </head>
 <body>
-    
+    <header class="header-tela-principal" id="header-tela-principal">
+
+        <nav class="nav-bar-tela-principal">
+            <ul>
+                <li>
+                    <div class="logotipo-loja">
+                        <img src="./img/relogio-1.jpg" alt="" srcset="">
+                        <p>Nice Store</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="btns-carrinho-login">
+                        <button id="btn-entrar-login">Entrar</button>
+                        <button id="btn-inscrever-login">Inscrever-se</button>
+                        <i class='bx bx-cart-alt'></i>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+    </header>    
+    <main class="container-tela-principal" id="container-tela-principal">
+
+        <section class="banner-principal">
+            <p>BANNER PRINCIPAL</p>
+        </section>
+
+        <section class="container-produtos-vitrine">
+            <h1>Confira Nossos Produtos</h1>
+
+            <div class="container-produtos">
+                
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer-tela-principal" id="footer-tela-principal">
+
+    </footer>
+
+    <script src="./js/connection/renderizar-produtos.js"></script>
 </body>
 </html>

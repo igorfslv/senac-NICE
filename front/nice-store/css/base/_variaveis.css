@@ -1,0 +1,31 @@
+:root {
+    
+    --bg-0: #FFFFFF;
+    --bg-1: #202060;
+    --bg-2: #272760;
+    --bg-3: #602080;
+    --bg-4: #442768;
+    --bg-5: #B030B0;
+    --bg-6: #842484;
+    --bg-7: #6C91BF;
+    --bg-8: #3C5E88;
+    --bg-9: #5BC8AF;
+    --bg-10: #2F8D77;
+
+    --font-1: #2A2829;
+    --font-2: #FFFFFF;
+    --font-3: #b4b0b0;
+    --font-4: #737373;
+    --font-5: #433B47;
+    --font-6: #202060;
+
+    --font-tam-pequeno: 14px;
+    --font-tam-normal: 16px;
+    --font-tam-medio: 20px;
+    --font-tam-titulo: 25px;
+    --font-tam-grande: 40px;
+
+    --font-family-padrao: "Raleway", sans-serif;
+
+    --box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+}
