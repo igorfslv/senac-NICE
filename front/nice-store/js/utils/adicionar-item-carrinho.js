@@ -18,5 +18,7 @@ addCarrinho.addEventListener('click', () => {
             localStorage.setItem('carrinho', JSON.stringify(listaProdutos));
 
             console.log("Produto adicionado: ", produtoJSON);
+
+            window.location.href = "./carrinho.html";
         });
 });
