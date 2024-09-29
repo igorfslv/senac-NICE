@@ -1,0 +1,56 @@
+.container-tela-carrinho {
+    padding: 50px;
+}
+
+.container-tela-carrinho h2 {
+    padding-left: 50px;
+}
+
+.container-carrinho {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.tabela-lista-produtos-carrinhos {
+    width: 60%;
+}
+
+.informacoes-valores {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+
+    width: 40%;
+    text-align: right;
+    padding-right: 50px;
+    padding-top: 30px;
+}
+
+.input-frete {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
+
+.input-frete div {
+    display: flex;
+    flex-direction: column;
+}
+
+.opcoes-endereco {
+    list-style: none;
+}
+
+.opcoes-endereco li div {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.opcoes-endereco li div input {
+    margin: 0 10px;
+}

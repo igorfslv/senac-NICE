@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Carrinho</title>
+</head>
+
+<body>
+    <header class="header-tela-principal" id="header-tela-principal">
+
+        <nav class="nav-bar-tela-principal">
+            <ul>
+                <li>
+                    <div class="logotipo-loja">
+                        <img src="../img/relogio-1.jpg" alt="Logotipo da loja">
+                        <p>Nice Store</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="btns-carrinho-login">
+                        <button id="btn-entrar-login">Entrar</button>
+                        <button id="btn-inscrever-login">Inscrever-se</button>
+                        <i class='bx bx-cart-alt'></i>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="container-tela-carrinho" id="container-tela-carrinho">
+
+        <h2>Carrinho de Compras</h2>
+
+        <div class="container-carrinho">
+
+            <div class="tabela-lista-produtos-carrinhos">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nº Item</th>
+                            <th>Imagem</th>
+                            <th>Nome do Produto</th>
+                            <th>Preço Unitário</th>
+                            <th>Qtd Item</th>
+                            <th>Ações</th>
+                            <th>Subtotal do Item</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><img src="#" alt="Imagem do Produto"></td>
+                            <td>Produto Exemplo</td>
+                            <td>R$ 50,00</td>
+                            <td>2</td>
+                            <td class="actions">
+                                <button onclick="aumentarQuantidade(1)">+</button>
+                                <button onclick="diminuirQuantidade(1)">-</button>
+                            </td>
+                            <td>R$ 100,00</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><img src="#" alt="Imagem do Produto"></td>
+                            <td>Outro Produto</td>
+                            <td>R$ 30,00</td>
+                            <td>1</td>
+                            <td class="actions">
+                                <button onclick="aumentarQuantidade(2)">+</button>
+                                <button onclick="diminuirQuantidade(2)">-</button>
+                            </td>
+                            <td>R$ 30,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="informacoes-valores">
+
+                <div class="valor-frete">
+                    <h2>Frete</h2>
+
+
+                    <div class="input-frete">
+                        <div>
+                            <label for="frete-carrinho">Informe o CEP:</label>
+                            <input type="text" id="frete-carrinho">
+                        </div>
+                        <button id="btn-calular-frete">Calcular Frete</button>
+                    </div>
+
+                    <h3>Endereço</h3>
+                    <p>Endereço Informado, 1025 - Jardim dos Endereços</p>
+
+                    <ul class="opcoes-endereco">
+                        <li>
+                            <div>
+                                <input type="radio" name="frete" value="1">
+                                <p>Opção frete 01</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <input type="radio" name="frete" value="2">
+                                <p>Opção frete 02</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <input type="radio" name="frete" value="3">
+                                <p>Opção frete 03</p>
+                            </div>
+                        </li>
+                    </ul>
+    
+                    <h3>Subtotal Frete</h3>
+                    <p>R$ 30,00</p>
+                </div>
+                
+                <div class="informacoes-valor">
+                    <h2>Subtotal Pedido</h2>
+                    <p>R$ 1.200,50</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer-tela-principal" id="footer-tela-principal"></footer>
+
+    <!-- <script src="./js/connection/renderizar-produtos.js"></script> -->
+</body>
+
+</html>
