@@ -33,7 +33,7 @@ function renderizarCarrinho() {
 
         // Preço unitário do produto
         const tdPreco = document.createElement('td');
-        tdPreco.textContent = produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });;
+        tdPreco.textContent = produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         linhaItem.appendChild(tdPreco);
 
         // Quantidade do produto
@@ -119,10 +119,10 @@ function atualizarSubtotalPedido() {
     let novoSubtotalPedido = 0;
 
     subtotais.forEach(subtotal => {
-        novoSubtotalPedido += parseFloat(subtotal.textContent.replace('R$', '').trim());
+        novoSubtotalPedido += parseFloat(subtotal.textContent.replace('R$', '').replace('.', '').replace(',', '.').trim());
     });
 
-    const subtotalFrete = parseFloat(subtotalFreteElement.textContent.replace('R$', '').trim());
+    const subtotalFrete = parseFloat(subtotalFreteElement.textContent.replace('R$', '').replace('.', '').replace(',', '.').trim());
     subtotalPedidoElement.textContent = (novoSubtotalPedido + subtotalFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
