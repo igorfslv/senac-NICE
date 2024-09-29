@@ -59,5 +59,9 @@ function preencherContainerProdutos(container, produtos) {
         btnCardProdutoDetalhes.className = "card-btn-detalhes";
         btnCardProdutoDetalhes.textContent = "Detalhes";
         divCardProduto.appendChild(btnCardProdutoDetalhes);
+
+        btnCardProdutoDetalhes.addEventListener('click', () => {
+            window.location.href = `./pages/detalhes-produto.html?id=${produto.id}`;
+        });
     });
 }

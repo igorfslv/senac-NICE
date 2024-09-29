@@ -1,5 +1,5 @@
 .container-principal-visualizacao-produto {
-    background-color: #f0f0f0;
+    background-color: white;
     padding: 10px;
 }
 
@@ -84,7 +84,7 @@
     display: flex;
     align-items: start;
     font-weight: 600;
-    color: #2682df;
+    color: var(--bg-9);
 }
 
 .avaliacao div i {
@@ -139,7 +139,13 @@
     justify-content: end;
 }
 
-.btn-add-carrinho button:disabled {
-    background-color: #ccc;
+.btn-add-carrinho button {
+    background: none;
+    color: var(--bg-1);
+    border: 2px solid var(--bg-1);
+}
+
+.btn-add-carrinho button:hover {
+    background-color: var(--bg-1);
     color: white;
 }
