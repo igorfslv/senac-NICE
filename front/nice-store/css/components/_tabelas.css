@@ -1,20 +1,18 @@
 table {
-    width: 90%;
     border-collapse: collapse;
-
     margin: 40px auto;
 }
 
 th,
 td {
     padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
 }
 
-th {
+/* th {
     background-color: #f2f2f2;
-}
+} */
 
 .icone-editar,
 .icone-atualizar-estoque,

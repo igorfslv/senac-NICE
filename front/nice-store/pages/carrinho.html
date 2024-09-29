@@ -43,42 +43,65 @@
         <div class="container-carrinho">
 
             <div class="tabela-lista-produtos-carrinhos">
-                <table>
+                <table class="tabela-carrinho">
                     <thead>
                         <tr>
-                            <th>Nº Item</th>
+                            <th>Nº</th>
                             <th>Imagem</th>
-                            <th>Nome do Produto</th>
-                            <th>Preço Unitário</th>
+                            <th>Nome</th>
+                            <th>Preço Uni.</th>
                             <th>Qtd Item</th>
                             <th>Ações</th>
-                            <th>Subtotal do Item</th>
+                            <th>Subtotal Item</th>
+                            <th>Remover</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td><img src="#" alt="Imagem do Produto"></td>
+                            <td><img src="../img/relogio-1.jpg" class="img-produto-carrinho" alt="Imagem do Produto"></td>
                             <td>Produto Exemplo</td>
                             <td>R$ 50,00</td>
                             <td>2</td>
-                            <td class="actions">
-                                <button onclick="aumentarQuantidade(1)">+</button>
-                                <button onclick="diminuirQuantidade(1)">-</button>
+                            <td>
+                                <div class="acoes-qtd-produto-carrinho">
+                                    <button class="btn-add-qtd-item" onclick="aumentarQuantidade(1)">
+                                        <i class='bx bx-plus'></i>
+                                    </button>
+                                    <button class="btn-diminuir-qtd-item" onclick="diminuirQuantidade(1)">
+                                        <i class='bx bx-minus'></i>
+                                    </button>
+                                </div>
                             </td>
                             <td>R$ 100,00</td>
+                            <td>
+                                <button class="btn-remover-item-carrinho">
+                                    <i class='bx bx-x'></i>
+                                </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td><img src="#" alt="Imagem do Produto"></td>
+                            <td><img src="../img/img-monitor-curvo-ultragear-LG-34-01.jpeg" class="img-produto-carrinho" alt="Imagem do Produto"></td>
                             <td>Outro Produto</td>
                             <td>R$ 30,00</td>
                             <td>1</td>
-                            <td class="actions">
-                                <button onclick="aumentarQuantidade(2)">+</button>
-                                <button onclick="diminuirQuantidade(2)">-</button>
+                            <td>
+                                <div class="acoes-qtd-produto-carrinho">
+                                    <button class="btn-add-qtd-item" onclick="aumentarQuantidade(1)">
+                                        <i class='bx bx-plus'></i>
+                                    </button>
+                                    <button class="btn-diminuir-qtd-item" onclick="diminuirQuantidade(1)">
+                                        <i class='bx bx-minus'></i>
+                                    </button>
+                                </div>
                             </td>
                             <td>R$ 30,00</td>
+                            <td>
+                                <button class="btn-remover-item-carrinho">
+                                    <i class='bx bx-x'></i>
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -89,46 +112,48 @@
                 <div class="valor-frete">
                     <h2>Frete</h2>
 
-
                     <div class="input-frete">
                         <div>
                             <label for="frete-carrinho">Informe o CEP:</label>
-                            <input type="text" id="frete-carrinho">
+                            <div>
+                                <input type="text" id="frete-carrinho" maxlength="9">
+                                <button id="btn-calular-frete">Calcular Frete</button>
+                            </div>
                         </div>
-                        <button id="btn-calular-frete">Calcular Frete</button>
                     </div>
 
                     <h3>Endereço</h3>
-                    <p>Endereço Informado, 1025 - Jardim dos Endereços</p>
+                    <p class="endereco-frete">Endereço Informado, 1025 - Jardim dos Endereços</p>
 
                     <ul class="opcoes-endereco">
                         <li>
-                            <div>
-                                <input type="radio" name="frete" value="1">
-                                <p>Opção frete 01</p>
+                            <div class="opcao-frete">
+                                <input type="radio" name="frete" id="opcao-frete-1" value="1">
+                                <label for="opcao-frete-1">Opção frete 01</label>
                             </div>
                         </li>
                         <li>
-                            <div>
-                                <input type="radio" name="frete" value="2">
-                                <p>Opção frete 02</p>
+                            <div class="opcao-frete">
+                                <input type="radio" name="frete" id="opcao-frete-2" value="2">
+                                <label for="opcao-frete-2">Opção frete 02</label>
                             </div>
                         </li>
                         <li>
-                            <div>
-                                <input type="radio" name="frete" value="3">
-                                <p>Opção frete 03</p>
+                            <div class="opcao-frete">
+                                <input type="radio" name="frete" id="opcao-frete-3" value="3">
+                                <label for="opcao-frete-3">Opção frete 03</label>
                             </div>
                         </li>
                     </ul>
     
                     <h3>Subtotal Frete</h3>
-                    <p>R$ 30,00</p>
+                    <p class="subtotal-frete">R$ 30,00</p>
                 </div>
                 
                 <div class="informacoes-valor">
                     <h2>Subtotal Pedido</h2>
-                    <p>R$ 1.200,50</p>
+                    <p class="subtotal-pedido">R$ 1.200,50</p>
+                    <button class="btn-realizar-pagamento">Realizar Pagamento</button>
                 </div>
             </div>
 
@@ -138,6 +163,7 @@
 
     <footer class="footer-tela-principal" id="footer-tela-principal"></footer>
 
+    <script src="../js/pages/carrinho.js"></script>
     <!-- <script src="./js/connection/renderizar-produtos.js"></script> -->
 </body>
 

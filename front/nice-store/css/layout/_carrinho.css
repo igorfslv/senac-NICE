@@ -7,14 +7,55 @@
 }
 
 .container-carrinho {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     flex-direction: row;
     justify-content: space-between;
-
 }
 
 .tabela-lista-produtos-carrinhos {
-    width: 60%;
+    /* width: 50%; */
+    margin-left: 40px;
+}
+
+.tabela-carrinho {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tabela-carrinho thead tr th {
+    width: auto;
+    text-wrap: nowrap;
+}
+
+.tabela-carrinho thead tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.img-produto-carrinho {
+    width: 100px;
+    height: 100px;
+}
+
+.acoes-qtd-produto-carrinho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.acoes-qtd-produto-carrinho button {
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.btn-add-qtd-item {
+    background-color: var(--bg-10);
+    color: var(--bg-0);
+}
+
+.btn-diminuir-qtd-item {
+    background-color: var(--bg-9);
+    color: var(--bg-10);
 }
 
 .informacoes-valores {
@@ -22,10 +63,15 @@
     flex-direction: column;
     justify-content: right;
 
-    width: 40%;
+    /* width: 50%; */
     text-align: right;
     padding-right: 50px;
     padding-top: 30px;
+    margin-left: 100px;
+}
+
+.informacoes-valores div h2 {
+    margin: 10px 0;
 }
 
 .input-frete {
@@ -38,10 +84,42 @@
 .input-frete div {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-bottom: 10px;
+}
+
+.input-frete div div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-frete div label {
+    margin-bottom: 8px;
+}
+
+.input-frete input {
+    border: 1px solid #ddd;
+    background-color: #f2f2f2;
+    font-size: var(--font-tam-normal);
+    padding: 7px;
+    border-radius: 5px;
+    /* margin: 5px 0; */
+}
+
+.input-frete button {
+    font-size: var(--font-tam-pequeno);
+    margin-left: 10px;
+    background-color: var(--bg-5);
+    color: var(--font-2);
+    text-wrap: nowrap;
 }
 
 .opcoes-endereco {
     list-style: none;
+    margin: 20px 0;
 }
 
 .opcoes-endereco li div {
@@ -53,4 +131,36 @@
 
 .opcoes-endereco li div input {
     margin: 0 10px;
+}
+
+.endereco-frete {
+    margin: 10px 0;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.opcao-frete {
+    margin: 10px 0;
+}
+
+.subtotal-frete {
+    font-size: var(--font-tam-titulo);
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+.informacoes-valor {
+    margin: 20px 0;
+}
+
+.subtotal-pedido {
+    font-size: var(--font-tam-grande);
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+.btn-realizar-pagamento {
+    background-color: var(--bg-1);
+    color: var(--font-2);
+    margin: 20px 0;
 }
