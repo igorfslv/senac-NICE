@@ -3,12 +3,13 @@
     justify-content: center;
     align-items: center;
     
-    background-color: #ccc;
-    height: 40vh;
+    background-image: url("../../img/banner-2.png");
+    background-repeat: repeat;
+    height: 300px;
 }
 
+
 .container-produtos-vitrine {
-    /* background-color: azure; */
     padding: 40px;
     width: 85%;
     margin: 0 auto;
