@@ -1,5 +1,17 @@
 window.onload = async function () {
     buscarProdutos(0, ""); // Passa parâmetros corretos
+    const btnEntrarLogin = document.getElementById('btn-entrar-login')
+    const btnInscreverLogin = document.getElementById('btn-inscrever-login')
+    const btnCarrinho = document.getElementById('btn-carrinho')
+
+    btnEntrarLogin.addEventListener('click', () => {
+        window.location.href = '/pages/login.html'; // Substitua pelo caminho da sua página
+    });
+
+    btnCarrinho.addEventListener('click', () => {
+        window.location.href = '/pages/carrinho.html'; // Substitua pelo caminho da sua página
+    });
+
 }
 
 async function buscarProdutos(pagina = 0, nomeProduto = "") {
@@ -64,4 +76,7 @@ function preencherContainerProdutos(container, produtos) {
             window.location.href = `./pages/detalhes-produto.html?id=${produto.id}`;
         });
     });
+
+
 }
+

@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b562c48-3dd2-44c3-900b-eba5953e558a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/ProdutoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/Produto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/ProdutoService.java" afterDir="false" />
-    </list>
+    <list default="true" id="5b562c48-3dd2-44c3-900b-eba5953e558a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +38,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/DomiU/OneDrive/Área de Trabalho/carro/NICE/api"
+    "last_opened_file_path": "C:/Users/DomiU/OneDrive/Área de Trabalho/4 semestre pi/NICE/api"
   }
 }]]></component>
   <component name="RunManager">

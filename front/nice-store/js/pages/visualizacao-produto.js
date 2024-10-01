@@ -10,6 +10,10 @@ const imgPrincipal = document.querySelector('.img-principal');
 const imagensSecundarias = document.querySelector('.imagens-secundarias');
 const setaEsquerda = document.querySelector('.bx-chevron-left');
 const setaDireita = document.querySelector('.bx-chevron-right');
+const btnEntrarLogin = document.getElementById('btn-entrar-login')
+const btnInscreverLogin = document.getElementById('btn-inscrever-login')
+const btnCarrinho = document.getElementById('btn-carrinho')
+
 
 const urlID = new URL(window.location.href);
 const id = urlID.searchParams.get("id");
@@ -115,3 +119,12 @@ function preencherEstrelas(avaliacao) {
         avaliacaoProdutoIndividual.appendChild(estrela);
     }
 }
+
+
+btnEntrarLogin.addEventListener('click', () => {
+    window.location.href = 'login.html'; // Substitua pelo caminho da sua página
+});
+
+btnCarrinho.addEventListener('click', () => { 
+    window.location.href = 'carrinho.html'; // Substitua pelo caminho da sua página
+});

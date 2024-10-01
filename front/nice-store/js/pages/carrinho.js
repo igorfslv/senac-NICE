@@ -4,7 +4,7 @@ function renderizarCarrinho() {
     const subtotalPedidoElement = document.querySelector('.subtotal-pedido');
     const subtotalFreteElement = document.querySelector('.subtotal-frete');
     let subtotalPedido = 0;
-    let subtotalFrete = 30; // Frete fixo
+    let subtotalFrete = 10; // Frete fixo
 
     carrinho.innerHTML = "";
 
@@ -99,11 +99,70 @@ function renderizarCarrinho() {
 
         carrinho.appendChild(linhaItem);
     });
+    
+    const btnEntrarLogin = document.getElementById('btn-entrar-login')
+    const btnInscreverLogin = document.getElementById('btn-inscrever-login')
+    const btnCarrinho = document.getElementById('btn-carrinho')
+
+    btnEntrarLogin.addEventListener('click', () => {
+        window.location.href = 'login.html'; // Substitua pelo caminho da sua página
+    });
+
+    btnCarrinho.addEventListener('click', () => { 
+        window.location.href = 'carrinho.html'; // Substitua pelo caminho da sua página
+    });
+
+  
+    const opcaoFrete1 = document.getElementById('opcao-frete-1')
+    const opcaoFrete2 = document.getElementById('opcao-frete-2')
+    const opcaoFrete3 = document.getElementById('opcao-frete-3')
+    opcaoFrete1.checked = true
+
+    opcaoFrete1.addEventListener('click', () => {
+        atualizarSubtotalComFrete(10)
+    })
+
+    opcaoFrete2.addEventListener('click', () => {
+        atualizarSubtotalComFrete(20)
+    })
+
+    opcaoFrete3.addEventListener('click', () => {
+        atualizarSubtotalComFrete(30)
+    })
+
+    const btnCalularFrete = document.getElementById('btn-calular-frete');
+    btnCalularFrete.addEventListener('click', () => {
+        const enderecoFrete = document.getElementById('endereco-frete')
+        const freteCarrinho = document.getElementById('frete-carrinho')
+
+        fetch(`https://viacep.com.br/ws/${freteCarrinho.value.replace("-", "").replace(".","")}/json/`)
+            .then(response => response.json())
+            .then(data => {
+                atualizarSubtotalPedido()
+                if (data.erro) {
+                    enderecoFrete.innerHTML = "CEP inválido";
+                } else {
+                    atualizarSubtotalPedido()
+                    enderecoFrete.innerHTML = `${data.logradouro} ${data.bairro}<br>${data.localidade} - ${data.uf}`;
+                }
+            })
+            .catch(error => {
+                atualizarSubtotalPedido()
+                enderecoFrete.innerHTML = "CEP inválido";
+            });
+    })
 
     // Atualizar valores de subtotais e total
     subtotalPedidoElement.textContent = (subtotalPedido + subtotalFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     subtotalFreteElement.textContent = subtotalFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
+
+function atualizarSubtotalComFrete(valor) {
+    const subtotalFreteElement = document.querySelector('.subtotal-frete');
+    subtotalFreteElement.innerHTML = "R$ " + valor
+    atualizarSubtotalPedido()
+}
+
 
 function atualizarSubtotalItem(tdQuantidade, tdSubtotal, precoUnitario) {
     const quantidade = parseInt(tdQuantidade.textContent);
