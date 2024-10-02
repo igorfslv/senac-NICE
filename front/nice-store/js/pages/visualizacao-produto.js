@@ -72,6 +72,10 @@ fetch(url)
 // Variável para controlar o índice da imagem atual no carrossel
 let imgIndex = 0;
 
+const quantidadeItens = document.getElementById('badge-carrinho')
+const produtos = JSON.parse(localStorage.getItem('carrinho')) || [];
+quantidadeItens.innerHTML = produtos.length
+
 // Função para alterar a imagem principal ao clicar nas setas ou nas miniaturas
 function atualizarImagemPrincipal(index) {
     const novaImagem = imagensProduto[index].caminho;

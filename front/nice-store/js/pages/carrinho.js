@@ -8,6 +8,10 @@ function renderizarCarrinho() {
 
     carrinho.innerHTML = "";
 
+    //Quantidade itens carrinho
+    const quantidadeItens = document.getElementById('badge-carrinho')
+    quantidadeItens.innerHTML = produtos.length
+
     produtos.forEach((produto, index) => {
         const linhaItem = document.createElement('tr');
 
@@ -99,6 +103,8 @@ function renderizarCarrinho() {
 
         carrinho.appendChild(linhaItem);
     });
+
+    
     
     const btnEntrarLogin = document.getElementById('btn-entrar-login')
     const btnInscreverLogin = document.getElementById('btn-inscrever-login')
@@ -117,6 +123,9 @@ function renderizarCarrinho() {
     const opcaoFrete2 = document.getElementById('opcao-frete-2')
     const opcaoFrete3 = document.getElementById('opcao-frete-3')
     opcaoFrete1.checked = true
+
+
+
 
     opcaoFrete1.addEventListener('click', () => {
         atualizarSubtotalComFrete(10)

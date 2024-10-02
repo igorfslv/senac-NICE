@@ -14,6 +14,8 @@ window.onload = async function () {
 
 }
 
+
+
 async function buscarProdutos(pagina = 0, nomeProduto = "") {
     let url = `http://localhost:8080/produto/vitrine/${pagina}`;
     url += `?nome=${encodeURIComponent(nomeProduto)}`;
@@ -37,6 +39,9 @@ async function buscarProdutos(pagina = 0, nomeProduto = "") {
 
         containerProdutos.innerHTML = ""; // Limpa o container antes de adicionar novos produtos
         preencherContainerProdutos(containerProdutos, content);
+        const quantidadeItens = document.getElementById('badge-carrinho')
+        const produtos = JSON.parse(localStorage.getItem('carrinho')) || [];
+        quantidadeItens.innerHTML = produtos.length
 
     } catch (error) {
         console.error('Erro ao fazer a requisição:', error);
