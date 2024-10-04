@@ -1,7 +1,6 @@
 const addCarrinho = document.querySelector('.btn-add-carrinho');
 
 addCarrinho.addEventListener('click', () => {
-
     const url = `http://localhost:8080/produto/${id}`;
 
     fetch(url)
@@ -13,11 +12,16 @@ addCarrinho.addEventListener('click', () => {
             let produtosSalvosCarrinho = localStorage.getItem('carrinho');
             let listaProdutos = produtosSalvosCarrinho ? JSON.parse(produtosSalvosCarrinho) : [];
 
-            listaProdutos.push(produtoJSON);
+            // Verifica se o produto já está no carrinho
+            const produtoExistente = listaProdutos.find(produto => produto.id === produtoJSON.id);
+
+            if (!produtoExistente) {
+                listaProdutos.push(produtoJSON);
+            }
 
             localStorage.setItem('carrinho', JSON.stringify(listaProdutos));
 
-            console.log("Produto adicionado: ", produtoJSON);
+            console.log("Produto adicionado ou atualizado no carrinho: ", produtoJSON);
 
             window.location.href = "./carrinho.html";
         });
