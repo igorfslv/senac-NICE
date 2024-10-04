@@ -104,27 +104,11 @@ function renderizarCarrinho() {
         carrinho.appendChild(linhaItem);
     });
 
-    
-    
-    const btnEntrarLogin = document.getElementById('btn-entrar-login')
-    const btnInscreverLogin = document.getElementById('btn-inscrever-login')
-    const btnCarrinho = document.getElementById('btn-carrinho')
-
-    btnEntrarLogin.addEventListener('click', () => {
-        window.location.href = 'login.html'; // Substitua pelo caminho da sua página
-    });
-
-    btnCarrinho.addEventListener('click', () => { 
-        window.location.href = 'carrinho.html'; // Substitua pelo caminho da sua página
-    });
-
   
-    const opcaoFrete1 = document.getElementById('opcao-frete-1')
-    const opcaoFrete2 = document.getElementById('opcao-frete-2')
-    const opcaoFrete3 = document.getElementById('opcao-frete-3')
-    opcaoFrete1.checked = true
-
-
+    const opcaoFrete1 = document.getElementById('opcao-frete-1');
+    const opcaoFrete2 = document.getElementById('opcao-frete-2');
+    const opcaoFrete3 = document.getElementById('opcao-frete-3');
+    opcaoFrete1.checked = true;
 
 
     opcaoFrete1.addEventListener('click', () => {
@@ -168,7 +152,7 @@ function renderizarCarrinho() {
 
 function atualizarSubtotalComFrete(valor) {
     const subtotalFreteElement = document.querySelector('.subtotal-frete');
-    subtotalFreteElement.innerHTML = "R$ " + valor
+    subtotalFreteElement.innerHTML = valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     atualizarSubtotalPedido()
 }
 

@@ -1,17 +1,5 @@
 window.onload = async function () {
-    buscarProdutos(0, ""); // Passa parâmetros corretos
-    const btnEntrarLogin = document.getElementById('btn-entrar-login')
-    const btnInscreverLogin = document.getElementById('btn-inscrever-login')
-    const btnCarrinho = document.getElementById('btn-carrinho')
-
-    btnEntrarLogin.addEventListener('click', () => {
-        window.location.href = '/pages/login.html'; // Substitua pelo caminho da sua página
-    });
-
-    btnCarrinho.addEventListener('click', () => {
-        window.location.href = '/pages/carrinho.html'; // Substitua pelo caminho da sua página
-    });
-
+    buscarProdutos(0, ""); 
 }
 
 
