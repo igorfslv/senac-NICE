@@ -38,7 +38,7 @@
     </header>
 
     <main class="container-inscricao-cliente">
-        <h1>Realize o seu cadastro para finalizarmos!</h1>
+        <h1>Crie sua conta</h1>
 
         <form class="formulario-cadastro-cliente">
 
@@ -66,16 +66,17 @@
 
                         <div>
                             <label for="data-nascimento-cliente">Data de Nascimento</label>
-                            <input type="date" name="data-nascimento-cliente" id="data-nascimento-cliente">
+                            <input type="date" name="data-nascimento-cliente" id="data-nascimento-cliente" required>
                         </div>
 
                         <div>
                             <label for="genero-cliente">Gênero</label>
-                            <select name="genero-cliente" id="genero-cliente">
+                            <select name="genero-cliente" id="genero-cliente" required>
                                 <option value="0">Selecione...</option>
                                 <option value="1">Feminino</option>
                                 <option value="2">Masculino</option>
-                                <option value="3">Outro</option>
+                                <option value="3">Gênero em Dúvida</option>
+                                <option value="4">Outro</option>
                             </select>
                         </div>
 
@@ -93,7 +94,7 @@
                         <section class="formulario-cep-faturamento">
                             <label for="cep-cliente-faturamento">CEP</label>
                             <span>
-                                <input type="text" name="cep-cliente-faturamento" id="cep-cliente-faturamento" placeholder="00000-000" >
+                                <input type="text" name="cep-cliente-faturamento" id="cep-cliente-faturamento" placeholder="00000-000"  required>
                                 <button class="btn-buscar-cep-endereco">Buscar CEP</button>
                             </span>
                         </section>
@@ -103,11 +104,11 @@
                                 <div>
                                     <label for="logradouro-cliente-faturamento">Logradouro</label>
                                     <input type="text" name="logradouro-cliente-faturamento"
-                                        id="logradouro-cliente-faturamento" placeholder="Ex.: Rua das Camélias">
+                                        id="logradouro-cliente-faturamento" placeholder="Ex.: Rua das Camélias" required>
                                 </div>
                                 <div>
                                     <label for="numero-cliente-faturamento">Número</label>
-                                    <input type="text" name="numero-cliente-faturamento" id="numero-cliente-faturamento">
+                                    <input type="text" name="numero-cliente-faturamento" id="numero-cliente-faturamento" required>
                                 </div>
                             </div>
     
@@ -115,22 +116,22 @@
                                 <div>
                                     <label for="complemento-cliente-faturamento">Complemento</label>
                                     <input type="text" name="complemento-cliente-faturamento"
-                                        id="complemento-cliente-faturamento">
+                                        id="complemento-cliente-faturamento" required>
                                 </div>
                                 <div>
                                     <label for="bairro-cliente-faturamento">Bairro</label>
-                                    <input type="text" name="bairro-cliente-faturamento" id="bairro-cliente-faturamento">
+                                    <input type="text" name="bairro-cliente-faturamento" id="bairro-cliente-faturamento" required>
                                 </div>
                             </div>
     
                             <div>
                                 <div>
                                     <label for="cidade-cliente-faturamento">Cidade</label>
-                                    <input type="text" name="cidade-cliente-faturamento" id="cidade-cliente-faturamento">
+                                    <input type="text" name="cidade-cliente-faturamento" id="cidade-cliente-faturamento" required>
                                 </div>
                                 <div>
                                     <label for="uf-cliente-faturamento">UF</label>
-                                    <input type="text" name="uf-cliente-faturamento" id="uf-cliente-faturamento">
+                                    <input type="text" name="uf-cliente-faturamento" id="uf-cliente-faturamento" required>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +152,7 @@
                         <section class="formulario-cep-entrega">
                             <label for="cep-cliente-e">CEP</label>
                             <span>
-                                <input type="text" name="cep-cliente-entrega" id="cep-cliente-entrega" placeholder="00000-000" >
+                                <input type="text" name="cep-cliente-entrega" id="cep-cliente-entrega" placeholder="00000-000"  required>
                                 <button class="btn-buscar-cep-endereco">Buscar CEP</button>
                             </span>
                         </section>
@@ -161,11 +162,11 @@
                                 <div>
                                     <label for="logradouro-cliente-entrega">Logradouro</label>
                                     <input type="text" name="logradouro-cliente-entrega"
-                                        id="logradouro-cliente-entrega" placeholder="Ex.: Rua das Camélias">
+                                        id="logradouro-cliente-entrega" placeholder="Ex.: Rua das Camélias" required>
                                 </div>
                                 <div>
                                     <label for="numero-cliente-entrega">Número</label>
-                                    <input type="text" name="numero-cliente-entrega" id="numero-cliente-entrega">
+                                    <input type="text" name="numero-cliente-entrega" id="numero-cliente-entrega" required>
                                 </div>
                             </div>
     
@@ -173,22 +174,22 @@
                                 <div>
                                     <label for="complemento-cliente-entrega">Complemento</label>
                                     <input type="text" name="complemento-cliente-entrega"
-                                        id="complemento-cliente-entrega">
+                                        id="complemento-cliente-entrega" required>
                                 </div>
                                 <div>
                                     <label for="bairro-cliente-entrega">Bairro</label>
-                                    <input type="text" name="bairro-cliente-entrega" id="bairro-cliente-entrega">
+                                    <input type="text" name="bairro-cliente-entrega" id="bairro-cliente-entrega" required>
                                 </div>
                             </div>
     
                             <div>
                                 <div>
                                     <label for="cidade-cliente-entrega">Cidade</label>
-                                    <input type="text" name="cidade-cliente-entrega" id="cidade-cliente-entrega">
+                                    <input type="text" name="cidade-cliente-entrega" id="cidade-cliente-entrega" required>
                                 </div>
                                 <div>
                                     <label for="uf-cliente-entrega">UF</label>
-                                    <input type="text" name="uf-cliente-faturamento" id="uf-cliente-entrega">
+                                    <input type="text" name="uf-cliente-faturamento" id="uf-cliente-entrega" required>
                                 </div>
                             </div>
                         </div>
@@ -234,6 +235,9 @@
 
     <script src="../js/utils/mascara-cpf.js"></script>
     <script src="../js/utils/validador-cpf.js"></script>
+    <script src="../js/utils/buscarEnderecoViaCep.js"></script>
+    <script src="../js/utils/copiarEndereco.js"></script>
+    <script src="../js/pages/carrinho.js"></script>
 </body>
 
 </html>

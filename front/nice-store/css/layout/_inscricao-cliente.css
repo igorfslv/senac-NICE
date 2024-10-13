@@ -3,7 +3,7 @@
 }
 
 .container-inscricao-cliente h1 {
-    font-size: var(--font-tam-titulo);
+    font-size: 30px;
 }
 
 .formulario-cadastro-cliente {
@@ -11,31 +11,29 @@
 }
 
 .inscricao-dados-conta-informacoes {
-    display: flex;
-    justify-content: space-between;
-
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     width: 100%;
     margin-bottom: 20px;
-    /* background-color: bisque; */
 }
 
 .titulo-secao-inscricao {
     font-size: 18px;
     font-weight: 700;
-    width: 25%;
+    grid-column-start: 1;
+    grid-column-end: 2;
 }
 
 .inscricao-dados-inputs {
     display: flex;
     flex-direction: column;
-    width: 75%;
-
+    grid-column-start: 2;
+    grid-column-end: 4;
     margin-right: 50px;
 }
 
 .inscricao-dados-inputs input,
 .inscricao-dados-inputs select {
-    /* width: 350px; */
     padding: 8px;
     font-size: var(--font-tam-normal);
     border-radius: 5px;
@@ -100,7 +98,7 @@
 }
 
 .inscricao-dados-conta .separador {
-    width: 80%;
+    width: 100%;
     margin: 40px 0;
 }
 
