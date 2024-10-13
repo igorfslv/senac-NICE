@@ -1,5 +1,5 @@
 function exibirValidacaoCPF(input) {
-    let cpf = document.getElementById('cpf-usuario');
+    let cpf = document.getElementById('cpf-cliente');
     let lblCpf = document.querySelector('.lbl-cpf');
     let cpfInserido = input.value;
 

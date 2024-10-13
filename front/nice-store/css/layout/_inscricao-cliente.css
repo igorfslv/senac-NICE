@@ -1,0 +1,126 @@
+.container-inscricao-cliente {
+    padding: 50px 70px;
+}
+
+.container-inscricao-cliente h1 {
+    font-size: var(--font-tam-titulo);
+}
+
+.formulario-cadastro-cliente {
+    margin: 40px 0;
+}
+
+.inscricao-dados-conta-informacoes {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    margin-bottom: 20px;
+    /* background-color: bisque; */
+}
+
+.titulo-secao-inscricao {
+    font-size: 18px;
+    font-weight: 700;
+    width: 25%;
+}
+
+.inscricao-dados-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+
+    margin-right: 50px;
+}
+
+.inscricao-dados-inputs input,
+.inscricao-dados-inputs select {
+    /* width: 350px; */
+    padding: 8px;
+    font-size: var(--font-tam-normal);
+    border-radius: 5px;
+    border: 1px solid #d8d8d8;
+    background-color: #eeeeee;
+}
+
+.formulario-cep-faturamento,
+.formulario-cep-entrega  {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-cep-faturamento span,
+.formulario-cep-entrega span {
+    display: flex;
+    align-items: center;
+}
+
+.formulario-cep-faturamento span button,
+.formulario-cep-entrega span button {
+    margin-left: 15px;
+}
+
+.dados-pessoais,
+.enderecos,
+.conta-cliente {
+    display: flex;
+    flex-direction: row;
+}
+
+.dados-pessoais div,
+.enderecos div div,
+.conta-cliente div {
+    display: flex;
+    flex-direction: column;
+}
+
+.dados-pessoais div label,
+.conta-cliente div label,
+.enderecos div div label,
+.formulario-cep-faturamento label,
+.formulario-cep-entrega label {
+    margin: 0 0 10px;
+}
+
+
+.dados-pessoais div input,
+.conta-cliente div input,
+.enderecos div div input {
+    margin-right: 15px;
+    margin-bottom: 15px;
+    width: 200px;
+}
+
+.enderecos {
+    margin: 20px 0;
+}
+
+.btn-copiar-endereco {
+    width: 300px;
+}
+
+.inscricao-dados-conta .separador {
+    width: 80%;
+    margin: 40px 0;
+}
+
+.btn-buscar-cep-endereco {
+    background-color: var(--bg-3);
+    color: var(--font-2);
+}
+
+.btn-copiar-endereco {
+    background-color: var(--bg-8);
+    color: var(--font-2);
+}
+
+.btn-inscrever-se {
+    float: left;
+    margin: 10px 24% 100px;
+    width: 300px;
+
+    padding: 15px;
+    background-color: var(--bg-10);
+    color: var(--font-2);
+    font-size: var(--font-tam-normal);
+}

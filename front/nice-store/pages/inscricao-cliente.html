@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Inscrição</title>
+</head>
+
+<body>
+    <header class="header-tela-principal" id="header-tela-principal">
+
+        <nav class="nav-bar-tela-principal">
+            <ul>
+                <li>
+                    <div class="logotipo-loja">
+                        <img src="../img/img-logotipo.png" alt="" srcset="" onclick="window.location.reload()">
+                    </div>
+                </li>
+                <li>
+                    <div class="btns-carrinho-login">
+                        <button id="btn-entrar-login">Entrar</button>
+                        <button id="btn-inscrever-login">Inscrever-se</button>
+                        <i class='bx bx-cart-alt btn-carrinho' onclick="window.location.href = './carrinho.html'">
+                            <span id="badge-carrinho" class="quantidade-itens">0</span>
+                        </i>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="container-inscricao-cliente">
+        <h1>Realize o seu cadastro para finalizarmos!</h1>
+
+        <form class="formulario-cadastro-cliente">
+
+            <div class="inscricao-dados-conta">
+
+                <div class="separador"></div>
+                
+                <div class="inscricao-dados-conta-informacoes">
+
+                    <p class="titulo-secao-inscricao">Dados Pessoais</p>
+
+                    <div class="inscricao-dados-inputs dados-pessoais">
+
+                        <div>
+                            <label for="nome-cliente">Nome Completo</label>
+                            <input type="text" name="nome-cliente" id="nome-cliente" placeholder="Ex.: João da Silva"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="cpf-cliente" class="lbl-cpf">CPF</label>
+                            <input type="text" name="cpf-cliente" id="cpf-cliente" placeholder="000.000.000-00"
+                                maxlength="14" oninput="mascaraCPF(this)" onkeyup="exibirValidacaoCPF(this)" required>
+                        </div>
+
+                        <div>
+                            <label for="data-nascimento-cliente">Data de Nascimento</label>
+                            <input type="date" name="data-nascimento-cliente" id="data-nascimento-cliente">
+                        </div>
+
+                        <div>
+                            <label for="genero-cliente">Gênero</label>
+                            <select name="genero-cliente" id="genero-cliente">
+                                <option value="0">Selecione...</option>
+                                <option value="1">Feminino</option>
+                                <option value="2">Masculino</option>
+                                <option value="3">Outro</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="separador"></div>
+                
+                <div class="inscricao-dados-conta-informacoes">
+
+                    <p class="titulo-secao-inscricao">Endereço Faturamento</p>
+
+                    <div class="inscricao-dados-inputs">
+
+                        <section class="formulario-cep-faturamento">
+                            <label for="cep-cliente-faturamento">CEP</label>
+                            <span>
+                                <input type="text" name="cep-cliente-faturamento" id="cep-cliente-faturamento" placeholder="00000-000" >
+                                <button class="btn-buscar-cep-endereco">Buscar CEP</button>
+                            </span>
+                        </section>
+
+                        <div class="enderecos">
+                            <div>
+                                <div>
+                                    <label for="logradouro-cliente-faturamento">Logradouro</label>
+                                    <input type="text" name="logradouro-cliente-faturamento"
+                                        id="logradouro-cliente-faturamento" placeholder="Ex.: Rua das Camélias">
+                                </div>
+                                <div>
+                                    <label for="numero-cliente-faturamento">Número</label>
+                                    <input type="text" name="numero-cliente-faturamento" id="numero-cliente-faturamento">
+                                </div>
+                            </div>
+    
+                            <div>
+                                <div>
+                                    <label for="complemento-cliente-faturamento">Complemento</label>
+                                    <input type="text" name="complemento-cliente-faturamento"
+                                        id="complemento-cliente-faturamento">
+                                </div>
+                                <div>
+                                    <label for="bairro-cliente-faturamento">Bairro</label>
+                                    <input type="text" name="bairro-cliente-faturamento" id="bairro-cliente-faturamento">
+                                </div>
+                            </div>
+    
+                            <div>
+                                <div>
+                                    <label for="cidade-cliente-faturamento">Cidade</label>
+                                    <input type="text" name="cidade-cliente-faturamento" id="cidade-cliente-faturamento">
+                                </div>
+                                <div>
+                                    <label for="uf-cliente-faturamento">UF</label>
+                                    <input type="text" name="uf-cliente-faturamento" id="uf-cliente-faturamento">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-copiar-endereco">Copiar para Endereço de Entrega</button>
+
+                    </div>
+                </div>
+
+                <div class="separador"></div>
+                
+                <div class="inscricao-dados-conta-informacoes">
+
+                    <p class="titulo-secao-inscricao">Endereço Entrega</p>
+
+                    <div class="inscricao-dados-inputs">
+
+                        <section class="formulario-cep-entrega">
+                            <label for="cep-cliente-e">CEP</label>
+                            <span>
+                                <input type="text" name="cep-cliente-entrega" id="cep-cliente-entrega" placeholder="00000-000" >
+                                <button class="btn-buscar-cep-endereco">Buscar CEP</button>
+                            </span>
+                        </section>
+
+                        <div class="enderecos">
+                            <div>
+                                <div>
+                                    <label for="logradouro-cliente-entrega">Logradouro</label>
+                                    <input type="text" name="logradouro-cliente-entrega"
+                                        id="logradouro-cliente-entrega" placeholder="Ex.: Rua das Camélias">
+                                </div>
+                                <div>
+                                    <label for="numero-cliente-entrega">Número</label>
+                                    <input type="text" name="numero-cliente-entrega" id="numero-cliente-entrega">
+                                </div>
+                            </div>
+    
+                            <div>
+                                <div>
+                                    <label for="complemento-cliente-entrega">Complemento</label>
+                                    <input type="text" name="complemento-cliente-entrega"
+                                        id="complemento-cliente-entrega">
+                                </div>
+                                <div>
+                                    <label for="bairro-cliente-entrega">Bairro</label>
+                                    <input type="text" name="bairro-cliente-entrega" id="bairro-cliente-entrega">
+                                </div>
+                            </div>
+    
+                            <div>
+                                <div>
+                                    <label for="cidade-cliente-entrega">Cidade</label>
+                                    <input type="text" name="cidade-cliente-entrega" id="cidade-cliente-entrega">
+                                </div>
+                                <div>
+                                    <label for="uf-cliente-entrega">UF</label>
+                                    <input type="text" name="uf-cliente-faturamento" id="uf-cliente-entrega">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="separador"></div>
+                
+                <div class="inscricao-dados-conta-informacoes">
+
+                    <p class="titulo-secao-inscricao">Conta</p>
+
+                    <div class="inscricao-dados-inputs conta-cliente">
+
+                        <div>
+                            <label for="email-cliente">E-mail</label>
+                            <input type="email" name="email-cliente" id="email-cliente" placeholder="exemplo@email.com"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="senha-cliente">Senha</label>
+                            <input type="password" name="senha-cliente" id="senha-cliente" placeholder="********"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="confirmar-senha-cliente">Confirme a Senha</label>
+                            <input type="password" name="confirmar-senha-cliente" id="confirmar-senha-cliente"
+                                placeholder="********" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="separador"></div>
+
+                <button class="btn-inscrever-se" type="submit">Inscrever-se</button>
+            </div>
+
+        </form>
+    </main>
+
+    <script src="../js/utils/mascara-cpf.js"></script>
+    <script src="../js/utils/validador-cpf.js"></script>
+</body>
+
+</html>
