@@ -93,7 +93,8 @@
     margin: 20px 0;
 }
 
-.btn-copiar-endereco {
+.btn-copiar-endereco,
+.btn-add-endereco-entrega {
     width: 300px;
 }
 
@@ -107,12 +108,14 @@
     color: var(--font-2);
 }
 
-.btn-copiar-endereco {
+.btn-copiar-endereco,
+.btn-add-endereco-entrega {
     background-color: var(--bg-8);
     color: var(--font-2);
 }
 
-.btn-inscrever-se {
+.btn-inscrever-se,
+.btn-atualizar-cadastro-cliente {
     float: left;
     margin: 10px 24% 100px;
     width: 300px;
@@ -121,4 +124,17 @@
     background-color: var(--bg-10);
     color: var(--font-2);
     font-size: var(--font-tam-normal);
+}
+
+.endereco-padrao-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-wrap: nowrap;
+}
+
+.endereco-padrao-container input {
+    width: 20px;
+    height: 20px;
+    margin: 8px;
 }

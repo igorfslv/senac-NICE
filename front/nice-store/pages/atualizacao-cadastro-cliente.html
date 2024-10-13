@@ -10,7 +10,7 @@
         rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/main.css">
-    <title>Inscrição</title>
+    <title>Meu Cadastro</title>
 </head>
 
 <body>
@@ -38,7 +38,7 @@
     </header>
 
     <main class="container-inscricao-cliente">
-        <h1>Crie sua conta</h1>
+        <h1>Dados Cadastrais</h1>
 
         <form class="formulario-cadastro-cliente">
 
@@ -61,7 +61,7 @@
                         <div>
                             <label for="cpf-cliente" class="lbl-cpf">CPF</label>
                             <input type="text" name="cpf-cliente" id="cpf-cliente" placeholder="000.000.000-00"
-                                maxlength="14" oninput="mascaraCPF(this)" onkeyup="exibirValidacaoCPF(this)" required>
+                                maxlength="14" oninput="mascaraCPF(this)" onkeyup="exibirValidacaoCPF(this)" disabled>
                         </div>
 
                         <div>
@@ -94,8 +94,8 @@
                         <section class="formulario-cep-faturamento">
                             <label for="cep-cliente-faturamento">CEP</label>
                             <span>
-                                <input type="text" name="cep-cliente-faturamento" id="cep-cliente-faturamento" placeholder="00000-000"  required>
-                                <button class="btn-buscar-cep-endereco">Buscar CEP</button>
+                                <input type="text" name="cep-cliente-faturamento" id="cep-cliente-faturamento" placeholder="00000-000"  disabled>
+                                <!-- <button class="btn-buscar-cep-endereco">Buscar CEP</button> -->
                             </span>
                         </section>
 
@@ -104,11 +104,11 @@
                                 <div>
                                     <label for="logradouro-cliente-faturamento">Logradouro</label>
                                     <input type="text" name="logradouro-cliente-faturamento"
-                                        id="logradouro-cliente-faturamento" placeholder="Ex.: Rua das Camélias" required>
+                                        id="logradouro-cliente-faturamento" placeholder="Ex.: Rua das Camélias" disabled>
                                 </div>
                                 <div>
                                     <label for="numero-cliente-faturamento">Número</label>
-                                    <input type="text" name="numero-cliente-faturamento" id="numero-cliente-faturamento" required>
+                                    <input type="text" name="numero-cliente-faturamento" id="numero-cliente-faturamento" disabled>
                                 </div>
                             </div>
     
@@ -116,27 +116,25 @@
                                 <div>
                                     <label for="complemento-cliente-faturamento">Complemento</label>
                                     <input type="text" name="complemento-cliente-faturamento"
-                                        id="complemento-cliente-faturamento" required>
+                                        id="complemento-cliente-faturamento" disabled>
                                 </div>
                                 <div>
                                     <label for="bairro-cliente-faturamento">Bairro</label>
-                                    <input type="text" name="bairro-cliente-faturamento" id="bairro-cliente-faturamento" required>
+                                    <input type="text" name="bairro-cliente-faturamento" id="bairro-cliente-faturamento" disabled>
                                 </div>
                             </div>
     
                             <div>
                                 <div>
                                     <label for="cidade-cliente-faturamento">Cidade</label>
-                                    <input type="text" name="cidade-cliente-faturamento" id="cidade-cliente-faturamento" required>
+                                    <input type="text" name="cidade-cliente-faturamento" id="cidade-cliente-faturamento" disabled>
                                 </div>
                                 <div>
                                     <label for="uf-cliente-faturamento">UF</label>
-                                    <input type="text" name="uf-cliente-faturamento" id="uf-cliente-faturamento" required>
+                                    <input type="text" name="uf-cliente-faturamento" id="uf-cliente-faturamento" disabled>
                                 </div>
                             </div>
                         </div>
-                        
-                        <button class="btn-copiar-endereco">Copiar para Endereço de Entrega</button>
 
                     </div>
                 </div>
@@ -149,50 +147,60 @@
 
                     <div class="inscricao-dados-inputs">
 
-                        <section class="formulario-cep-entrega">
-                            <label for="cep-cliente-e">CEP</label>
-                            <span>
-                                <input type="text" name="cep-cliente-entrega" id="cep-cliente-entrega" placeholder="00000-000"  required>
-                                <button class="btn-buscar-cep-endereco">Buscar CEP</button>
-                            </span>
-                        </section>
+                        <div class="enderecos-entrega-container">
 
-                        <div class="enderecos">
-                            <div>
-                                <div>
-                                    <label for="logradouro-cliente-entrega">Logradouro</label>
-                                    <input type="text" name="logradouro-cliente-entrega"
-                                        id="logradouro-cliente-entrega" placeholder="Ex.: Rua das Camélias" required>
-                                </div>
-                                <div>
-                                    <label for="numero-cliente-entrega">Número</label>
-                                    <input type="text" name="numero-cliente-entrega" id="numero-cliente-entrega" required>
-                                </div>
-                            </div>
+                            <section class="formulario-cep-entrega">
+                                <label for="cep-cliente-e">CEP</label>
+                                <span>
+                                    <input type="text" name="cep-cliente-entrega" id="cep-cliente-entrega" placeholder="00000-000" disabled>
+                                    <!-- <button class="btn-buscar-cep-endereco">Buscar CEP</button> -->
+                                </span>
+                            </section>
     
-                            <div>
+                            <div class="enderecos">
                                 <div>
-                                    <label for="complemento-cliente-entrega">Complemento</label>
-                                    <input type="text" name="complemento-cliente-entrega"
-                                        id="complemento-cliente-entrega" required>
+                                    <div>
+                                        <label for="logradouro-cliente-entrega">Logradouro</label>
+                                        <input type="text" name="logradouro-cliente-entrega"
+                                            id="logradouro-cliente-entrega" class="logradouro-cliente-entrega" placeholder="Ex.: Rua das Camélias" disabled>
+                                    </div>
+                                    <div>
+                                        <label for="numero-cliente-entrega">Número</label>
+                                        <input type="text" name="numero-cliente-entrega" id="numero-cliente-entrega" class="numero-cliente-entrega" disabled>
+                                    </div>
                                 </div>
+        
                                 <div>
-                                    <label for="bairro-cliente-entrega">Bairro</label>
-                                    <input type="text" name="bairro-cliente-entrega" id="bairro-cliente-entrega" required>
+                                    <div>
+                                        <label for="complemento-cliente-entrega">Complemento</label>
+                                        <input type="text" name="complemento-cliente-entrega"
+                                            id="complemento-cliente-entrega" class="complemento-cliente-entrega" disabled>
+                                    </div>
+                                    <div>
+                                        <label for="bairro-cliente-entrega">Bairro</label>
+                                        <input type="text" name="bairro-cliente-entrega" id="bairro-cliente-entrega" class="bairro-cliente-entrega" disabled>
+                                    </div>
                                 </div>
-                            </div>
-    
-                            <div>
+        
                                 <div>
-                                    <label for="cidade-cliente-entrega">Cidade</label>
-                                    <input type="text" name="cidade-cliente-entrega" id="cidade-cliente-entrega" required>
+                                    <div>
+                                        <label for="cidade-cliente-entrega">Cidade</label>
+                                        <input type="text" name="cidade-cliente-entrega" id="cidade-cliente-entrega" class="cidade-cliente-entrega" disabled>
+                                    </div>
+                                    <div>
+                                        <label for="uf-cliente-entrega">UF</label>
+                                        <input type="text" name="uf-cliente-entrega" id="uf-cliente-entrega" class="uf-cliente-entrega" disabled>
+                                    </div>
                                 </div>
-                                <div>
-                                    <label for="uf-cliente-entrega">UF</label>
-                                    <input type="text" name="uf-cliente-entrega" id="uf-cliente-entrega" required>
+
+                                <div class="endereco-padrao-container">
+                                    <input type="radio" name="endereco-padrao" checked>
+                                    <label>Endereço Padrão</label>
                                 </div>
                             </div>
                         </div>
+
+                        <button class="btn-add-endereco-entrega">Adicionar Endereço de Entrega</button>
 
                     </div>
                 </div>
@@ -208,7 +216,7 @@
                         <div>
                             <label for="email-cliente">E-mail</label>
                             <input type="email" name="email-cliente" id="email-cliente" placeholder="exemplo@email.com"
-                                required>
+                                disabled>
                         </div>
 
                         <div>
@@ -227,7 +235,7 @@
 
                 <div class="separador"></div>
 
-                <button class="btn-inscrever-se" type="submit">Inscrever-se</button>
+                <button class="btn-atualizar-cadastro-cliente" type="submit">Atualizar Cadastro</button>
             </div>
 
         </form>
@@ -235,9 +243,8 @@
 
     <script src="../js/utils/mascara-cpf.js"></script>
     <script src="../js/utils/validador-cpf.js"></script>
-    <script src="../js/utils/buscarEnderecoViaCep.js"></script>
-    <script src="../js/utils/copiarEndereco.js"></script>
-    <script src="../js/pages/carrinho.js"></script>
+    <script src="../js/utils/adicionar-endereco-entrega.js"></script>
+    <script src="../js/utils/buscarEnderecoEntregaViaCep.js"></script>
 </body>
 
 </html>
