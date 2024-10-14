@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b562c48-3dd2-44c3-900b-eba5953e558a" name="Changes" comment="" />
+    <list default="true" id="5b562c48-3dd2-44c3-900b-eba5953e558a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/ClienteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/Cliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/ClienteRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/ClienteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/dto/ClienteCadastradoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/dto/ClienteCadastroDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/endereco/Endereco.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/endereco/dto/EnderecoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/endereco/dto/NovosEnderecosDeEntregaDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/genero/Genere.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/db/migration/V3__criando_tabela_clientes.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/db/migration/V4__criando_tabela_enderecos.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
         <option value="Record" />
       </list>
     </option>
@@ -31,16 +46,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ApiApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/DomiU/OneDrive/Área de Trabalho/4 semestre pi/NICE/api"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/DomiU/OneDrive/Área de Trabalho/4 semestre pi/NICE/api&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="pi.nice.api.domain.cliente" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="ApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pi.nice.api.ApiApplication" />

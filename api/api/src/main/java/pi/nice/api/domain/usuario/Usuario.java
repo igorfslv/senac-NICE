@@ -11,6 +11,7 @@ import pi.nice.api.domain.usuario.dto.AlternarUsuarioDTO;
 import pi.nice.api.domain.usuario.dto.UsuarioCadastroDTO;
 import jakarta.validation.constraints.Email;
 
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "usuarios")
 @Entity(name = "Usuario")
 @Getter
@@ -52,6 +53,16 @@ public class Usuario {
         this.senha = senha;
         ativo = true;
     }
+
+    public Usuario(String nome, String cpf, String email, Grupo grupo, String senha) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.senha = senha;
+        this.grupo = grupo;
+        this.ativo = true;
+    }
+
 
     public Usuario alterarDados(AlterarUsuarioDTO alternarUsuarioDTO, String senha) {
         this.nome = alternarUsuarioDTO.nome();
