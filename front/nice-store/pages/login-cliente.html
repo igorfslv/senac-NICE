@@ -8,10 +8,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="shortcut icon" href="../img/img-logotipo-branco-icon.png" type="image/x-icon">
     <title>Login Cliente</title>
 </head>
 <body>
-    
+    <main class="container-login-cliente">
+        <div class="imagem-capa">
+            <img src="../img/img-logotipo-branco.png" alt="Logotipo Nice Store" onclick="window.location.href = '../index.html'">
+        </div>
+        <div class="container-form-login">
+            
+            <form class="formulario-login-cliente">
+
+                <div class="form-login-titulo">
+                    <h1>Login</h1>
+                </div>
+
+                <label for="login-email-cliente">E-mail</label>
+                <input type="email" name="login-email-cliente" id="login-email-cliente" placeholder="usuario@gmail.com" required>
+
+                <label for="login-senha-cliente">Senha</label>
+                <input type="password" name="login-senha-cliente" id="login-senha-cliente" placeholder="********" required>
+
+                <button type="submit">Entrar</button>
+            </form>
+            <div>
+                <p>Novo usuário?</p>
+                <button onclick="window.location.href = './inscricao-cliente.html'">Inscreva-se</button>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

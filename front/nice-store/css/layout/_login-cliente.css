@@ -1,0 +1,101 @@
+.container-login-cliente {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-1);
+}
+
+.imagem-capa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+
+}
+
+.imagem-capa img {
+    margin: 0 auto;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.container-form-login {
+    width: 40%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 40px;
+    background-color: var(--bg-0);
+    box-shadow: 0 0 20px 1px rgba(134, 134, 134, 0.1);
+}
+
+.form-login-titulo {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 20px;
+}
+
+.form-login-titulo h1 {
+    font-weight: 800;
+    font-size: var(--font-tam-grande);
+    margin: 20px 0;
+}
+
+.form-login-titulo p {
+    text-align: left;
+    font-size: var(--font-tam-normal);
+    margin: 20px 0;
+}
+
+.formulario-login-cliente {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.formulario-login-cliente label {
+    margin: 10px 0;
+    font-size: var(--font-tam-normal);
+}
+
+.formulario-login-cliente input {
+    padding: 15px;
+    font-size: var(--font-tam-normal);
+    border-radius: 5px;
+    border: 1px solid #d8d8d8;
+    background-color: #eeeeee;
+}
+
+.formulario-login-cliente > button {
+    background-color: var(--bg-6);
+    font-size: var(--font-tam-normal);
+    color: var(--font-2);
+    margin: 20px 0;
+    padding: 15px;
+}
+
+.container-form-login div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-form-login div p {
+    margin: 0 5px;
+}
+
+.container-form-login div button {
+    background: none;
+    font-weight: 700;
+    font-size: var(--font-tam-normal);
+}
+
+.container-form-login div button:hover {
+    color: var(--bg-6);
+}
