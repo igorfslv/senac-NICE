@@ -5,6 +5,8 @@ import lombok.*;
 import pi.nice.api.domain.cliente.Cliente;
 import pi.nice.api.domain.endereco.dto.EnderecoDTO;
 
+@Inheritance(strategy = InheritanceType.JOINED)
+
 @Table(name = "enderecos")
 @Entity(name = "Endereco")
 @Getter
@@ -12,6 +14,7 @@ import pi.nice.api.domain.endereco.dto.EnderecoDTO;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
+
 public class Endereco {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +28,7 @@ public class Endereco {
     private String uf;
     @ManyToOne
     @JoinColumn(name = "id_cliente")
-    private Cliente cliente;
+    protected Cliente cliente;
     private boolean enderecoPadrao;
 
     public Endereco(EnderecoDTO enderecoCadastroDTO, Cliente cliente) {

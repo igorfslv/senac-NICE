@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import pi.nice.api.domain.cliente.dto.ClienteCadastradoDTO;
 import pi.nice.api.domain.cliente.dto.ClienteCadastroDTO;
 import pi.nice.api.domain.endereco.dto.NovosEnderecosDeEntregaDTO;
+import pi.nice.api.domain.usuario.dto.UsuarioLoginDTO;
+import pi.nice.api.domain.usuario.dto.UsuarioLoginRealizadoDTO;
 
 import java.util.Optional;
 
@@ -21,8 +23,9 @@ public class ClienteService {
 
     public ResponseEntity<?> cadastrarCliente(ClienteCadastroDTO clienteCadastroDTO) {
 
-        clienteRepository.save(new Cliente(clienteCadastroDTO, passwordEncoder.encode(clienteCadastroDTO.senha())));
-        return ResponseEntity.ok().build();
+        Cliente cliente = new Cliente(clienteCadastroDTO, passwordEncoder.encode(clienteCadastroDTO.senha()));
+        clienteRepository.save(cliente);
+        return ResponseEntity.ok(new ClienteCadastradoDTO(cliente));
     }
 
     public ResponseEntity<?> getListaClientes() {
@@ -51,4 +54,19 @@ public class ClienteService {
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente não encontrado");
     }
+
+    public ResponseEntity<?> login(UsuarioLoginDTO usuarioLoginDTO) {
+
+        Optional<Cliente> cliente = clienteRepository.findByEmailAndAtivoTrue(usuarioLoginDTO.email());
+
+        if (cliente.isPresent()) {
+            if (passwordEncoder.matches(usuarioLoginDTO.senha(), cliente.get().getSenha()))
+                return ResponseEntity.ok(new ClienteCadastradoDTO(cliente.get()));
+
+        }
+
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente não encontrado ou credenciais inválidas");
+    }
+
 }

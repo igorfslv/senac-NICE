@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 import pi.nice.api.domain.cliente.dto.ClienteCadastroDTO;
 import pi.nice.api.domain.endereco.Endereco;
+import pi.nice.api.domain.endereco.EnderecoDeFaturamento;
 import pi.nice.api.domain.endereco.dto.NovosEnderecosDeEntregaDTO;
 import pi.nice.api.domain.genero.Genere;
+import pi.nice.api.domain.grupo.Grupo;
 import pi.nice.api.domain.usuario.Usuario;
 
 import java.util.ArrayList;
@@ -27,19 +29,20 @@ public class Cliente extends Usuario {
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Endereco> enderecosDeEntrega = new ArrayList<>();
 
-    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
-    private Endereco enderecoDeFaturamento;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_endereco_de_faturamento", unique = true)
+    private EnderecoDeFaturamento enderecoDeFaturamento;
 
 
 
     public Cliente(ClienteCadastroDTO clienteDTO, String senha) {
-        super(clienteDTO.nome(), clienteDTO.cpf(),clienteDTO.email(), clienteDTO.grupoId(), senha);
+        super(clienteDTO.nome(), clienteDTO.cpf(),clienteDTO.email(), Grupo.CLIENTE, senha);
         System.out.println(clienteDTO);
-        this.enderecosDeEntrega.addAll(clienteDTO.enderecosDeEntrega().stream().map(enderecoCadastroDTO -> new Endereco(enderecoCadastroDTO, this)).toList());
-
-        this.enderecoDeFaturamento = new Endereco(clienteDTO.enderecoDeFaturamento(), this);
+        this.enderecosDeEntrega.add(new Endereco(clienteDTO.enderecoDeEntrega(), this));
+        this.enderecoDeFaturamento = new EnderecoDeFaturamento(clienteDTO.enderecoDeFaturamento(), this);
         this.dataDeNascimento = clienteDTO.dataDeNascimento();
         this.genero = clienteDTO.genere();
+
 
     }
 

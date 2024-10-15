@@ -1,4 +1,4 @@
-CREATE TABLE enderecos(
+CREATE TABLE enderecos (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     id_cliente VARCHAR(36),
     cep VARCHAR(9) NOT NULL,
@@ -11,3 +11,11 @@ CREATE TABLE enderecos(
     endereco_padrao BOOLEAN NOT NULL,
     CONSTRAINT fk_id_cliente FOREIGN KEY (id_cliente) REFERENCES clientes(id)
 );
+
+CREATE TABLE endereco_de_faturamento (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id VARCHAR(36),
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
+);
+
+

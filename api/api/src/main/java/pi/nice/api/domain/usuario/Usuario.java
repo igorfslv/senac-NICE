@@ -21,9 +21,6 @@ import jakarta.validation.constraints.Email;
 @EqualsAndHashCode(of = "id")
 public class Usuario {
 
-
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;

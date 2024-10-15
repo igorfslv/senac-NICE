@@ -16,6 +16,6 @@ public record ClienteCadastroDTO(
         Date dataDeNascimento,
         Genere genere,
         EnderecoDTO enderecoDeFaturamento,
-        List<EnderecoDTO> enderecosDeEntrega
+        EnderecoDTO enderecoDeEntrega
 ) {
 }

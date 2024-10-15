@@ -8,6 +8,7 @@ import pi.nice.api.domain.cliente.dto.ClienteCadastroDTO;
 import pi.nice.api.domain.cliente.ClienteService;
 import pi.nice.api.domain.endereco.dto.EnderecoDTO;
 import pi.nice.api.domain.endereco.dto.NovosEnderecosDeEntregaDTO;
+import pi.nice.api.domain.usuario.dto.UsuarioLoginDTO;
 
 @RestController
 @RequestMapping("/cliente")
@@ -19,7 +20,7 @@ public class ClienteController {
     @CrossOrigin
     @PostMapping("/cadastrar")
     public ResponseEntity<?> cadastroClietne(@RequestBody ClienteCadastroDTO clienteDTO) {
-        System.out.println(clienteDTO);
+        System.out.println("dggdfgdf " + clienteDTO);
         return clienteService.cadastrarCliente(clienteDTO);
     }
 
@@ -34,6 +35,12 @@ public class ClienteController {
     @PutMapping("/adicionarEnderecos/{id}")
     public ResponseEntity<?> addNovosEnderecosDeEntrega(@RequestBody NovosEnderecosDeEntregaDTO novosEnderecosDeEntregaDTO, @PathVariable String id) {
         return clienteService.addNovosEnderecosDeEntrega(novosEnderecosDeEntregaDTO, id);
+    }
+
+    @CrossOrigin
+    @PostMapping("/login")
+    public ResponseEntity<?> loginCliente(@RequestBody UsuarioLoginDTO usuarioLoginDTO) {
+        return clienteService.login(usuarioLoginDTO);
     }
 
 }

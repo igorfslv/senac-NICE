@@ -1,7 +1,7 @@
 package pi.nice.api.domain.grupo;
 
 public enum Grupo {
-    USUARIO,
+    CLIENTE,
     ADMINISTRADOR,
     ESTOQUISTA
 }
