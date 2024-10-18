@@ -23,23 +23,23 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    protected String id;
     @NotBlank
     @Size(min = 3, max = 36, message = "O nome de usuário deve ter entre 3 a 36 caracteres.")
-    private String nome;
+    protected String nome;
     @CPF(message = "O CPF deve ser válido")
     @NotBlank
-    private String cpf;
+    protected String cpf;
     @Email(message = "O e-mail deve ser válido")
     @Size(max = 36, message = "O e-mail deve ter no maximo 256 caracteres.")
     @NotBlank
-    private String email;
+    protected String email;
     @NotBlank
     @Size(max = 60, message = "A senha deve ter no maximo 60 caracteres.")
-    private String senha;
+    protected String senha;
     @Enumerated(EnumType.STRING)
-    private Grupo grupo;
-    private boolean ativo;
+    protected Grupo grupo;
+    protected boolean ativo;
 
 
     public Usuario(UsuarioCadastroDTO usuarioCadastroDTO, String senha) {

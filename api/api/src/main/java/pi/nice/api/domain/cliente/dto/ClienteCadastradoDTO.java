@@ -22,7 +22,8 @@ public record ClienteCadastradoDTO(
     public ClienteCadastradoDTO(Cliente cliente) {
         this(cliente.getId(), cliente.getNome(), cliente.getCpf(), cliente.getEmail(), cliente.getSenha(), cliente.getDataDeNascimento(), cliente.getGenero(),
                 new EnderecoDTO(cliente.getEnderecoDeFaturamento()), cliente.getEnderecosDeEntrega().stream()
-                        .filter(endereco -> !endereco.getId().equals(cliente.getEnderecosDeEntrega().get(0).getId())).map(endereco ->
+                        .filter(endereco -> !endereco.getId().equals(cliente.getEnderecosDeEntrega().get(0).getId()))
+                        .map(endereco ->
                         new EnderecoDTO(endereco)).toList());
     }
 }

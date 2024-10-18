@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pi.nice.api.domain.cliente.dto.AtualizarClienteDTO;
 import pi.nice.api.domain.cliente.dto.ClienteCadastroDTO;
 import pi.nice.api.domain.cliente.ClienteService;
 import pi.nice.api.domain.endereco.dto.EnderecoDTO;
@@ -31,10 +32,17 @@ public class ClienteController {
     }
 
     @CrossOrigin
-    @Transactional
     @PutMapping("/adicionarEnderecos/{id}")
     public ResponseEntity<?> addNovosEnderecosDeEntrega(@RequestBody NovosEnderecosDeEntregaDTO novosEnderecosDeEntregaDTO, @PathVariable String id) {
         return clienteService.addNovosEnderecosDeEntrega(novosEnderecosDeEntregaDTO, id);
+    }
+
+    @CrossOrigin
+    @Transactional
+    @PutMapping("/atualizar/{id}")
+    public ResponseEntity<?> atualizarCliente(@RequestBody AtualizarClienteDTO atualizarClienteDTO, @PathVariable String id) {
+        System.out.println("sdfdsfdfs");
+        return clienteService.atualizarCliente(atualizarClienteDTO, id);
     }
 
     @CrossOrigin

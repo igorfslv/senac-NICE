@@ -150,22 +150,62 @@
 
                         <div class="enderecos-entrega-container">
 
-                            <section class="formulario-cep-entrega">
-                                <label for="cep-cliente-e">CEP</label>
-                                <span>
-                                    <input type="text" name="cep-cliente-entrega" id="cep-cliente-entrega" placeholder="00000-000" disabled>
-                                    <!-- <button class="btn-buscar-cep-endereco">Buscar CEP</button> -->
-                                </span>
-                            </section>
+                         
     
                             <div id="enderecos-container">
                            
                             </div>
                         </div>
 
-                        <button class="btn-add-endereco-entrega">Adicionar Endereço de Entrega</button>
+                        
+
+                        <section class="formulario-cep-entrega">
+                            <label for="cep-cliente-entrega">CEP</label>
+                            <span>
+                                <input type="text" id="cep-cliente-novo" name="cep-cliente-entrega" placeholder="00000-000" required>
+                                <button class="btn-buscar-cep-endereco">Buscar CEP</button>
+                            </span>
+                        </section>
+                        <div class="enderecos">
+                            <div>
+                                <div>
+                                    <label for="logradouro-cliente-entrega">Logradouro</label>
+                                    <input type="text" id="logradouro-cliente-novo" name="logradouro-cliente-entrega" class="logradouro-cliente-entrega" placeholder="Ex.: Rua das Camélias" required>
+                                </div>
+                                <div>
+                                    <label for="numero-cliente-entrega">Número</label>
+                                    <input type="text" id="numero-cliente-novo" name="numero-cliente-entrega" class="numero-cliente-entrega" required>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <label for="complemento-cliente-entrega">Complemento</label>
+                                    <input type="text" id="complemento-cliente-novo" name="complemento-cliente-entrega" class="complemento-cliente-entrega" required>
+                                </div>
+                                <div>
+                                    <label for="bairro-cliente-entrega">Bairro</label>
+                                    <input type="text" id="bairro-cliente-novo" name="bairro-cliente-entrega" class="bairro-cliente-entrega" required>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <label for="cidade-cliente-entrega">Cidade</label>
+                                    <input type="text" id="cidade-cliente-novo" name="cidade-cliente-entrega" class="cidade-cliente-entrega" required>
+                                </div>
+                                <div>
+                                    <label for="uf-cliente-entrega">UF</label>
+                                    <input type="text" id="uf-cliente-novo" name="uf-cliente-entrega" class="uf-cliente-entrega" required>
+                                </div>
+                            </div>
+                          
+                        </div>
+
+
+                        <button class="btn-add-endereco-entrega" id="btn-add-endereco-entrega">Adicionar Endereço de Entrega</button>
 
                     </div>
+
+                    
                 </div>
 
                 <div class="separador"></div>
@@ -184,21 +224,21 @@
 
                         <div>
                             <label for="senha-cliente">Senha</label>
-                            <input type="password" name="senha-cliente" id="senha-cliente" placeholder="********"
-                                required>
+                            <input type="password" name="senha-cliente" id="senha-cliente" placeholder="********">
                         </div>
 
                         <div>
                             <label for="confirmar-senha-cliente">Confirme a Senha</label>
-                            <input type="password" name="confirmar-senha-cliente" id="confirmar-senha-cliente"
-                                placeholder="********" required>
+                            <input type="password" name="confirmar-senha-cliente" id="confirmar-senha-cliente" placeholder="********">
                         </div>
                     </div>
                 </div>
 
                 <div class="separador"></div>
 
-                <button class="btn-atualizar-cadastro-cliente" type="submit">Atualizar Cadastro</button>
+                
+
+                <button class="btn-atualizar-cadastro-cliente" id="btn-atualizar-cadastro-cliente" type="submit">Atualizar Cadastro</button>
             </div>
 
         </form>

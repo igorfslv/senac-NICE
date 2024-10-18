@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b562c48-3dd2-44c3-900b-eba5953e558a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/dto/AtualizarClienteDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/endereco/EnderecoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/dto/ClienteCadastradoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/dto/ClienteCadastradoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/nice-store/js/connection/atualizar-cadastro-cliente.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/js/connection/atualizar-cadastro-cliente.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/nice-store/js/utils/adicionar-endereco-entrega.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/js/utils/adicionar-endereco-entrega.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/nice-store/pages/atualizacao-cadastro-cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/pages/atualizacao-cadastro-cliente.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +26,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
-        <option value="Record" />
         <option value="Class" />
+        <option value="Record" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
