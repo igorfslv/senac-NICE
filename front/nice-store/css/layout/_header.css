@@ -50,9 +50,10 @@
     font-weight: 600;
 }
 
-.bxs-user {
+.bx-user,
+.bx-log-out {
     margin-left: 30px;
-    font-size: 20px;
+    font-size: 22px;
     cursor: pointer;
 }
 
