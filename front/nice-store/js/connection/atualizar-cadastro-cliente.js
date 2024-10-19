@@ -221,7 +221,7 @@ fetch(`http://localhost:8080/cliente/${usuarioLogado.id}`)
         event.preventDefault(); // Previne o comportamento padrão do formulário
     
         // Exibe o alert (agora a página não vai atualizar antes)
-        alert("adas");
+        alert("Endereço adicionado!");
     
         // Pega os valores dos inputs
         const cepClienteEntrega = document.getElementById("cep-cliente-novo").value;
