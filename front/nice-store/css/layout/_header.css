@@ -46,6 +46,16 @@
     align-items: center;
 }
 
+.msg-bem-vindo-cliente {
+    font-weight: 600;
+}
+
+.bxs-user {
+    margin-left: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 #btn-entrar-login,
 #btn-inscrever-login {
     font-size: 14px;
