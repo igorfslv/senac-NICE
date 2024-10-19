@@ -71,7 +71,7 @@ fetch(`http://localhost:8080/cliente/${usuarioLogado.id}`)
             // Clonando a div original
             const novoEndereco = document.getElementById('enderecos-container');
         
-            novoEndereco.innerHTML += `<div class="enderecos">
+            novoEndereco.innerHTML += `<div class="inscricao-dados-inputs">
                 <section class="formulario-cep-entrega">
                     <label for="cep-cliente-e">CEP</label>
                     <span>
@@ -79,48 +79,52 @@ fetch(`http://localhost:8080/cliente/${usuarioLogado.id}`)
                         value="${entrega.cep}" disabled>              
                     </span>
                 </section>
-                
-                <div>
+
+                <div class="enderecos">
                     <div>
-                        <label for="logradouro-cliente-entrega">Logradouro</label>
-                        <input type="text" name="logradouro-cliente-entrega" id="logradouro-cliente-entrega-${index}" class="logradouro-cliente-entrega"
-                        value="${entrega.logradouro}" placeholder="Ex.: Rua das Camélias" disabled>
+                        <div>
+                            <label for="logradouro-cliente-entrega">Logradouro</label>
+                            <input type="text" name="logradouro-cliente-entrega" id="logradouro-cliente-entrega-${index}" class="logradouro-cliente-entrega"
+                            value="${entrega.logradouro}" placeholder="Ex.: Rua das Camélias" disabled>
+                        </div>
+                        <div>
+                            <label for="numero-cliente-entrega">Número</label>
+                            <input type="text" name="numero-cliente-entrega" id="numero-cliente-entrega-${index}" class="numero-cliente-entrega"
+                            value="${entrega.numero}" disabled>
+                        </div>
                     </div>
                     <div>
-                        <label for="numero-cliente-entrega">Número</label>
-                        <input type="text" name="numero-cliente-entrega" id="numero-cliente-entrega-${index}" class="numero-cliente-entrega"
-                        value="${entrega.numero}" disabled>
+                        <div>
+                            <label for="complemento-cliente-entrega">Complemento</label>
+                            <input type="text" name="complemento-cliente-entrega" id="complemento-cliente-entrega-${index}" class="complemento-cliente-entrega" 
+                            value="${entrega.complemento}" disabled>
+                        </div>
+                        <div>
+                            <label for="bairro-cliente-entrega">Bairro</label>
+                            <input type="text" name="bairro-cliente-entrega" id="bairro-cliente-entrega-${index}" class="bairro-cliente-entrega" 
+                            value="${entrega.bairro}" disabled>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="cidade-cliente-entrega">Cidade</label>
+                            <input type="text" name="cidade-cliente-entrega" id="cidade-cliente-entrega-${index}" class="cidade-cliente-entrega"
+                            value="${entrega.cidade}" disabled>
+                        </div>
+                        <div>
+                            <label for="uf-cliente-entrega">UF</label>
+                            <input type="text" name="uf-cliente-entrega" id="uf-cliente-entrega-${index}" class="uf-cliente-entrega"
+                            value="${entrega.uf}" disabled>
+                        </div>
+                    </div>
+                    <div class="endereco-padrao-container">
+                        <input type="radio" name="endereco-padrao" value="${index}" id="endereco-padrao-${index}" ${entrega.enderecoPadrao ? "checked" : ""}>
+                        <label for="endereco-padrao-${index}">Endereço Padrão</label>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <label for="complemento-cliente-entrega">Complemento</label>
-                        <input type="text" name="complemento-cliente-entrega" id="complemento-cliente-entrega-${index}" class="complemento-cliente-entrega" 
-                        value="${entrega.complemento}" disabled>
-                    </div>
-                    <div>
-                        <label for="bairro-cliente-entrega">Bairro</label>
-                        <input type="text" name="bairro-cliente-entrega" id="bairro-cliente-entrega-${index}" class="bairro-cliente-entrega" 
-                        value="${entrega.bairro}" disabled>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label for="cidade-cliente-entrega">Cidade</label>
-                        <input type="text" name="cidade-cliente-entrega" id="cidade-cliente-entrega-${index}" class="cidade-cliente-entrega"
-                        value="${entrega.cidade}" disabled>
-                    </div>
-                    <div>
-                        <label for="uf-cliente-entrega">UF</label>
-                        <input type="text" name="uf-cliente-entrega" id="uf-cliente-entrega-${index}" class="uf-cliente-entrega"
-                        value="${entrega.uf}" disabled>
-                    </div>
-                </div>
-                <div class="endereco-padrao-container">
-                    <input type="radio" name="endereco-padrao" value="${index}" id="endereco-padrao-${index}" ${entrega.enderecoPadrao ? "checked" : ""}>
-                    <label for="endereco-padrao-${index}">Endereço Padrão</label>
-                </div>
-            </div> <hr> <br>`;
+            </div>
+            <div class="separador"></div>
+            `;
 
             if (entrega.enderecoPadrao) {
                 enderecoPadraoIndex = index
@@ -247,7 +251,7 @@ fetch(`http://localhost:8080/cliente/${usuarioLogado.id}`)
         let index = indexEnderecos + novosEnderecos.length
         console.log(index)
 
-        documentNovoEndereco.innerHTML += `<div class="enderecos">
+        documentNovoEndereco.innerHTML += `<div class="inscricao-dados-inputs">
                 <section class="formulario-cep-entrega">
                     <label for="cep-cliente-e">CEP</label>
                     <span>
@@ -255,48 +259,52 @@ fetch(`http://localhost:8080/cliente/${usuarioLogado.id}`)
                         value="${novoEndereco.cep}" disabled>              
                     </span>
                 </section>
-                
-                <div>
+
+                <div class="enderecos">
                     <div>
-                        <label for="logradouro-cliente-entrega">Logradouro</label>
-                        <input type="text" name="logradouro-cliente-entrega" id="logradouro-cliente-entrega-${index}" class="logradouro-cliente-entrega"
-                        value="${novoEndereco.logradouro}" placeholder="Ex.: Rua das Camélias" disabled>
+                        <div>
+                            <label for="logradouro-cliente-entrega">Logradouro</label>
+                            <input type="text" name="logradouro-cliente-entrega" id="logradouro-cliente-entrega-${index}" class="logradouro-cliente-entrega"
+                            value="${novoEndereco.logradouro}" placeholder="Ex.: Rua das Camélias" disabled>
+                        </div>
+                        <div>
+                            <label for="numero-cliente-entrega">Número</label>
+                            <input type="text" name="numero-cliente-entrega" id="numero-cliente-entrega-${index}" class="numero-cliente-entrega"
+                            value="${novoEndereco.numero}" disabled>
+                        </div>
                     </div>
                     <div>
-                        <label for="numero-cliente-entrega">Número</label>
-                        <input type="text" name="numero-cliente-entrega" id="numero-cliente-entrega-${index}" class="numero-cliente-entrega"
-                        value="${novoEndereco.numero}" disabled>
+                        <div>
+                            <label for="complemento-cliente-entrega">Complemento</label>
+                            <input type="text" name="complemento-cliente-entrega" id="complemento-cliente-entrega-${index}" class="complemento-cliente-entrega" 
+                            value="${novoEndereco.complemento}" disabled>
+                        </div>
+                        <div>
+                            <label for="bairro-cliente-entrega">Bairro</label>
+                            <input type="text" name="bairro-cliente-entrega" id="bairro-cliente-entrega-${index}" class="bairro-cliente-entrega" 
+                            value="${novoEndereco.bairro}" disabled>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="cidade-cliente-entrega">Cidade</label>
+                            <input type="text" name="cidade-cliente-entrega" id="cidade-cliente-entrega-${index}" class="cidade-cliente-entrega"
+                            value="${novoEndereco.cidade}" disabled>
+                        </div>
+                        <div>
+                            <label for="uf-cliente-entrega">UF</label>
+                            <input type="text" name="uf-cliente-entrega" id="uf-cliente-entrega-${index}" class="uf-cliente-entrega"
+                            value="${novoEndereco.uf}" disabled>
+                        </div>
+                    </div>
+                    <div class="endereco-padrao-container">
+                        <input type="radio" name="endereco-padrao" value="${index}" id="endereco-padrao-${index}" ${novoEndereco.enderecoPadrao ? "checked" : ""}>
+                        <label for="endereco-padrao-${index}">Endereço Padrão</label>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <label for="complemento-cliente-entrega">Complemento</label>
-                        <input type="text" name="complemento-cliente-entrega" id="complemento-cliente-entrega-${index}" class="complemento-cliente-entrega" 
-                        value="${novoEndereco.complemento}" disabled>
-                    </div>
-                    <div>
-                        <label for="bairro-cliente-entrega">Bairro</label>
-                        <input type="text" name="bairro-cliente-entrega" id="bairro-cliente-entrega-${index}" class="bairro-cliente-entrega" 
-                        value="${novoEndereco.bairro}" disabled>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label for="cidade-cliente-entrega">Cidade</label>
-                        <input type="text" name="cidade-cliente-entrega" id="cidade-cliente-entrega-${index}" class="cidade-cliente-entrega"
-                        value="${novoEndereco.cidade}" disabled>
-                    </div>
-                    <div>
-                        <label for="uf-cliente-entrega">UF</label>
-                        <input type="text" name="uf-cliente-entrega" id="uf-cliente-entrega-${index}" class="uf-cliente-entrega"
-                        value="${novoEndereco.uf}" disabled>
-                    </div>
-                </div>
-                <div class="endereco-padrao-container">
-                    <input type="radio" name="endereco-padrao" value="${index}" id="endereco-padrao-${index}" ${novoEndereco.enderecoPadrao ? "checked" : ""}>
-                    <label for="endereco-padrao-${index}">Endereço Padrão</label>
-                </div>
-            </div> <hr> <br>`
+            </div>
+            <div class="separador"></div>
+            `
 
             novosEnderecos.push(novoEndereco)
             novoEnderecoFoiAdicionado()

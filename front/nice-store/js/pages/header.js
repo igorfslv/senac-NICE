@@ -22,6 +22,7 @@ function atualizarHeaderLogin() {
         const btnLogOut = document.getElementById('btn-log-out');
         btnLogOut.addEventListener('click', () => {
             localStorage.removeItem('usuarioLogado');
+            localStorage.removeItem('carrinho');
             alert("Você se desconectou da sua conta.")
             window.location.href = "/front/nice-store/pages/login-cliente.html";
         });

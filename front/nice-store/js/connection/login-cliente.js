@@ -32,7 +32,7 @@ btnEntrar.addEventListener('click', (event) => {
     
         .then(result => {
     
-                localStorage.clear();
+                // localStorage.clear();
                 localStorage.setItem('usuarioLogado', JSON.stringify(result));
                 alert("Logado como '" + result.nome)
                 window.location.href = "../index.html";

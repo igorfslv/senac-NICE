@@ -89,6 +89,11 @@
     width: 200px;
 }
 
+.titulo-add-endereco {
+    margin: 10px 0 20px;
+    font-size: 20px;
+}
+
 .enderecos {
     margin: 20px 0;
 }
