@@ -3,9 +3,9 @@ function atualizarHeaderLogin() {
     let usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
 
     const produtos = JSON.parse(localStorage.getItem('carrinho')) || [];
-    
+
     if (usuarioLogado !== null) {
-        
+
         divUsuarioCarrinho.innerHTML = "";
         divUsuarioCarrinho.innerHTML += `
         <p class="msg-bem-vindo-cliente">Bem vindo (a), ${usuarioLogado.nome}!</p>
@@ -15,7 +15,7 @@ function atualizarHeaderLogin() {
         </i>
         <i class='bx bx-log-out' id="btn-log-out" title="Sair"></i>
         `;
-        
+
         const quantidadeItens = document.getElementById('badge-carrinho');
         quantidadeItens.innerHTML = produtos.length;
 
@@ -26,6 +26,9 @@ function atualizarHeaderLogin() {
             alert("Você se desconectou da sua conta.")
             window.location.href = "/front/nice-store/pages/login-cliente.html";
         });
+    } else {
+        const quantidadeItens = document.getElementById('badge-carrinho')
+        quantidadeItens.innerHTML = produtos.length;
     }
 
 }

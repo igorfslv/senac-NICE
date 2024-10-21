@@ -38,7 +38,7 @@ fetch(`http://localhost:8080/cliente/${usuarioLogado.id}`)
         nomeCliente.value = result.nome;
         cpfCliente.value = result.cpf;
         dataNascimentoCliente.value = result.dataDeNascimento.split("T")[0]; // Pegando apenas a data
-        console.log(generoCliente.options[3].text.toUpperCase().replace(/\s/g, "_"))
+        console.log(generoCliente.options[2].text.toUpperCase().replace(/\s/g, "_"))
         console.log(result.genere)
         console.log(result)
 
