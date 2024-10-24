@@ -1,0 +1,97 @@
+.container-selecao-forma-pagamento {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 100px;
+}
+
+.metodos-pagamento ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.metodos-pagamento ul li {
+    margin: 40px 20px;
+}
+
+.metodos-pagamento ul li button {
+    width: 300px;
+    padding: 15px;
+    text-wrap: nowrap;
+    color: var(--bg-6);
+    background-color: var(--bg-0);
+    border: 1px solid var(--bg-6);
+}
+
+.metodos-pagamento ul li button:hover {
+    background-color: var(--bg-6);
+    color: var(--font-2);
+    transition: 0.5s;
+}
+
+.metodo-selecionado {
+    background-color: var(--bg-6);
+    color: var(--font-2);
+    transition: 0.5s;
+}
+
+.container-metodo-cartao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 30px 0 100px;
+}
+
+.titulo-secao-cartao {
+    font-size: var(--font-tam-medio);
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.cartao-dados-inputs input,
+.cartao-dados-inputs select {
+    padding: 8px;
+    font-size: var(--font-tam-normal);
+    border-radius: 5px;
+    border: 1px solid #d8d8d8;
+    background-color: #eeeeee;
+}
+
+.cartao-cliente {
+    display: flex;
+    flex-direction: row;
+}
+
+.cartao-cliente div {
+    display: flex;
+    flex-direction: column;
+}
+
+.cartao-cliente div label {
+    margin: 0 0 10px;
+}
+
+.cartao-cliente div input {
+    margin-right: 15px;
+    margin-bottom: 15px;
+    width: 200px;
+}
+
+.btn-voltar-enderecos,
+.btn-resumo-pedido {
+    background-color: var(--bg-0);
+    color: var(--bg-8);
+    border: 1px solid var(--bg-8);
+}
+
+.btn-voltar-enderecos:hover,
+.btn-resumo-pedido:hover {
+    background-color: var(--bg-8);
+    color: var(--font-2);
+    border: 1px solid var(--bg-8);
+    transition: 0.5s;
+}

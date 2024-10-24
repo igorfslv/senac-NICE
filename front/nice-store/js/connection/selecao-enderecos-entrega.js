@@ -18,7 +18,7 @@ fetch(`http://localhost:8080/cliente/${usuarioLogado.id}`)
                     <td>${entrega.cidade}</td>
                     <td>${entrega.uf}</td>
                     <td>
-                        <input type="radio" name="endereco" class="input-selecao-endereco" value="${index + 1}" />
+                        <input type="radio" name="endereco" class="input-selecao-endereco" value="${index + 1}" required />
                     </td>
                 </tr>
 
@@ -34,5 +34,5 @@ btnVoltarCarrinho.addEventListener('click', () => {
 
 const btnSelecionarFormaPagamento = document.querySelector('.btn-selecionar-forma-pagamento');
 btnSelecionarFormaPagamento.addEventListener('click', () => {
-    window.location.href = "#";
+    window.location.href = "/front/nice-store/pages/selecao-forma-pagamento.html";
 });

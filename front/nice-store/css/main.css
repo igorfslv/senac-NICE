@@ -10,6 +10,7 @@
 @import "layout/_carrinho.css";
 @import "layout/_inscricao-cliente.css";
 @import "layout/_selecao-endereco-entrega.css";
+@import "layout/_selecao-forma-pagamento.css";
 @import "components/_tabelas.css";
 @import "components/_botoes.css";
 
