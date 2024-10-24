@@ -1,0 +1,56 @@
+.container-selecao-enderecos-entrega {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 50px 100px;
+    height: auto;
+}
+
+.container-selecao-enderecos-entrega h2 {
+    margin: 20px 0;
+}
+
+.container-enderecos-cadastrados {
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.container-enderecos-cadastrados table {
+    width: 100%;
+    font-size: var(--font-tam-normal);
+}
+
+.container-enderecos-cadastrados table thead tr th {
+    height: 40px;
+}
+
+.corpo-tabela-enderecos-entrega tr {
+    height: 70px;
+}
+
+.input-selecao-endereco {
+    font-size: 30px;
+}
+
+.btns-retroceder-avancar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.btn-voltar-carrinho,
+.btn-selecionar-forma-pagamento {
+    background-color: var(--bg-0);
+    color: var(--bg-8);
+    border: 1px solid var(--bg-8);
+}
+
+.btn-voltar-carrinho:hover,
+.btn-selecionar-forma-pagamento:hover {
+    background-color: var(--bg-8);
+    color: var(--font-2);
+    border: 1px solid var(--bg-8);
+    transition: 0.5s;
+}

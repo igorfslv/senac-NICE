@@ -1,6 +1,8 @@
 package pi.nice.api.domain.usuario;
 
 import jakarta.persistence.*;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.UnexpectedTypeException;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -10,6 +12,7 @@ import pi.nice.api.domain.usuario.dto.AlterarUsuarioDTO;
 import pi.nice.api.domain.usuario.dto.AlternarUsuarioDTO;
 import pi.nice.api.domain.usuario.dto.UsuarioCadastroDTO;
 import jakarta.validation.constraints.Email;
+import pi.nice.api.errors.exceptions.SemAutorizacaoException;
 
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "usuarios")
@@ -43,7 +46,13 @@ public class Usuario {
 
 
     public Usuario(UsuarioCadastroDTO usuarioCadastroDTO, String senha) {
-        this.nome = usuarioCadastroDTO.nome();
+
+        if(usuarioCadastroDTO.nome().split(" ").length > 1) {
+            this.nome = usuarioCadastroDTO.nome();
+        } else {
+            throw new UnexpectedTypeException("O nome deve ter no minimo 2 palavras");
+        }
+
         this.cpf = usuarioCadastroDTO.cpf();
         this.email = usuarioCadastroDTO.email();
         this.grupo = usuarioCadastroDTO.grupoId();
@@ -52,7 +61,11 @@ public class Usuario {
     }
 
     public Usuario(String nome, String cpf, String email, Grupo grupo, String senha) {
-        this.nome = nome;
+        if(nome.split(" ").length > 1) {
+            this.nome = nome;
+        } else {
+            throw new UnexpectedTypeException("O nome deve ter no minimo 2 palavras");
+        }
         this.cpf = cpf;
         this.email = email;
         this.senha = senha;
@@ -62,7 +75,11 @@ public class Usuario {
 
 
     public Usuario alterarDados(AlterarUsuarioDTO alternarUsuarioDTO, String senha) {
-        this.nome = alternarUsuarioDTO.nome();
+        if(alternarUsuarioDTO.nome().split(" ").length > 1) {
+            this.nome = alternarUsuarioDTO.nome();
+        } else {
+            throw new UnexpectedTypeException("O nome deve ter no minimo 2 palavras");
+        }
         this.cpf = alternarUsuarioDTO.cpf();
         this.grupo = alternarUsuarioDTO.grupoId();
         if (!(alternarUsuarioDTO.senha() == null || alternarUsuarioDTO.senha().isBlank()))

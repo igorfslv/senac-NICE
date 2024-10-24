@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="shortcut icon" href="../img/img-logotipo-branco-icon.png" type="image/x-icon">
+    <title>Seleção de Endereço de Entrega</title>
+</head>
+<body>
+    <header class="header-tela-principal" id="header-tela-principal">
+
+        <nav class="nav-bar-tela-principal">
+            <ul>
+                <li>
+                    <div class="logotipo-loja">
+                        <img src="../img/img-logotipo.png" alt="Logotipo da loja" onclick="window.location.href='../index.html'">
+                    </div>
+                </li>
+                <li>
+                    <div class="btns-carrinho-login">
+                        <button id="btn-entrar-login" onclick="window.location.href = './login-cliente.html'">Entrar</button>
+                        <button id="btn-inscrever-login" onclick="window.location.href = './inscricao-cliente.html'">Inscrever-se</button>
+                        <i class='bx bx-cart-alt btn-carrinho'>
+                            <span id="badge-carrinho" class="quantidade-itens">0</span>
+                        </i>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <main class="container-selecao-enderecos-entrega">
+        
+        <h2>Selecione um endereço de entrega</h2>
+
+        <div class="container-enderecos-cadastrados">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>CEP</th>
+                        <th>Logradouro</th>
+                        <th>Número</th>
+                        <th>Complemento</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
+                        <th>UF</th>
+                        <th>Endereço de Entrega</th>
+                    </tr>
+                </thead>
+                <tbody class="corpo-tabela-enderecos-entrega">
+                    
+                </tbody>
+            </table>
+
+            <button class="btn-add-endereco-entrega" onclick="window.location.href = './atualizacao-cadastro-cliente.html#secao-endereco-entrega'">Adicionar Endereço de Entrega</button>
+            
+        </div>
+
+        <div class="btns-retroceder-avancar">
+            <button class="btn-voltar-carrinho">Voltar para o carrinho</button>
+            <button class="btn-selecionar-forma-pagamento">Selecionar Forma de Pagamento</button>
+        </div>
+
+    </main>
+
+
+    <script src="../js/pages/header.js"></script>
+    <script src="../js/connection/selecao-enderecos-entrega.js"></script>
+    <script src="../js/pages/carrinho.js"></script>
+</body>
+</html>

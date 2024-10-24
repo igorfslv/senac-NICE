@@ -148,6 +148,18 @@ function renderizarCarrinho() {
     // Atualizar valores de subtotais e total
     subtotalPedidoElement.textContent = (subtotalPedido + subtotalFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     subtotalFreteElement.textContent = subtotalFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+    const btnFinalizarPedido = document.querySelector('.btn-finalizar-pedido');
+    btnFinalizarPedido.addEventListener('click', () => {
+
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+        if (usuarioLogado) {
+            window.location.href = "/front/nice-store/pages/selecao-endereco-entrega.html";
+        } else {
+            window.location.href = "/front/nice-store/pages/login-cliente.html";
+        }
+
+    });
 }
 
 function atualizarSubtotalComFrete(valor) {
@@ -185,5 +197,19 @@ function removerItemCarrinho(produtoId) {
     renderizarCarrinho(); // Re-renderizar o carrinho após remoção
 }
 
+function renderizarInputBuscarEndereco() {
+    const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    const inputFreteDiv = document.querySelector('.input-frete');
+    const h3SubtituloEndereco = document.querySelector('.subtitulo-endereco');
+    const enderecoFrete = document.querySelector('#endereco-frete');
+
+    if (usuarioLogado) {
+        inputFreteDiv.innerHTML = "";
+        h3SubtituloEndereco.innerHTML = "";
+        enderecoFrete.innerHTML = "";
+    }
+}
+
 // Renderização inicial
 renderizarCarrinho();
+renderizarInputBuscarEndereco();

@@ -159,7 +159,7 @@
     font-weight: 700;
 }
 
-.btn-realizar-pagamento {
+.btn-finalizar-pedido {
     background-color: var(--bg-1);
     color: var(--font-2);
     margin: 20px 0;
