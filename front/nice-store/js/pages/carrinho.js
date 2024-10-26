@@ -113,7 +113,7 @@ function renderizarCarrinho() {
 
     opcaoFrete1.addEventListener('click', () => {
         atualizarSubtotalComFrete(10);
-        
+
         const lblOpcaoFreteCorreios = document.getElementById('opcao-frete-correios').textContent;
         localStorage.setItem('opcaoFreteSelecionada', JSON.stringify(lblOpcaoFreteCorreios));
         console.log(JSON.parse(localStorage.getItem('opcaoFreteSelecionada')));
@@ -165,8 +165,30 @@ function renderizarCarrinho() {
     btnFinalizarPedido.addEventListener('click', () => {
 
         const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
-        
+
         if (usuarioLogado) {
+
+            const itens = [];
+
+            // Itera sobre as linhas da tabela
+            carrinho.querySelectorAll('tr').forEach(row => {
+                const cols = row.querySelectorAll('td');
+                if (cols.length > 0) {
+                    const item = {
+                        numero: cols[0].innerText,
+                        imagem: cols[1].querySelector('img').src,
+                        nome: cols[2].innerText,
+                        precoUnitario: cols[3].innerText,
+                        quantidade: cols[4].innerText,
+                        subtotal: cols[6].innerText
+                    };
+                    itens.push(item);
+                }
+            });
+
+            // Armazena o array de itens no localStorage
+            localStorage.setItem('carrinhoFinalizado', JSON.stringify(itens));
+
             window.location.href = "/front/nice-store/pages/selecao-endereco-entrega.html";
         } else {
             window.location.href = "/front/nice-store/pages/login-cliente.html";
@@ -180,7 +202,7 @@ function atualizarSubtotalComFrete(valor) {
     const subtotalFreteGuardado = valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     localStorage.setItem('subtotalFrete', subtotalFreteGuardado);
     console.log(localStorage.getItem('subtotalFrete'));
-    
+
     const subtotalFreteElement = document.querySelector('.subtotal-frete');
     subtotalFreteElement.innerHTML = valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     atualizarSubtotalPedido();
