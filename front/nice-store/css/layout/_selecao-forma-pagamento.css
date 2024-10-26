@@ -17,19 +17,14 @@
     margin: 40px 20px;
 }
 
-.metodos-pagamento ul li button {
+.btn-cartao,
+.btn-pix {
     width: 300px;
     padding: 15px;
     text-wrap: nowrap;
     color: var(--bg-6);
     background-color: var(--bg-0);
     border: 1px solid var(--bg-6);
-}
-
-.metodos-pagamento ul li button:hover {
-    background-color: var(--bg-6);
-    color: var(--font-2);
-    transition: 0.5s;
 }
 
 .metodo-selecionado {
@@ -79,6 +74,10 @@
     margin-right: 15px;
     margin-bottom: 15px;
     width: 200px;
+}
+
+.btns-retroceder-avancar {
+    margin-top: 100px;
 }
 
 .btn-voltar-enderecos,
