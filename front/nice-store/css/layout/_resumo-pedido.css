@@ -1,0 +1,89 @@
+.container-resumo-pedido {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}
+
+.titulo-resumo-pedido {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.titulo-resumo-pedido h1,
+.titulo-resumo-pedido i {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.carrinho-resumo-pedido {
+    /* background-color: aqua; */
+    padding: 0;
+    margin: 50px 0;
+}
+
+.carrinho-resumo-pedido h2 {
+    color: var(--font-1);
+}
+
+.carrinho-resumo-pedido h3 {
+    color: var(--font-5);
+}
+
+.carrinho-resumo {
+    padding: 0;
+    margin: 0;
+}
+
+.lista-produtos-carrinho-resumo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 0;
+    /* background-color: aqua; */
+}
+
+.btn-voltar-tela-forma-pagto {
+    width: 100px;
+    margin: 0 0 40px;
+    background-color: var(--bg-0);
+    border: 1px solid var(--bg-8);
+    color: var(--bg-8);
+}
+
+.btn-voltar-tela-forma-pagto:hover {
+    background-color: var(--bg-8);
+    color: var(--bg-0);
+    transition: 0.5s;
+}
+
+.informacoes-endereco-forma-pagamento {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0;
+    /* background-color: aqua; */
+}
+
+.forma-pagamento-tipo {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.forma-pagamento-tipo p {
+    margin-left: 10px;
+    font-size: var(--font-tam-normal);
+}
+
+.btn-finalizar-compra {
+    background-color: var(--bg-1);
+    color: var(--font-2);
+    margin: 20px 0;
+}
+
+.endereco-entrega-selecionado p,
+.forma-pagamento-tipo p,
+.opcao-frete p {
+    padding: 10px 0;
+}
