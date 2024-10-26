@@ -62,9 +62,7 @@
                                 <th>Nome</th>
                                 <th>Preço Uni.</th>
                                 <th>Qtd Item</th>
-                                <th>Ações</th>
                                 <th>Subtotal Item</th>
-                                <th>Remover</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,22 +73,7 @@
                                 <td>Produto Exemplo</td>
                                 <td>R$ 50,00</td>
                                 <td>2</td>
-                                <td>
-                                    <div class="acoes-qtd-produto-carrinho">
-                                        <button class="btn-add-qtd-item" onclick="aumentarQuantidade(1)">
-                                            <i class='bx bx-plus'></i>
-                                        </button>
-                                        <button class="btn-diminuir-qtd-item" onclick="diminuirQuantidade(1)">
-                                            <i class='bx bx-minus'></i>
-                                        </button>
-                                    </div>
-                                </td>
                                 <td>R$ 100,00</td>
-                                <td>
-                                    <button class="btn-remover-item-carrinho">
-                                        <i class='bx bx-x'></i>
-                                    </button>
-                                </td>
                             </tr>
                             
                             <tr>
@@ -100,27 +83,12 @@
                                 <td>Outro Produto</td>
                                 <td>R$ 30,00</td>
                                 <td>1</td>
-                                <td>
-                                    <div class="acoes-qtd-produto-carrinho">
-                                        <button class="btn-add-qtd-item" onclick="aumentarQuantidade(1)">
-                                            <i class='bx bx-plus'></i>
-                                        </button>
-                                        <button class="btn-diminuir-qtd-item" onclick="diminuirQuantidade(1)">
-                                            <i class='bx bx-minus'></i>
-                                        </button>
-                                    </div>
-                                </td>
                                 <td>R$ 30,00</td>
-                                <td>
-                                    <button class="btn-remover-item-carrinho">
-                                        <i class='bx bx-x'></i>
-                                    </button>
-                                </td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <button class="btn-voltar-tela-forma-pagto">Voltar</button>
+                    <button class="btn-voltar-tela-forma-pagto" onclick="window.location.href='/front/nice-store/pages/selecao-forma-pagamento.html'">Voltar</button>
                 </div>
 
                 <div class="informacoes-valores informacoes-endereco-forma-pagamento">

@@ -1,12 +1,12 @@
 const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+localStorage.removeItem('enderecoEntregaSelecionado');
 
 fetch(`http://localhost:8080/cliente/${usuarioLogado.id}`)
     .then(response => response.json())
     .then(result => {
+        const tabelaEnderecosEntrega = document.querySelector('.corpo-tabela-enderecos-entrega');
+
         result.enderecosDeEntrega.forEach((entrega, index) => {
-
-            const tabelaEnderecosEntrega = document.querySelector('.corpo-tabela-enderecos-entrega');
-
             tabelaEnderecosEntrega.innerHTML += `
                 <tr>
                     <td>${index + 1}</td>
@@ -18,12 +18,20 @@ fetch(`http://localhost:8080/cliente/${usuarioLogado.id}`)
                     <td>${entrega.cidade}</td>
                     <td>${entrega.uf}</td>
                     <td>
-                        <input type="radio" name="endereco" class="input-selecao-endereco" value="${index + 1}" required />
+                        <input type="radio" name="endereco" class="input-selecao-endereco" value="${index}" />
                     </td>
                 </tr>
-
             `;
+        });
 
+        // Função para salvar o endereço selecionado no LocalStorage
+        const radioButtons = document.querySelectorAll('.input-selecao-endereco');
+        radioButtons.forEach((radio, index) => {
+            radio.addEventListener('change', () => {
+                const enderecoEntregaSelecionado = result.enderecosDeEntrega[index];
+                localStorage.setItem('enderecoEntregaSelecionado', JSON.stringify(enderecoEntregaSelecionado));
+                console.log(JSON.parse(localStorage.getItem('enderecoEntregaSelecionado')));
+            });
         });
     });
 
@@ -34,5 +42,11 @@ btnVoltarCarrinho.addEventListener('click', () => {
 
 const btnSelecionarFormaPagamento = document.querySelector('.btn-selecionar-forma-pagamento');
 btnSelecionarFormaPagamento.addEventListener('click', () => {
-    window.location.href = "/front/nice-store/pages/selecao-forma-pagamento.html";
+    const enderecoSelecionado = localStorage.getItem('enderecoEntregaSelecionado');
+    
+    if (enderecoSelecionado) {
+        window.location.href = "/front/nice-store/pages/selecao-forma-pagamento.html";
+    } else {
+        alert('Por favor, selecione um endereço de entrega antes de prosseguir.');
+    }
 });

@@ -104,7 +104,7 @@ function renderizarCarrinho() {
         carrinho.appendChild(linhaItem);
     });
 
-  
+
     const opcaoFrete1 = document.getElementById('opcao-frete-1');
     const opcaoFrete2 = document.getElementById('opcao-frete-2');
     const opcaoFrete3 = document.getElementById('opcao-frete-3');
@@ -112,15 +112,27 @@ function renderizarCarrinho() {
 
 
     opcaoFrete1.addEventListener('click', () => {
-        atualizarSubtotalComFrete(10)
+        atualizarSubtotalComFrete(10);
+        
+        const lblOpcaoFreteCorreios = document.getElementById('opcao-frete-correios').textContent;
+        localStorage.setItem('opcaoFreteSelecionada', JSON.stringify(lblOpcaoFreteCorreios));
+        console.log(JSON.parse(localStorage.getItem('opcaoFreteSelecionada')));
     })
 
     opcaoFrete2.addEventListener('click', () => {
-        atualizarSubtotalComFrete(20)
+        atualizarSubtotalComFrete(20);
+
+        const lblOpcaoFreteSedex = document.getElementById('opcao-frete-sedex').textContent;
+        localStorage.setItem('opcaoFreteSelecionada', JSON.stringify(lblOpcaoFreteSedex));
+        console.log(JSON.parse(localStorage.getItem('opcaoFreteSelecionada')));
     })
 
     opcaoFrete3.addEventListener('click', () => {
-        atualizarSubtotalComFrete(30)
+        atualizarSubtotalComFrete(30);
+
+        const lblOpcaoFreteExpresso = document.getElementById('opcao-frete-expresso-especial').textContent;
+        localStorage.setItem('opcaoFreteSelecionada', JSON.stringify(lblOpcaoFreteExpresso));
+        console.log(JSON.parse(localStorage.getItem('opcaoFreteSelecionada')));
     })
 
     const btnCalularFrete = document.getElementById('btn-calular-frete');
@@ -128,7 +140,7 @@ function renderizarCarrinho() {
         const enderecoFrete = document.getElementById('endereco-frete')
         const freteCarrinho = document.getElementById('frete-carrinho')
 
-        fetch(`https://viacep.com.br/ws/${freteCarrinho.value.replace("-", "").replace(".","")}/json/`)
+        fetch(`https://viacep.com.br/ws/${freteCarrinho.value.replace("-", "").replace(".", "")}/json/`)
             .then(response => response.json())
             .then(data => {
                 atualizarSubtotalPedido()
@@ -153,6 +165,7 @@ function renderizarCarrinho() {
     btnFinalizarPedido.addEventListener('click', () => {
 
         const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+        
         if (usuarioLogado) {
             window.location.href = "/front/nice-store/pages/selecao-endereco-entrega.html";
         } else {
@@ -163,9 +176,14 @@ function renderizarCarrinho() {
 }
 
 function atualizarSubtotalComFrete(valor) {
+    //Guarda o valor do frete selecionado no localStorage
+    const subtotalFreteGuardado = valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    localStorage.setItem('subtotalFrete', subtotalFreteGuardado);
+    console.log(localStorage.getItem('subtotalFrete'));
+    
     const subtotalFreteElement = document.querySelector('.subtotal-frete');
     subtotalFreteElement.innerHTML = valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    atualizarSubtotalPedido()
+    atualizarSubtotalPedido();
 }
 
 
@@ -188,6 +206,11 @@ function atualizarSubtotalPedido() {
 
     const subtotalFrete = parseFloat(subtotalFreteElement.textContent.replace('R$', '').replace('.', '').replace(',', '.').trim());
     subtotalPedidoElement.textContent = (novoSubtotalPedido + subtotalFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+    //Guarda o valor do pedido selecionado no localStorage
+    const subtotalPedidoGuardado = (novoSubtotalPedido + subtotalFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    localStorage.setItem('subtotalPedido', subtotalPedidoGuardado);
+    console.log(localStorage.getItem('subtotalPedido'));
 }
 
 function removerItemCarrinho(produtoId) {
