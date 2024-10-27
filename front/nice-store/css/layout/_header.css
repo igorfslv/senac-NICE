@@ -6,6 +6,7 @@
 }
 
 .nav-bar-tela-principal {
+    position: relative;
     width: 100%;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
 }
@@ -83,4 +84,38 @@
     font-size: 20px;
     margin-left: 15px;
     cursor: pointer;
+}
+
+.opcoes-visualizacao-cliente ul {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-0);
+
+    position: absolute;
+    right: 135px;
+    top: 75px;
+}
+
+.opcoes-visualizacao-cliente ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 140px;
+    padding: 10px 15px;
+    text-wrap: nowrap;
+    font-size: var(--font-tam-normal);
+    border-radius: 5px;
+}
+
+.opcoes-visualizacao-cliente ul li:hover {
+    background-color: var(--bg-7);
+    color: var(--font-2);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.opcoes-visualizacao-cliente ul li i {
+    font-size: var(--font-tam-medio);
 }
