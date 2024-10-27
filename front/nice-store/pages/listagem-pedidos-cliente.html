@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="shortcut icon" href="../img/img-logotipo-branco-icon.png" type="image/x-icon">
+    <title>Meus Pedidos</title>
+</head>
+<body>
+    <header class="header-tela-principal" id="header-tela-principal">
+
+        <nav class="nav-bar-tela-principal">
+            <ul>
+                <li>
+                    <div class="logotipo-loja">
+                        <img src="../img/img-logotipo.png" alt="Logotipo da loja"
+                            onclick="window.location.href='../index.html'">
+                    </div>
+                </li>
+                <li>
+                    <div class="btns-carrinho-login">
+                        <button id="btn-entrar-login"
+                            onclick="window.location.href = './login-cliente.html'">Entrar</button>
+                        <button id="btn-inscrever-login"
+                            onclick="window.location.href = './inscricao-cliente.html'">Inscrever-se</button>
+                        <i class='bx bx-cart-alt btn-carrinho'>
+                            <span id="badge-carrinho" class="quantidade-itens">10</span>
+                        </i>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="container-listagem-pedidos-cliente">
+        <h1>Meus Pedidos</h1>
+
+        <table class="lista-pedidos-cliente">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Data Compra</th>
+                    <th>Valor Total</th>
+                    <th>Status</th>
+                    <th>Detalhes</th>
+                </tr>
+            </thead>
+            <tbody id="corpo-lista-pedidos-cliente">
+                <tr>
+                    <td>001</td>
+                    <td>27/10/2024</td>
+                    <td>R$ 1.250,00</td>
+                    <td class="status-pedido">AGUARDANDO PAGAMENTO</td>
+                    <td class="detalhes-pedido-cliente">
+                        <i class='bx bx-detail' title="Ver detalhes do pedido"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>28/10/2024</td>
+                    <td>R$ 1.350,00</td>
+                    <td class="status-pedido">AGUARDANDO PAGAMENTO</td>
+                    <td class="detalhes-pedido-cliente">
+                        <i class='bx bx-detail' title="Ver detalhes do pedido"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>29/10/2024</td>
+                    <td>R$ 1.450,00</td>
+                    <td class="status-pedido">AGUARDANDO PAGAMENTO</td>
+                    <td class="detalhes-pedido-cliente">
+                        <i class='bx bx-detail' title="Ver detalhes do pedido"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+
+
+    <script src="../js/pages/header.js"></script>
+</body>
+</html>

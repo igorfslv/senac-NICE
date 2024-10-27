@@ -1,0 +1,25 @@
+.container-listagem-pedidos-cliente {
+    margin: 50px 70px;
+    /* background-color: aqua; */
+}
+
+.lista-pedidos-cliente {
+    width: 100%;
+    margin-top: 70px;
+}
+
+#corpo-lista-pedidos-cliente tr {
+    height: 60px;
+    font-size: var(--font-tam-normal);
+}
+
+.status-pedido {
+    font-weight: 700;
+    color: var(--bg-8);
+}
+
+.detalhes-pedido-cliente i {
+    font-size: var(--font-tam-medio);
+    color: var(--bg-7);
+    cursor: pointer;
+}
