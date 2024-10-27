@@ -122,13 +122,13 @@ function salvarMetodoPagamento() {
             console.log("Método Pagamento Selecionado: " + JSON.parse(localStorage.getItem('metodoPagamento')));
             console.log(JSON.parse(localStorage.getItem('dadosCartao')));
 
-            window.location.href = "/front/nice-store/pages/resumo-pedido.html";
+            window.location.href = "../pages/resumo-pedido.html/";
             
         } else if (metodoPagamentoSelecionado === "PIX") {
             localStorage.setItem('metodoPagamento', JSON.stringify(metodoPagamentoSelecionado));
             console.log("Método Pagamento Selecionado: " + JSON.parse(localStorage.getItem('metodoPagamento')));
             
-            window.location.href = "/front/nice-store/pages/resumo-pedido.html";
+            window.location.href = "../pages/resumo-pedido.html";
         }
     });
 }

@@ -168,13 +168,17 @@ function renderizarCarrinho() {
 
         if (usuarioLogado) {
 
+            const produtos = JSON.parse(localStorage.getItem('carrinho')) || [];
+
             const itens = [];
 
             // Itera sobre as linhas da tabela
+            let index = 0;
             carrinho.querySelectorAll('tr').forEach(row => {
                 const cols = row.querySelectorAll('td');
                 if (cols.length > 0) {
                     const item = {
+                        id: produtos[index].id,
                         numero: cols[0].innerText,
                         imagem: cols[1].querySelector('img').src,
                         nome: cols[2].innerText,
@@ -183,15 +187,18 @@ function renderizarCarrinho() {
                         subtotal: cols[6].innerText
                     };
                     itens.push(item);
+                    index++;
                 }
+                
             });
+
 
             // Armazena o array de itens no localStorage
             localStorage.setItem('carrinhoFinalizado', JSON.stringify(itens));
 
-            window.location.href = "/front/nice-store/pages/selecao-endereco-entrega.html";
+            window.location.href = "../pages/selecao-endereco-entrega.html";
         } else {
-            window.location.href = "/front/nice-store/pages/login-cliente.html";
+            window.location.href = "../pages/login-cliente.html";
         }
 
     });

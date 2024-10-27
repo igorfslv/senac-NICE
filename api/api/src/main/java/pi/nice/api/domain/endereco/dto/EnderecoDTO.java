@@ -3,6 +3,7 @@ package pi.nice.api.domain.endereco.dto;
 import pi.nice.api.domain.endereco.Endereco;
 
 public record EnderecoDTO(
+        Long id,
         String cep,
         String logradouro,
         String complemento,
@@ -14,7 +15,7 @@ public record EnderecoDTO(
 ) {
 
     public EnderecoDTO(Endereco endereco) {
-        this(endereco.getCep(), endereco.getLogradouro(), endereco.getComplemento(), endereco.getCidade(), endereco.getNumero(),endereco.getBairro(), endereco.getUf(), endereco.isEnderecoPadrao());
+        this(endereco.getId(), endereco.getCep(), endereco.getLogradouro(), endereco.getComplemento(), endereco.getCidade(), endereco.getNumero(),endereco.getBairro(), endereco.getUf(), endereco.isEnderecoPadrao());
 
     }
 }

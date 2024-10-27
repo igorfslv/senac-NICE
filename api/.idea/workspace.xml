@@ -5,17 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b562c48-3dd2-44c3-900b-eba5953e558a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/dto/AtualizarClienteDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/endereco/EnderecoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/PedidoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/FormaDePagamento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/Pedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/PedidoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/PedidoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/StatusDeEntrega.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/TipoDeFrete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/dto/DetalheItemPedidoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/dto/DetalhesPedidoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/dto/FinalizarItemPedidoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/dto/FinalizarPedidoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/dto/PedidoFinalizadoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/dto/ProdutoQuantidadeDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/itempedido/ItemPedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/db/migration/V5__criando_tabela_para_pedidos.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/db/migration/V6__alterando_tabela_pedido_add_frete.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/db/migration/V7__alterando_tabela_pedido_add_valor_total.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/ClienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/ClienteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/dto/ClienteCadastradoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/dto/ClienteCadastradoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/nice-store/js/connection/atualizar-cadastro-cliente.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/js/connection/atualizar-cadastro-cliente.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/nice-store/js/utils/adicionar-endereco-entrega.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/js/utils/adicionar-endereco-entrega.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/nice-store/pages/atualizacao-cadastro-cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/pages/atualizacao-cadastro-cliente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/endereco/dto/EnderecoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/endereco/dto/EnderecoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/dto/VitrineProdutoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/produto/dto/VitrineProdutoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/nice-store/js/pages/carrinho.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/js/pages/carrinho.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/nice-store/js/utils/adicionar-item-carrinho.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/js/utils/adicionar-item-carrinho.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/nice-store/pages/resumo-pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/pages/resumo-pedido.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +37,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Class" />
-        <option value="Record" />
         <option value="Interface" />
+        <option value="Enum" />
+        <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,6 +67,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="pi.nice.api.domain.pedido" />
+      <recent name="pi.nice.api.domain.pedido.dto" />
       <recent name="pi.nice.api.domain.cliente" />
     </key>
   </component>

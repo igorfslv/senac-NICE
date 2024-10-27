@@ -37,7 +37,7 @@ fetch(`http://localhost:8080/cliente/${usuarioLogado.id}`)
 
 const btnVoltarCarrinho = document.querySelector('.btn-voltar-carrinho');
 btnVoltarCarrinho.addEventListener('click', () => {
-    window.location.href = "/front/nice-store/pages/carrinho.html";
+    window.location.href = "../front/nice-store/pages/carrinho.html";
 });
 
 const btnSelecionarFormaPagamento = document.querySelector('.btn-selecionar-forma-pagamento');
@@ -45,7 +45,7 @@ btnSelecionarFormaPagamento.addEventListener('click', () => {
     const enderecoSelecionado = localStorage.getItem('enderecoEntregaSelecionado');
     
     if (enderecoSelecionado) {
-        window.location.href = "/front/nice-store/pages/selecao-forma-pagamento.html";
+        window.location.href = "../pages/selecao-forma-pagamento.html";
     } else {
         alert('Por favor, selecione um endereço de entrega antes de prosseguir.');
     }
