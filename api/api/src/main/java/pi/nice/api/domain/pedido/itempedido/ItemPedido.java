@@ -24,11 +24,13 @@ public class ItemPedido {
     @ManyToOne
     @JoinColumn(name = "id_produto")
     private Produto produto;
+    private double precoUnitario;
     private int unidades;
 
     public ItemPedido(Pedido pedido, Produto produto, int unidades) {
         this.pedido = pedido;
         this.produto = produto;
+        this.precoUnitario = produto.getPreco();
         this.unidades = unidades;
     }
 }

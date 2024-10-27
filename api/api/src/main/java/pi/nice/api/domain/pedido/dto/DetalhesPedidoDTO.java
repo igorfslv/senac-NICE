@@ -25,7 +25,7 @@ public record DetalhesPedidoDTO(
 
     public DetalhesPedidoDTO(Pedido pedido) {
         this(new EnderecoDTO(pedido.getEndereco()), pedido.getFormaDePagamento(), pedido.getStatusDeEntrega(), pedido.getTipoDeFrete(), pedido.getValorTotal(),
-                pedido.getItensPedido().stream().map(itemPedido -> new DetalheItemPedidoDTO(new VitrineProdutoDTO(itemPedido.getProduto()), itemPedido.getUnidades())).toList());
+                pedido.getItensPedido().stream().map(itemPedido -> new DetalheItemPedidoDTO(new VitrineProdutoDTO(itemPedido.getProduto()), itemPedido)).toList());
     }
 }
 

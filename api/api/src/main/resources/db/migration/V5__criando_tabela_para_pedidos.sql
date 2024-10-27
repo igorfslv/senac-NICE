@@ -14,6 +14,7 @@ CREATE TABLE item_pedido (
     id_produto BIGINT NOT NULL,
     id_pedido BIGINT NOT NULL,
     unidades INT NOT NULL,
+    preco_unitario DOUBLE not null,
     FOREIGN KEY (id_produto) REFERENCES produtos(id),
     FOREIGN KEY (id_pedido) REFERENCES pedidos(id)
 
