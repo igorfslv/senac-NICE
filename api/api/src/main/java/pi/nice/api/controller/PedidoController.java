@@ -13,16 +13,18 @@ public class PedidoController {
     @Autowired
     private PedidoService pedidoService;
 
+    @CrossOrigin
     @PostMapping("/finalizar")
     public ResponseEntity<?> finalizarPedido(@RequestBody FinalizarPedidoDTO pedidoFinalizadoDTO) {
         return pedidoService.finalizarPedido(pedidoFinalizadoDTO);
     }
-
+    @CrossOrigin
     @GetMapping("/de/{idCliente}")
     public ResponseEntity<?> getPedidosDe(@PathVariable String idCliente) {
         return pedidoService.getPedidos(idCliente);
     }
 
+    @CrossOrigin
     @GetMapping("/detalhes/{id}")
     public ResponseEntity<?> getDetalhes(@PathVariable Long id) {
         return pedidoService.getDetalhes(id);
