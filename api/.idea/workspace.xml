@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b562c48-3dd2-44c3-900b-eba5953e558a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/db/migration/V8__mudando_forma_de_pagamento_cartao.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/errors/exceptions/DadosInvalidosException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/controller/PedidoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/FormaDePagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/pedido/FormaDePagamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/db/migration/V6__alterando_tabela_pedido_add_frete.sql" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/db/migration/V6__alterando_tabela_pedido_add_frete.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/nice-store/js/connection/finalizar-compra.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/js/connection/finalizar-compra.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/nice-store/pages/listagem-pedidos-cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front/nice-store/pages/listagem-pedidos-cliente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/errors/ErrorHandlerMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/errors/ErrorHandlerMySql.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

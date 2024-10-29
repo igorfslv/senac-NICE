@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.UnexpectedTypeException;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
@@ -29,6 +30,7 @@ public class Usuario {
     protected String id;
     @NotBlank
     @Size(min = 3, max = 36, message = "O nome de usuário deve ter entre 3 a 36 caracteres.")
+    @Pattern(regexp = "^(\\S+\\s+\\S+.*)$", message = "O nome de usuário deve ter pelo menos duas palavras.")
     protected String nome;
     @CPF(message = "O CPF deve ser válido")
     @NotBlank
@@ -47,11 +49,8 @@ public class Usuario {
 
     public Usuario(UsuarioCadastroDTO usuarioCadastroDTO, String senha) {
 
-        if(usuarioCadastroDTO.nome().split(" ").length > 1) {
             this.nome = usuarioCadastroDTO.nome();
-        } else {
-            throw new UnexpectedTypeException("O nome deve ter no minimo 2 palavras");
-        }
+
 
         this.cpf = usuarioCadastroDTO.cpf();
         this.email = usuarioCadastroDTO.email();
@@ -61,11 +60,8 @@ public class Usuario {
     }
 
     public Usuario(String nome, String cpf, String email, Grupo grupo, String senha) {
-        if(nome.split(" ").length > 1) {
             this.nome = nome;
-        } else {
-            throw new UnexpectedTypeException("O nome deve ter no minimo 2 palavras");
-        }
+
         this.cpf = cpf;
         this.email = email;
         this.senha = senha;
@@ -75,11 +71,8 @@ public class Usuario {
 
 
     public Usuario alterarDados(AlterarUsuarioDTO alternarUsuarioDTO, String senha) {
-        if(alternarUsuarioDTO.nome().split(" ").length > 1) {
-            this.nome = alternarUsuarioDTO.nome();
-        } else {
-            throw new UnexpectedTypeException("O nome deve ter no minimo 2 palavras");
-        }
+
+        this.nome = alternarUsuarioDTO.nome();
         this.cpf = alternarUsuarioDTO.cpf();
         this.grupo = alternarUsuarioDTO.grupoId();
         if (!(alternarUsuarioDTO.senha() == null || alternarUsuarioDTO.senha().isBlank()))

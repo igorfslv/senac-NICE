@@ -172,17 +172,27 @@ fetch(`http://localhost:8080/cliente/${usuarioLogado.id}`)
             alert("As senhas devem ser iguais!")
             return
         } else {
+
+            const dataNascimento = new Date(dataNascimentoCliente.value);
+            const ano = dataNascimento.getFullYear();
+            const mes = String(dataNascimento.getMonth() + 1).padStart(2, '0');
+            const dia = String(dataNascimento.getDate() + 2).padStart(2, '0');
+            const dataFormatada = `${ano}-${mes}-${dia}`;
+            console.log(dataNascimento)
+            console.log(dataFormatada)
+
             const data = {
                 nome: nomeCliente.value,
                 cpf: cpfCliente.value,
-                dataDeNascimento: dataNascimentoCliente.value,
+                dataDeNascimento: dataFormatada,
                 genere: generoCliente.options[generoCliente.selectedIndex].text.replace(/\s+/g, "_").toUpperCase(),
                 enderecosDeEntrega: novosEnderecos,
                 enderecoPadrao: enderecoPadraoIndex,
-                senha: senhaClienteValor
+                senha: senhaClienteValor 
             }
     
             console.log(data)
+            let responseStatus
     
             
     
@@ -194,13 +204,18 @@ fetch(`http://localhost:8080/cliente/${usuarioLogado.id}`)
                 body: JSON.stringify(data)
             })
                 .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-                    return response.json();
+                    responseStatus = response.status
+                    return response.json()
                 })
                 .then(result => {
-                    alert("Cliente " + result.nome + " atualizado com sucesso!");
+                    
+                    if (responseStatus == 200) {
+                        alert("Cliente " + result.nome + " atualizado com sucesso!");
+                    } else {
+                        alert("Não foi possível alterar o cliente " + usuarioLogado.nome + ". \nCampo: " + result.campo + "\nMotivo: " + result.mensagem)
+
+                    }
+
                 })
         }
        

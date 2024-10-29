@@ -8,6 +8,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver;
+import pi.nice.api.errors.exceptions.DadosInvalidosException;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 
@@ -37,6 +38,12 @@ public class ErrorHandlerMySql {
         return ResponseEntity.badRequest().body(
                 new DadosErroValidacao(ex.getMessage().split("propertyPath")[1].split(",")[0]
                         .replace("=", ""),erros[1]));
+    }
+
+    @ExceptionHandler(DadosInvalidosException.class)
+    public ResponseEntity<?> tratorErro400(DadosInvalidosException e) {
+        var erros = e.getMessage().split("/");
+        return ResponseEntity.badRequest().body(new DadosErroValidacao(erros[0], erros[1]));
     }
 
 
