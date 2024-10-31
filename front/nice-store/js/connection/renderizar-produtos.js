@@ -66,7 +66,7 @@ function preencherContainerProdutos(container, produtos) {
         divCardProduto.appendChild(btnCardProdutoDetalhes);
 
         btnCardProdutoDetalhes.addEventListener('click', () => {
-            window.location.href = `./pages/detalhes-produto.html?id=${produto.id}`;
+            window.location.href = `../pages/detalhes-produto.html?id=${produto.id}`;
         });
     });
 

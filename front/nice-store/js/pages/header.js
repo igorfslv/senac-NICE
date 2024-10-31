@@ -10,7 +10,7 @@ function atualizarHeaderLogin() {
         divUsuarioCarrinho.innerHTML += `
             <p class="msg-bem-vindo-cliente">Bem vindo (a), ${usuarioLogado.nome}!</p>
             <i class='bx bx-user' title="Opções Usuário"></i>
-            <i class='bx bx-cart-alt btn-carrinho' title="Carrinho" onclick="window.location.href = '/front/nice-store/pages/carrinho.html'">
+            <i class='bx bx-cart-alt btn-carrinho' title="Carrinho" onclick="window.location.href = '../pages/carrinho.html'">
                 <span id="badge-carrinho" class="quantidade-itens">0</span>
             </i>
             <i class='bx bx-log-out' id="btn-log-out" title="Sair"></i>
@@ -24,7 +24,7 @@ function atualizarHeaderLogin() {
             localStorage.removeItem('usuarioLogado');
             localStorage.removeItem('carrinho');
             alert("Você se desconectou da sua conta.")
-            window.location.href = "/front/nice-store/pages/login-cliente.html";
+            window.location.href = "../pages/login-cliente.html";
         });
     } else {
         const quantidadeItens = document.getElementById('badge-carrinho')
@@ -42,11 +42,11 @@ function menuFlutuanteCliente() {
         header.innerHTML += `
             <div class="opcoes-visualizacao-cliente">
                 <ul>
-                    <li title="Meu Cadastro" onclick="window.location.href = '/front/nice-store/pages/atualizacao-cadastro-cliente.html'">
+                    <li title="Meu Cadastro" onclick="window.location.href = '../pages/atualizacao-cadastro-cliente.html'">
                         <i class='bx bxs-user-detail'></i>
                         <p>Meu Cadastro</p>
                     </li>
-                    <li title="Meus Pedidos" onclick="window.location.href = '/front/nice-store/pages/listagem-pedidos-cliente.html'">
+                    <li title="Meus Pedidos" onclick="window.location.href = '../pages/listagem-pedidos-cliente.html'">
                         <i class='bx bxs-package'></i>
                         <p>Meus Pedidos</p>
                     </li>

@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b562c48-3dd2-44c3-900b-eba5953e558a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/errors/exceptions/DadosInvalidosException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/cliente/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/domain/usuario/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/errors/ErrorHandlerMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/pi/nice/api/errors/ErrorHandlerMySql.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
