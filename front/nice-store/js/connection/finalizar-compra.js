@@ -33,7 +33,8 @@ btnFinalizarCompra.addEventListener("click", (event) => {
         formaDePagamento: formaPagamento.textContent.toUpperCase() .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "_"),
         statusDeEntrega: "AGUARDANDO_PAGAMENTO",
-        valorTotal: valorPedido.textContent.replace("R$ ", "").replace(",", "."),
+        // valorTotal: valorPedido.textContent.replace(/R\$\s*/g, "").replace(/./g, "").replace(/,/g, "."),
+        valorTotal: parseFloat(valorPedido.textContent.replace("R$", "").replace(/\./g, "").replace(",", ".")),
         itens: produtosTransformados
     }
 
@@ -49,7 +50,7 @@ btnFinalizarCompra.addEventListener("click", (event) => {
     })
         .then(response => response.json())
         .then(result => {
-
+            console.log(result);
             alert("Pedido realizado")
         })
         .catch(error => {

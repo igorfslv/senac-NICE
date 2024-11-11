@@ -26,7 +26,7 @@ fetch(`http://localhost:8080/pedido/de/${usuarioLogado.id}`, {
             dataCell.textContent = data.toLocaleDateString("pt-BR");
             
             const valorTotalCell = document.createElement("td");
-            valorTotalCell.textContent = `R$ ${pedido.valorTotal.toFixed(2).replace('.', ',')}`;
+            valorTotalCell.textContent = pedido.valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             
             const statusCell = document.createElement("td");
             statusCell.className = "status-pedido";
