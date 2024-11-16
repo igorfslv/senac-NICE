@@ -87,3 +87,14 @@
 .opcao-frete p {
     padding: 10px 0;
 }
+
+/* .status-pedido-detalhes {
+    position: absolute;
+    right: 100px;
+    font-weight: 700;
+    font-size: var(--font-tam-medio);
+    color: var(--bg-1);
+    background-color: hsl(213, 39%, 79%);
+    padding: 5px 10px;
+    border-radius: 10px;
+} */

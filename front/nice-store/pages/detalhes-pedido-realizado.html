@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="shortcut icon" href="../img/img-logotipo-branco-icon.png" type="image/x-icon">
+    <title>Detalhes Pedido Realizado</title>
+</head>
+
+<body>
+    <header class="header-tela-principal" id="header-tela-principal">
+
+        <nav class="nav-bar-tela-principal">
+            <ul>
+                <li>
+                    <div class="logotipo-loja">
+                        <img src="../img/img-logotipo.png" alt="Logotipo da loja"
+                            onclick="window.location.href='../index.html'">
+                    </div>
+                </li>
+                <li>
+                    <div class="btns-carrinho-login">
+                        <button id="btn-entrar-login"
+                            onclick="window.location.href = './login-cliente.html'">Entrar</button>
+                        <button id="btn-inscrever-login"
+                            onclick="window.location.href = './inscricao-cliente.html'">Inscrever-se</button>
+                        <i class='bx bx-cart-alt btn-carrinho'>
+                            <span id="badge-carrinho" class="quantidade-itens">10</span>
+                        </i>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <main class="container-resumo-pedido">
+
+        <div class="titulo-resumo-pedido">
+            <i class='bx bx-package'></i>
+            <h1>Pedido Nº 1234</h1>
+
+            <!-- <p class="status-pedido-detalhes">AGUARDANDO PAGAMENTO</p> -->
+        </div>
+
+        <div class="container-tela-carrinho carrinho-resumo-pedido" id="container-tela-carrinho">
+
+            <h2>Carrinho de Compras</h2>
+
+            <div class="container-carrinho carrinho-resumo">
+
+                <div class="tabela-lista-produtos-carrinhos lista-produtos-carrinho-resumo">
+                    <table class="tabela-carrinho tabela-carrinho-resumo">
+                        <thead>
+                            <tr>
+                                <th>Nº</th>
+                                <th>Imagem</th>
+                                <th>Nome</th>
+                                <th>Preço Uni.</th>
+                                <th>Qtd Item</th>
+                                <th>Subtotal Item</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><img src="../img/relogio-1.jpg" class="img-produto-carrinho"
+                                        alt="Imagem do Produto"></td>
+                                <td>Produto Exemplo</td>
+                                <td>R$ 50,00</td>
+                                <td>2</td>
+                                <td>R$ 100,00</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>2</td>
+                                <td><img src="../img/img-monitor-curvo-ultragear-LG-34-01.jpeg"
+                                        class="img-produto-carrinho" alt="Imagem do Produto"></td>
+                                <td>Outro Produto</td>
+                                <td>R$ 30,00</td>
+                                <td>1</td>
+                                <td>R$ 30,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="informacoes-valores informacoes-endereco-forma-pagamento">
+
+                    <div class="endereco-entrega-selecionado">
+                        <h2>Endereço de Entrega</h2>
+                        <p>Estr. do Campo Limpo, 459 - Vila Prel, São Paulo - SP, 05777-001</p>
+                    </div>
+
+                    <div class="forma-pagamento">
+                        <h2>Forma de Pagamento</h2>
+                        <div class="forma-pagamento-tipo">
+                            <p>Método Selecionado:</p>
+                            <p id="metodo-pagamento-resumo">PIX</p>
+                        </div>
+                    </div>
+
+                    <div class="valor-frete">
+                        <h2>Frete</h2>
+
+                        <div class="opcoes-endereco">
+                            <h3>Opção Entrega</h3>
+
+                            <div class="opcao-frete">
+                                <p>Correios</p>
+                            </div>
+
+                        </div>
+
+                        <h3>Subtotal Frete</h3>
+                        <p class="subtotal-frete">R$ 30,00</p>
+                    </div>
+
+                    <div class="informacoes-valor">
+                        <h2>Subtotal Pedido</h2>
+                        <p class="subtotal-pedido">R$ 1.200,50</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+    <script src="../js/pages/header.js"></script>
+    <script src="../js/pages/resumo-pedido.js"></script>
+    <script src="../js/connection/finalizar-compra.js"></script>
+</body>
+
+</html>

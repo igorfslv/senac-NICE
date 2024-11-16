@@ -23,3 +23,24 @@
     color: var(--bg-7);
     cursor: pointer;
 }
+
+#status-pedido-editar {
+    padding: 10px;
+    font-weight: 700;
+    color: var(--bg-8);
+    border-radius: 10px;
+    border: 1px solid var(--bg-7);
+    cursor: pointer;
+}
+
+#status-pedido-editar option {
+    font-weight: 700;
+}
+
+.btn-salvar-status {
+    font-weight: 700;
+    background-color: #0fc71e;
+    font-size: var(--font-tam-pequeno);
+    color: var(--bg-0);
+    text-transform: uppercase;
+}

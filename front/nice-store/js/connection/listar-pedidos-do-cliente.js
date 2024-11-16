@@ -51,6 +51,7 @@ fetch(`http://localhost:8080/pedido/de/${usuarioLogado.id}`, {
                     .then(response => response.json())
                     .then(result => {
                         console.log(result)
+                        window.location.href = `/front/nice-store/pages/detalhes-pedido-realizado.html?id=${pedido.id}`;
                     })
 
 

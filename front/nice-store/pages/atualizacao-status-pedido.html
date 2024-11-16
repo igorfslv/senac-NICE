@@ -29,7 +29,7 @@
     </header>
 
     <div class="container-visualizacao-pedidos">
-        <h2>Lista de Pedidos Realizados</h2>
+        <h2>Atualização Status Pedido</h2>
 
         <table>
             <thead>
@@ -38,7 +38,7 @@
                     <th>Data</th>
                     <th>Valor Total</th>
                     <th>Status</th>
-                    <th>Editar Pedido</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,27 +46,18 @@
                     <td>3</td>
                     <td>15/11/2024</td>
                     <td>R$ 150,00</td>
-                    <td class="status-pedido">AGUARDANDO PAGAMENTO</td>
-                    <td class="icone-editar">
-                        <i class='bx bxs-edit' onclick="window.location.href='/front/nice-store/pages/atualizacao-status-pedido.html'"></i>
+                    <td>
+                        <select name="status-pedido-editar" id="status-pedido-editar">
+                            <option value="1">AGUARDANDO PAGAMENTO</option>
+                            <option value="2">PAGAMENTO REJEITADO</option>
+                            <option value="3">PAGAMENTO COM SUCESSO</option>
+                            <option value="4">AGUARDANDO RETIRADA</option>
+                            <option value="5">EM TRÂNSITO</option>
+                            <option value="6">ENTREGUE</option>
+                        </select>
                     </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>14/11/2024</td>
-                    <td>R$ 150,00</td>
-                    <td class="status-pedido">PAGAMENTO COM SUCESSO</td>
-                    <td class="icone-editar">
-                        <i class='bx bxs-edit' onclick="window.location.href='/front/nice-store/pages/atualizacao-status-pedido.html'"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>13/11/2024</td>
-                    <td>R$ 150,00</td>
-                    <td class="status-pedido">ENTREGUE</td>
-                    <td class="icone-editar">
-                        <i class='bx bxs-edit' onclick="window.location.href='/front/nice-store/pages/atualizacao-status-pedido.html'"></i>
+                    <td>
+                        <button class="btn-salvar-status">Salvar Alterações</button>
                     </td>
                 </tr>
             </tbody>

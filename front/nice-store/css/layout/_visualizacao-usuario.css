@@ -18,6 +18,7 @@
 .nice-store-nome {
     font-weight: 700;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .usuario-logado {
