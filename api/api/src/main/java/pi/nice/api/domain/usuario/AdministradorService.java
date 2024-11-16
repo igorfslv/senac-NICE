@@ -69,6 +69,11 @@ public class AdministradorService {
         return usuarioRepository.findByNomeContaining(nome != null ? nome : "", pageable);
     }
 
+    public ResponseEntity<?> getUsuario(String idUsuario, String idAdm) {
+        possuiPermissaoDeAdm(idAdm);
+        return ResponseEntity.ok(new UsuarioCadastradoDTO(usuarioRepository.findById(idUsuario).get()));
+    }
+
     private void possuiPermissaoDeAdm(String idAdm) {
         Optional<Usuario> usuario = usuarioRepository.findById(idAdm);
         if (usuario.isPresent())
@@ -76,10 +81,5 @@ public class AdministradorService {
                 return;
         throw new SemAutorizacaoException("Você não possui permissões de administrador.");
 
-    }
-
-    public ResponseEntity getUsuario(String idUsuario, String idAdm) {
-        possuiPermissaoDeAdm(idAdm);
-        return ResponseEntity.ok(new UsuarioCadastradoDTO(usuarioRepository.findById(idUsuario).get()));
     }
 }
