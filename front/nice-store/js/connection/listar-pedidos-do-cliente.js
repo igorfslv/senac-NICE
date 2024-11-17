@@ -41,6 +41,7 @@ fetch(`http://localhost:8080/pedido/de/${usuarioLogado.id}`, {
 
             detalhesCell.addEventListener('click', () => {
                 console.log(pedido.id)
+                localStorage.setItem('pedidoDetalhesID', JSON.stringify(pedido.id));
 
                 fetch(`http://localhost:8080/pedido/detalhes/${pedido.id}`, {
                     method: 'GET',
@@ -50,7 +51,9 @@ fetch(`http://localhost:8080/pedido/de/${usuarioLogado.id}`, {
                 })
                     .then(response => response.json())
                     .then(result => {
-                        console.log(result)
+                        console.log(result);
+                        localStorage.setItem('pedidoDetalhes', JSON.stringify(result));
+                        console.log(JSON.parse(localStorage.getItem('pedidoDetalhes')));
                         window.location.href = `/front/nice-store/pages/detalhes-pedido-realizado.html?id=${pedido.id}`;
                     })
 
