@@ -43,10 +43,10 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>3</td>
-                    <td>15/11/2024</td>
-                    <td>R$ 150,00</td>
-                    <td>
+                    <td id="id">3</td>
+                    <td id="data">15/11/2024</td>
+                    <td id="preco">R$ 150,00</td>
+                    <td id="status">
                         <select name="status-pedido-editar" id="status-pedido-editar">
                             <option value="1">AGUARDANDO PAGAMENTO</option>
                             <option value="2">PAGAMENTO REJEITADO</option>
@@ -57,13 +57,14 @@
                         </select>
                     </td>
                     <td>
-                        <button class="btn-salvar-status">Salvar Alterações</button>
+                        <button class="btn-salvar-status" id="btn-salvar-status">Salvar Alterações</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
     
+    <script src="../js/connection/atualizar-pedido.js"></script>
 
 </body>
 

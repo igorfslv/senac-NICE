@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import pi.nice.api.domain.cliente.ClienteRepository;
 import pi.nice.api.domain.endereco.Endereco;
 import pi.nice.api.domain.endereco.EnderecoRepository;
@@ -71,12 +72,7 @@ public class PedidoService {
 
     public ResponseEntity<?> getDetalhes(Long id) {
         var pedido = pedidoRepository.findById(id);
-
-        if (pedido.isPresent()) {
-            return ResponseEntity.ok(new DetalhesPedidoDTO(pedido.get()));
-
-        }
-
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pedido com o id " + id + " não encontrado");
+        return pedido.isPresent() ? ResponseEntity.ok(new DetalhesPedidoDTO(pedido.get())) :
+                ResponseEntity.status(HttpStatus.NOT_FOUND).body(id + " não encontrado");
     }
 }

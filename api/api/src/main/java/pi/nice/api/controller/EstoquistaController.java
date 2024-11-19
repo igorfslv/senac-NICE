@@ -23,6 +23,7 @@ public class EstoquistaController {
             @RequestBody AlterarStatusPedidoDTO alterarStatusPedidoDTO,
             @PathVariable String idEstoquista) {
 
+        System.out.println(alterarStatusPedidoDTO);
         return estoquistaService.alterarStatusPedido(idEstoquista, alterarStatusPedidoDTO.idPedido(), alterarStatusPedidoDTO.statusDeEntrega());
 
     }

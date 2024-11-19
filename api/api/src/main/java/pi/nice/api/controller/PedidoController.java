@@ -29,5 +29,6 @@ public class PedidoController {
     public ResponseEntity<?> getDetalhes(@PathVariable Long id) {
         return pedidoService.getDetalhes(id);
     }
+   
 
 }
