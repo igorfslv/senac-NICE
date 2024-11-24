@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
     List<Produto> findAllByAtivoTrue();
+    Page<Produto> findByNomeContainingAndAtivoTrue(String nome, Pageable pageable);
     Page<Produto> findByNomeContaining(String nome, Pageable pageable);
-
 
 }

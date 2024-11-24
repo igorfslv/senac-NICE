@@ -22,6 +22,12 @@ public class AdministradorController {
     private AdministradorService administradorService;
 
     @CrossOrigin
+    @GetMapping("/teste")
+    public String aaa() {
+        return "socorro";
+    }
+
+    @CrossOrigin
     @PostMapping("/cadastrar/{admId}")
     public ResponseEntity cadastrarUsuario(@RequestBody UsuarioCadastroDTO usuarioCadastroDTO,
                                            @PathVariable String admId) {

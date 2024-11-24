@@ -98,7 +98,7 @@ public class ProdutoService {
 
 
     public ResponseEntity<?> getListaVitrineProdutos(PageRequest pageable, String nome) {
-        Page<Produto> produtos = produtoRepository.findByNomeContaining(nome != null ? nome : "", pageable);
+        Page<Produto> produtos = produtoRepository.findByNomeContainingAndAtivoTrue(nome != null ? nome : "", pageable);
         Page<VitrineProdutoDTO> produtosDTO = produtos.map(produto -> new VitrineProdutoDTO(
                 produto.getId(), produto.getImagemPrincipal().getCaminho(), produto.getNome(), produto.getPreco()));
         return ResponseEntity.ok(produtosDTO);
