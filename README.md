@@ -33,7 +33,7 @@ Como entrega final, o projeto de Sistema E-Commerce deve atender a uma lista de 
 
 O Objetivo final do Projeto é simular uma aplicação de um Sistema Web de E-Commers de vendas, contribuindo para experiência prévia do aluno ao mercado de trabalho. _[Mais detalhes sobre o Projeto Integrador do Senac]()._ 
 
->_Para mais detalhes sobre o Desenvolvimento do Projeto, detalhes da Metodologia, SprintPlaning e Blacklog do produto [acesse aqui]()._
+>_Acesse mais detalhes sobre o Desenvolvimento do Projeto, detalhes da Metodologia, _[SprintPlaning e Backlog do Produto]()_.
 
 
 
@@ -46,10 +46,10 @@ O Objetivo final do Projeto é simular uma aplicação de um Sistema Web de E-Co
 
 Para executar a metodologia ágil _**Scrum**_ foi utilizada a plataforma _**Trello**_ como _To Do List_ e gerenciamento das _Sprints._
 
->Clique no Link para mais detalhes técnicos do Sistema como [Telas](); [API EndPoints](); [Modelagem Banco de Dados](); [Estrutura do Banco de Dados]() e [Documentação]().
+>Acesse mais detalhes técnicos do Sistema como [Telas](); [API EndPoints](); [Modelagem Banco de Dados](); [Estrutura do Banco de Dados]() e [Documentação]().
 
 ## Como executar Nice Store
-Se você tem interesse em visualizar o projeto final e sua execução disponibilizamos [Instruções de Uso]()
+Se você tem interesse em visualizar o projeto final e sua execução disponibilizamos [Instruções de Uso]().
 
 ## Instruções de Uso
 
@@ -61,9 +61,7 @@ Se você tem interesse em visualizar o projeto final e sua execução disponibil
 - Visual Studio Code com a extensão _[Live Server]()_ instalada.
 - Navegador de Internet.
 
-```
-Recomendamos a utilização do Sistema Operacional Windows. Não garantimos que irá funcionar corretamente em outros Sistemas Operacionais.
-```
+>Recomendamos a utilização do Sistema Operacional Windows. Não garantimos que irá funcionar corretamente em outros Sistemas Operacionais.
 
 ### Passo a Passo
 1. Clone ou Extraia o Projeto para a `Área de Trabalho`.
