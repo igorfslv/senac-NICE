@@ -6,7 +6,7 @@
 
 # Sobre o Nice Store
 _Nice Store_ é um site de vendas (E-Commerce) de produtos elétricos e eletrodomésticos com Sistema Web de Back-Office integrado. 
-_Nice Store_ é o resultado do projeto acadêmico de Sistema Web desenvolvido pelos alunos do _[Centro Universitário Senac](https://www.sp.senac.br/centro-universitario-senac-santo-amaro 'Site Oficial Senac')_ ao decorrer da matéria _**Projeto Integrador - PI do 4º semestre.**_ 
+_Nice Store_ é o resultado do projeto acadêmico de Sistema Web desenvolvido pelos alunos do _[Centro Universitário Senac](https://www.sp.senac.br/centro-universitario-senac-santo-amaro 'Site Oficial Senac')_ ao decorrer da matéria _**"Projeto Integrador - PI" do 4º semestre.**_ 
 
 - Realiza _Pedidos de Vendas_ fictícios.
 - Engloba todos os pontos cruciais de um _Sistema Web._
