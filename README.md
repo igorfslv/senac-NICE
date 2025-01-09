@@ -15,7 +15,7 @@ _Nice Store_ é o resultado do projeto acadêmico de Sistema Web desenvolvido pe
  
 ## O Projeto - Desenvolvimento de Sistemas Orientado a Web.
 
-O objetivo inicial do projeto é desenvolver um site E-Commerce de vendas de produtos com Sistema de Back-Office integrado. Para atender o objetivo proposto os alunos devem utilizar todo o conhecimento adquirido durante o curso de _Análise de Desenvolvimento Web_, entre elas estão algumas como:
+O objetivo inicial do projeto é desenvolver um site E-Commerce de vendas de produtos com Sistema de Back-Office integrado. Para atender o objetivo proposto os alunos devem utilizar todo o conhecimento adquirido durante o curso de _Análise de Desenvolvimento de Sistemas_, entre elas estão algumas como:
  - Utilizar a linguagem **Java** no Back-End;
  - Utilizar o padrão de arquitetura **Model View Controller - MVC**;
  - Disponibilizar uma interface Front-End para interação com Usuário;
