@@ -37,7 +37,7 @@ O Objetivo final do Projeto é simular uma aplicação de um Sistema Web de E-Co
 
 
 
-## Ferramentas Utilizadas
+# Ferramentas Utilizadas
 - **Back-End :** Linguagem Java 17 e Java Script para integração de API Rest;
 - **Framework:** Java Springboot;
 - **Banco de Dados:** MySQL;
@@ -48,12 +48,12 @@ Para executar a metodologia ágil _**Scrum**_ foi utilizada a plataforma _**Trel
 
 >Acesse mais detalhes técnicos do Sistema como [Telas](); [API EndPoints](); [Modelagem Banco de Dados](); [Estrutura do Banco de Dados]() e [Documentação]().
 
-## Como executar Nice Store
+# Como executar Nice Store
 Se você tem interesse em visualizar o projeto final e sua execução disponibilizamos [Instruções de Uso]().
 
-## Instruções de Uso
+# Instruções de Uso
 
-### Pré Requisitos
+## Pré Requisitos
 
 - Banco de Dados SQL - Recomendamos MySQL.
 - SDK ou JDK Java versão 17 ou mais recente.
@@ -63,7 +63,7 @@ Se você tem interesse em visualizar o projeto final e sua execução disponibil
 
 >Recomendamos a utilização do Sistema Operacional Windows. Não garantimos que irá funcionar corretamente em outros Sistemas Operacionais.
 
-### Passo a Passo
+## Passo a Passo
 1. Clone ou Extraia o Projeto para a `Área de Trabalho`.
 2. Crie um novo banco de dados com o nome `"nice-api"`.*
 3. Abra o projeto dentro da IDE escolhida e no Visual Studio Code.
@@ -79,24 +79,24 @@ Se você tem interesse em visualizar o projeto final e sua execução disponibil
 ### Recomendações de Uso - Boas Práticas
 Recomendamos não realizar grande alterações no código fonte do projeto para evitar erros futuros
 
-## Contribuintes
+# Contribuintes
 Nice Store foi desenvolvidos em grupo pelos integrantes:
 - Igor Felipe (Este Perfil);
 - [Matheus]();
 - [Elina]();
 - [Nataia]();
-## Licença
+# Licença
 Este projeto possui licença XXX que permite a visualização e utilização para fins educacionais. Não pode ser revendido ou comercializado.
 
 # Projeto Integrador Senac
 
-### O Projeto Integrador é um componente curricular do Senac que tem como objetivo: 
+## O Projeto Integrador é um componente curricular do Senac que tem como objetivo: 
 - Promover uma aprendizagem mais completa e significativa.
 - Integrar conhecimentos e habilidades de diferentes áreas.
 - Estimular a autonomia e a responsabilidade dos alunos.
 - Preparar os alunos para os desafios e oportunidades do mundo real.
 
-### O Projeto Integrador do Senac se caracteriza por: 
+## O Projeto Integrador do Senac se caracteriza por: 
  - Promover o "aprender fazendo".
  - Dialogar entre a sala de aula e a realidade do mundo do trabalho.
  - Aplicar os conhecimentos em situações reais.
@@ -112,7 +112,7 @@ Este projeto possui licença XXX que permite a visualização e utilização par
 _Texto gerado pela IA Generativa do Google._ 
 
 ---
-## Projeto Integrador - Desenvolvimento de Sistema Orientado a Web 
+# Projeto Integrador - Desenvolvimento de Sistema Orientado a Web 
 ### 4ºSemestre de Análise e Desenvolvimento de Sistemas.
 O _Projeto Integador_ ou _PI_ do **4ºSemestre do curso de Análise e Desenvolvimento de Sistemas - ADS,** trás dois pontos cruciais como exigência no plano de ensino do curso, o primeiro ponto é fazer com que os alunos desenvolvam um _Sistema Orientado a Web_, ou seja, um sistema que funcione na internet.
 
