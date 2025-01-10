@@ -87,9 +87,3 @@ Nice Store foi desenvolvidos em grupo pelos integrantes:
 - [Nataia]();
 # Licença
 Este projeto possui licença XXX que permite a visualização e utilização para fins educacionais. Não pode ser revendido ou comercializado.
-
-
----
-# Backlog do Produto
-
-## SprintPlanning
