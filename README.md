@@ -31,7 +31,7 @@ Como entrega final, o projeto de Sistema E-Commerce deve atender a uma lista de 
 - Durante o processo de compra, o `Cliente` logado deve passar por todas as etapas de conclusão de pedido: escolher `produto` e colocar produto no `carrinho`, adicionar um `endereço` fictício de entrega, adicionar `pagamento` fictício, `visualizar` um resumo e detalhes do pedido na tela de `checkout`.
 - `Cliente` deve _visualizar_ uma `lista de pedidos` realizados e seus detalhes dentro do seu `perfil`.
 
-O Objetivo final do Projeto é simular uma aplicação de um Sistema Web de E-Commers de vendas, contribuindo para experiência prévia do aluno ao mercado de trabalho. _[Mais detalhes sobre o Projeto Integrador do Senac](O Projeto.md "Ir para Projeto Integrador Senac")._ 
+O Objetivo final do Projeto é simular uma aplicação de um Sistema Web de E-Commers de vendas, contribuindo para experiência prévia do aluno ao mercado de trabalho. _[Mais detalhes sobre o Projeto Integrador do Senac](./O Projeto.md "Ir para Projeto Integrador Senac")._ 
 
 >_Acesse mais detalhes sobre o Desenvolvimento do Projeto, detalhes da Metodologia, _[SprintPlaning e Backlog do Produto]()_.
 
