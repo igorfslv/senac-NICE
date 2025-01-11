@@ -4,7 +4,7 @@
 
 ## SprintPlanning
 |Sprint|Como Um|Eu quero, eu posso|Para que|Critério de aceite|
-|------|-------|------------------|--------|------------------|
+|------|-------|------------------|--------|--------------------------------------------------------------------------------------|
 |1|Usuário não logado|Identificar no sistema|Possa entrar no backoffice|- os dados de login devem ser validados no banco de dados- O login é o email do usuário.
 - A senha deve ser encriptada na ponta antes de validação com o dado no banco (que também estará encriptado).
 - Não localizando o sistema deve negar a entrada do usuário no backoffice.- Logando (usuário e senha corretos e habilitado - ativo) o sistema deve cair na tela principal do backoffice onde terão as opçõe de listar produtos(todos PERSONAS) e lista de usuário para administrador.
