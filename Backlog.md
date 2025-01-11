@@ -5,10 +5,16 @@
 ## SprintPlanning
 |Sprint|Como Um|Eu quero, eu posso|Para que|Critério de aceite|
 |-|-|-|-|-|
-|1|Usuário não logado|Identificar no sistema|Possa entrar no backoffice|Os dados de login devem ser validados no banco de dados- O login é o email do usuário.A senha deve ser encriptada na ponta antes de validação com o dado no banco (que também estará encriptado).
-- Não localizando o sistema deve negar a entrada do usuário no backoffice.- Logando (usuário e senha corretos e habilitado - ativo) o sistema deve cair na tela principal do backoffice onde terão as opçõe de listar produtos(todos PERSONAS) e lista de usuário para administrador.
-- O sistema deve perguntar qual opção o usuário quer acessar (1 para listar produto e 2 – quando usuário for administrador – para listar usuário)
-- Logando também o sistema deve criar a sessão com o usuáro e seu grupo(administrador ou estoquista).
+
+|1|Usuário não logado|Identificar no sistema|Possa entrar no backoffice|- Os dados de login devem ser validados no banco de dados(O login é o email do usuário); A senha deve ser encriptada na ponta antes de validação com o dado no banco (que também estará encriptado).|
+
+|1|Usuário não logado|Identificar no sistema|Possa entrar no backoffice|- Não localizando o sistema deve negar a entrada do usuário no backoffice.|
+
+|1|Usuário não logado|Identificar no sistema|Possa entrar no backoffice|- Logando (usuário e senha corretos e habilitado - ativo) o sistema deve cair na tela principal do backoffice onde terão as opçõe de listar produtos(todos PERSONAS) e lista de usuário para administrador.|
+
+|1|Usuário não logado|Identificar no sistema|Possa entrar no backoffice|- O sistema deve perguntar qual opção o usuário quer acessar (1 para listar produto e 2 – quando usuário for administrador – para listar usuário)|
+
+|1|Usuário não logado|Identificar no sistema|Possa entrar no backoffice|- Logando também o sistema deve criar a sessão com o usuáro e seu grupo(administrador ou estoquista).
 - Esta Tela é a de usuário e portanto, se um CLIENTE entrar com email e senha o mesmo deve ser rejeitado. Esta tela de login é apenas para usuários de backoffice|
 
 1
