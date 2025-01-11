@@ -11,14 +11,9 @@
 |1|Usuário não logado|Identificar no sistema|Possa entrar no backoffice|- O sistema deve perguntar qual opção o usuário quer acessar (1 para listar produto e 2 – quando usuário for administrador – para listar usuário)|
 |1|Usuário não logado|Identificar no sistema|Possa entrar no backoffice|- Logando também o sistema deve criar a sessão com o usuáro e seu grupo(administrador ou estoquista).
 - Esta Tela é a de usuário e portanto, se um CLIENTE entrar com email e senha o mesmo deve ser rejeitado. Esta tela de login é apenas para usuários de backoffice|
-
-1
-Administrador
-Listar Usuário
-Possa acessar as opções de incluir, alterar e habilitar/desabilitar
-- Na tela principal do backoffice, ao selecionar Listar usuários o sistema deve lista todos os usuários cadastrados mostrando o ID (sequencial numérico), Nome, email, status, Grupo.
-
-- O sistema deve permitir escolher um dos usuários (selecionando seu ID) para a tela de opções de usuário ou 0 para voltar a tela principal do backoffice oi I para incluir usuário.
+|1|Administrador|Listar Usuário|Possa acessar as opções de incluir, alterar e habilitar/desabilitar|
+- Na tela principal do backoffice, ao selecionar Listar usuários o sistema deve lista todos os usuários cadastrados mostrando o ID (sequencial numérico), Nome, email, status, Grupo.|
+|1|Administrador|Listar Usuário|Possa acessar as opções de incluir, alterar e habilitar/desabilitar|- O sistema deve permitir escolher um dos usuários (selecionando seu ID) para a tela de opções de usuário ou 0 para voltar a tela principal do backoffice oi I para incluir usuário.|
  
 1
 Administrador
