@@ -1,8 +1,9 @@
-#Backlog do Produto 
+# Backlog do Produto 
 
 ## Requisitos 
 
-## SprintPlanning
+# SprintPlanning
+## Sprint 01
 |Sprint  |Como Um  |Eu quero, eu posso  |Para que  |Critério de aceite |
 |:------:|:-------:|:------------------:|:--------:|:------------------|
 |1|Usuário não logado|Identificar no Sistema|Possa entrar no Backoffice|Os dados de login devem ser validados no banco de dados(O login é o email do usuário); A senha deve ser   encriptada na ponta antes de validação com o dado no banco (que também estará encriptado).|
