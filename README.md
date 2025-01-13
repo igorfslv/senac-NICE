@@ -33,7 +33,7 @@ Como entrega final, o projeto de Sistema E-Commerce deve atender a uma lista de 
 
 O Objetivo final do Projeto é simular uma aplicação de um Sistema Web de E-Commers de vendas, contribuindo para experiência prévia do aluno ao mercado de trabalho. [_Mais detalhes sobre o Projeto Integrador do Senac_](./Projeto-Integrador.md).
 
->_Acesse mais detalhes sobre o Desenvolvimento do Projeto, detalhes da Metodologia, _[SprintPlaning e Backlog do Produto]()_.
+>_Acesse mais detalhes sobre o Desenvolvimento do Projeto, detalhes da Metodologia, _[SprintPlaning e Backlog do Produto](./Backlog.md)_.
 
 
 
