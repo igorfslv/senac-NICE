@@ -13,19 +13,7 @@
 |1|Usuário não logado|Identificar no sistema|Possa entrar no backoffice|Logando também o sistema deve criar a sessão com o usuáro e seu grupo(administrador ou estoquista).Esta Tela é a de usuário e portanto, se um CLIENTE entrar com email e senha o mesmo deve ser rejeitado. Esta tela de login é apenas para usuários de backoffice|
 |1|Administrador|Listar Usuário|Possa acessar as opções de incluir, alterar e habilitar/desabilitar|Na tela principal do backoffice, ao selecionar Listar usuários o sistema deve lista todos os usuários cadastrados mostrando o ID (sequencial numérico), Nome, email, status, Grupo.|
 |1|Administrador|Listar Usuário|Possa acessar as opções de incluir, alterar e habilitar/desabilitar|O sistema deve permitir escolher um dos usuários (selecionando seu ID) para a tela de opções de usuário ou 0 para voltar a tela principal do backoffice oi I para incluir usuário.|
- 
-1
-Administrador
-Cadastrar um usuário
-Posso incluir um acesso ao backoffice
-- Cadastrar o nome do usuário, cpf, email, grupo, senha, no banco de dados.
-- No cadastro, pedir a senha 2 vezes. Só permitir o cadastro quando as 2 senhas estiverem iguais.
-- Validar email do usuário
-- A senha deve ser encriptada antes de enviar para o banco de dados.
-- O cadastro de usuário cadastra o registro como ativo (sempre)
-- Não é permitido cadastrar dois usuários com mesmo login (email)
-- O cpf deve ser validado antes da gravação.
-- Os grupos permitidos são – Administrador ou Estoquista
+|1|Administrador|Cadastrar um usuário|Posso incluir um acesso ao backoffice|Cadastrar o nome do usuário, cpf, email, grupo, senha, no banco de dados.No cadastro, pedir a senha 2 vezes. Só permitir o cadastro quando as 2 senhas estiverem iguais.Validar email do usuário. A senha deve ser encriptada antes de enviar para o banco de dados. O cadastro de usuário cadastra o registro como ativo (sempre). Não é permitido cadastrar dois usuários com mesmo login (email). O cpf deve ser validado antes da gravação. Os grupos permitidos são – Administrador ou Estoquista.|
 1
 Administrador
 Escolher opção de edição do usuário
