@@ -4,10 +4,15 @@
 
 # SprintPlanning
 ## Sprint 01
-|Como Um  |Eu quero, eu posso  |Para que  |Critério de aceite |
-|:-------:|:------------------:|:--------:|:------------------|
-|Usuário não logado|Identificar no Sistema|Possa entrar no Backoffice|Os dados de login devem ser validados no banco de dados(O login é o email do usuário); A senha deve ser   encriptada na ponta antes de validação com o dado no banco (que também estará encriptado). Não localizando o sistema deve negar a entrada do usuário no backoffice. Logando (usuário e senha corretos e habilitado - ativo) o sistema deve cair na tela principal do backoffice onde terão as opções de listar produtos (todos PERSONAS) e lista de usuários para administrador.|
-|Usuário não logado|Identificar no sistema|Possa entrar no backoffice|O sistema deve perguntar qual opção o usuário quer acessar (1 para listar produto e 2 – quando usuário for administrador – para listar usuário)|
+- *Como Um :*Usuário não logado.
+- *Eu quero/Eu posso:* Identificar no Sistema.
+- *Para que:* Possa entrar no Backoffice.
+### *Critério(s) de aceite:* 
+1. Os dados de login devem ser validados no banco de dados (O login é o email do usuário).
+2. A senha deve ser encriptada na ponta antes de validação com o dado no banco (que também estará encriptado)._Não localizando o sistema deve negar a entrada do usuário no Backoffice._
+3. Logando (com usuário e senha corretos e habilitado - ativo) o sistema deve cair na tela principal do backoffice onde terão as opções de listar produtos (todos PERSONAS) e lista de usuários para administrador.
+4. O sistema deve perguntar qual opção o usuário quer acessar (1 para listar produto e 2 – quando usuário for administrador – para listar usuário).
+
 |Usuário não logado|Identificar no sistema|Possa entrar no backoffice|Logando também o sistema deve criar a sessão com o usuáro e seu grupo(administrador ou estoquista).Esta Tela é a de usuário e portanto, se um CLIENTE entrar com email e senha o mesmo deve ser rejeitado. Esta tela de login é apenas para usuários de backoffice|
 |Administrador|Listar Usuário|Possa acessar as opções de incluir, alterar e habilitar/desabilitar|Na tela principal do backoffice, ao selecionar Listar usuários o sistema deve lista todos os usuários cadastrados mostrando o ID (sequencial numérico), Nome, email, status, Grupo.|
 |Administrador|Listar Usuário|Possa acessar as opções de incluir, alterar e habilitar/desabilitar|O sistema deve permitir escolher um dos usuários (selecionando seu ID) para a tela de opções de usuário ou 0 para voltar a tela principal do backoffice oi I para incluir usuário.|
