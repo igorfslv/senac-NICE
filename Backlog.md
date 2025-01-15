@@ -54,7 +54,19 @@
 #### **Critério(s) de aceite:**
 
 - Ao entrar a tela deve listar os dados os dados do usuário escolhido – id, nome, cpf, e-mail, status, grupo.
-- Listar o dado do usuário escolhido, id, nome, cpf, e-mail, status e grupo. Listar as opções para o usuário – 1) Alterar usuário, 2) Alterar senha, 3) Ativar/Desativar, 4 voltar a listar usuário. Ler a opção selecionada pelo usuário.|
-|Administrador|Alterar um usuário|Possa manter os dados de um usuário no backoffice|Ao entrar a tela deve listar os dados os dados do usuário escolhido – id, nome, cpf, e-mail, status, grupo. É permitido apenas alterar o grupo (se não for o usuário logado no momento). É permitido alterar o nome, cpf e grupo. Não é permitido alterar o email. As validações de cpf, grupo e email devem ser feitas. Toda alteração deve refletir no banco de dados. Se selecionar o N em salvar deve voltar para a tela anterior.|
+- Listar o dado do usuário escolhido, id, nome, cpf, e-mail, status e grupo. Listar as opções para o usuário – 1) Alterar usuário, 2) Alterar senha, 3) Ativar/Desativar, 4 voltar a listar usuário. Ler a opção selecionada pelo usuário.
+
+### História 05
+#### **Narrativa:**
+- **Como Um :** Administrador.
+- **Eu quero/Eu posso:** Alterar um usuário.
+- **Para que:** Possa manter os dados de um usuário no backoffice.
+
+#### **Critério(s) de aceite:**
+1. Critério 01:
+   - Ao entrar a tela deve listar os dados os dados do usuário escolhido – id, nome, cpf, e-mail, status, grupo. É permitido apenas alterar o grupo (se não for o usuário logado no momento). É permitido alterar o nome, cpf e grupo. Não é permitido alterar o email.
+   - As validações de cpf, grupo e email devem ser feitas. Toda alteração deve refletir no banco de dados. Se selecionar o N em salvar deve voltar para a tela anterior.
+
+
 |Administrador|Alterar Senha|Possa Alterar a senha de acesso do usuário|Ao entrar a tela deve listar os dados os dados do usuário escolhido – id, nome, cpf, e-mail, status, grupo. É preciso entrar com a senha 2 vezes e ela deve ser atualizada no banco de forma encriptada. Se a senha e contra senha não forem iguais não pode permitir a troca. Se selecionar o N em salvar deve voltar para a tela anterior.|
 |Administrador|Ativar ou Desativar um usuário|Remover ou conceder acesso a um usuário cadastado no backoffice|Ao entrar a tela deve listar os dados os dados do usuário escolhido – id, nome, cpf, e-mail, status, grupo. Deve apresentar a opção contrária do status do usuário. Se o status do usuário estiver ativo a mensagem é para `Desativar Usuário` ou se o usuário estiver desativado a mensagem será `Ativar Usuário`. Ao selecionar salvar Y, o sistema deve atualizar o status contrário no banco de dados. Se selecionar o N em salvar deve voltar para a tela anterior|
