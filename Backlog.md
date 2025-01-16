@@ -23,7 +23,7 @@ Sprint|Sprint 1|Sprint 2|Sprint 3|Sprint 4|SPrint 5|Sprint 6|Final|
 A média é calculada com a Seguinte Formula:
 
 ```
-( (nota1 * 1) + (nota2 * 2) + (nota3 * 4) + (nota4 * 8)  +  (nota5 * 16) +  (nota6 * 32) + (notaFinal * 64) )/127
+Média = ( (nota1 * 1) + (nota2 * 2) + (nota3 * 4) + (nota4 * 8)  +  (nota5 * 16) +  (nota6 * 32) + (notaFinal * 64) ) / 127
 ```
 
 # SprintPlanning
