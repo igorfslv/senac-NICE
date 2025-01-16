@@ -33,7 +33,7 @@ O _Instrutor_ da matéria também solicita que o grupo organize as Sprints dentr
 Durante o período de uma Sprint o grupo se responsabiliza entre os integrantes a distribuição de tarefas e o tempo em que cada um realizará.
 
 
-Por questões de visualização enumeramos os requisitos em 04 digitos em sequência `#0000`, sendo os 02 primeiros digitos `#00XX` representado pela Sprint a qual aquele requisito pertence, e os dois últimos digitos `#XX00` a ordem daquele requisito dentro daquela Sprint. Exemplo `#0101` representa o requisito um da primeira sprint.
+Por questões de visualização enumeramos os requisitos em 04 digitos em sequência `#0000`, sendo os 02 primeiros digitos `#00XX` representado pela Sprint a qual aquele requisito pertence, e os dois últimos digitos `#XX00` a ordem daquele requisito dentro daquela Sprint. Exemplo `#0101` representa o requisito um da primeira Sprint.
 
 >Para requisitos que possam conter um segundo caminho ou condição incluimos em uma lista de itens `(A); (B); (C) ... etc` para cada variação.
 >
