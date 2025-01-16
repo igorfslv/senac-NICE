@@ -33,7 +33,7 @@ Como entrega final, o projeto de Sistema E-Commerce deve atender a uma lista de 
 
 O Objetivo final do Projeto é simular uma aplicação de um Sistema Web de E-Commers de vendas, contribuindo para experiência prévia do aluno ao mercado de trabalho. [_Mais detalhes sobre o Projeto Integrador do Senac_](./Projeto-Integrador.md).
 
->_Acesse mais detalhes sobre o Desenvolvimento do Projeto, detalhes da Metodologia, _[SprintPlaning e Backlog do Produto](./Backlog.md)_.
+>Acesse mais detalhes sobre o Desenvolvimento do Projeto, detalhes da Metodologia, _[SprintPlaning e Backlog do Produto](./Backlog.md)_.
 
 
 
@@ -82,8 +82,8 @@ Recomendamos não realizar grande alterações no código fonte do projeto para 
 # Contribuintes
 Nice Store foi desenvolvidos em grupo pelos integrantes:
 - Igor Felipe (Este Perfil);
-- [Matheus]();
-- [Elina]();
-- [Nataia]();
+- [Guilherme Matheus]();
+- [Eliana Lima]();
+- [Nathalia Narumi]();
 # Licença
 Este projeto possui licença XXX que permite a visualização e utilização para fins educacionais. Não pode ser revendido ou comercializado.
