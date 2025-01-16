@@ -35,4 +35,7 @@ O segundo ponto (proposto pelo instrutor), é que os alunos utilize a metodologi
 3. O Instrutor realiza a _SprintPlanning_ com base no _Blacklog_ e define os requisitos de cada _Sprint_ e suas datas;
 4. De forma intercalada, a cada aula o grupo ou time de desenvolvimento fica responsável em desenvolver os requisitos de determinada Sprint, cada requisito é utilizado como critério de nota. Após revisão ou verificação em cada grupo pelo instrutor(Scrum Master) é passada para proxima Sprint. Cada Sprint dura 15 dias.
 5. Caso o grupo não consiga atender todos os requisitos propostos dentro do prazo, é indicado como débito tecnico, tendo que ser corrigido na e verificado na proxima Sprint. Uma forma de evitar atrasos na entrega final.
+6. Após conclusão de todas as Sprints uma avaliação final é realizada, avaliando requisitos 'chave' para o funcionamento correto do Sistema.
+
+Para entender mais a fundo, disponibilizamos mais detalhes [aqui](./Backlog.md).
 
