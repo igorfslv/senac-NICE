@@ -146,7 +146,7 @@ Por questões de visualização enumeramos os requisitos em 04 digitos em sequê
 ### Requisito #0201
 #### **Narrativa:**
 - **Como Um :** Administrador.
-- **Eu quero/Eu posso:** Listar os produtos da loja
+- **Eu quero/Eu posso:** Listar os produtos da loja.
 - **Para que:** Possa incluir, alterar, visualizar e habilitar/inabilitar o produto.
 
 #### **Critério(s) de aceite:**
@@ -260,88 +260,138 @@ Por questões de visualização enumeramos os requisitos em 04 digitos em sequê
 
 # Sprint 03
 
-Sprint
-Como Um
-Eu quero, eu posso
-Para que
-Critério de aceite
-3
-Cliente Logado, Cliente não logado
-Escolher um produto na pagina principal
-Eu posssa ver os detalhes desse produto
- - Tem que ter o logo da loja.
- - Ter os ícones de carrinho no lado direito.
- - Ter o link (não precisa funcionar) para identificação do cliente (faça login/crie seu login)
- - A lista de produto tem que ser no formato de cards e apresentar a imagem configurada como principal no cadastro.
- - deve conter no card, pelo menos, a imagem principal cadastrada, o nome do produto, preço e um botão para detalhe.
- - Ao clicar no detalhe abrir a página de detalhe do produto
-3
-Cliente Logado, Cliente não logado
-Visualizar os detalhes do produto selecionado na landing page
-Possa ver mais detalhes e imagens do produto e poder colocá-lo no carrinho
- - O carrocel com as imagens deve ser funcional
- - Deve apresentar nome do produto, descrição detalhada, valor, a avaliação
- - semelhante a tela criada no sprint 2 (Visualizar um produto como é vendido na loja)
-- clicando em comprar o produto é colocado no carrinho.
-- O carrinho acumula os produtos selecionados
-3
-Cliente não Logado ou Cliente Logado
-Colocar um produto no carrilho de compras
-Posso adicionar o produto ao meu carrinho de compras
-- Posso comprar 2 vezes o mesmo produto e irá adicionar mais 1 item a quantidade.
-- ao clicar em comprar, na página de detalhe ou principal, deve ser redirecionado para o carrinho ou página inicial (continuar comprando - o indicador do carrinho precisa adicionar mais um item)
-- Este item deve estar gravado no carrinho (sessão, banco, o que escolher)
-3
-Cliente não Logado ou Cliente Logado
-Adicionar mais um produto ao carrinho
-Possa incluir um produto a mais no carrinho de compras
--- Posso aumentar os itens  de um produto no carrinho.
-- O subtotal deve ser recalculado
-- O subtotal deve levar em consideração o frete calculado
-3
-Cliente não Logado ou Cliente Logado
-Diminuir um produto do carrinho
-Possa diminuir o n[umero do mesmo produto no carrinho
--- Posso diminuir os itens  de um produto no carrinho.
-- O subtotal deve ser recalculado
-- O subtotal deve levar em consideração o frete calculado
-3
-Cliente não Logado ou Cliente Logado
-Remover um produto do carrinho
-Posssa remever todos os itens de um produto no carrinho
--- Posso remover o item de um produto no carrinho.
-- O subtotal deve ser recalculado
-- O subtotal deve levar em consideração o frete calculado
-3
-Cliente não Logado
-Calcular o frete para meu CEP
-Possa ver o total estimado da compra para o cep informado
- - - O frete para cliente não logado é de livre escolha
-- Escolher entre 3 valores de frete.
+### Requisito #0301
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado/Cliente não logado.
+- **Eu quero/Eu posso:**Escolher um produto na pagina principal.
+- **Para que:**Eu posssa ver os detalhes desse produto.
+
+### **Critério(s) de aceite:**
+ 1. A tela necessita:
+    - Ter o logo da loja.
+    - Ter os ícones de carrinho no lado direito.
+    - Ter o link (não precisa funcionar) para identificação do cliente (faça login/crie seu login)
+    - A lista de produto tem que ser no formato de cards e apresentar a imagem configurada como principal no cadastro.
+    - deve conter no card, pelo menos, a imagem principal cadastrada, o nome do produto, preço e um botão para detalhe.
+    - Ao clicar no detalhe abrir a página de detalhe do produto.
+
+
+### Requisito #0302
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado/Cliente não logado.
+- **Eu quero/Eu posso:**Visualizar os detalhes do produto selecionado na landing page.
+- **Para que:**Possa ver mais detalhes e imagens do produto e poder colocá-lo no carrinho.
+
+### **Critério(s) de aceite:**
+
+1. Carrosel de imagens 
+   - O carrosel com as imagens deve ser funcional.
+   - Deve apresentar nome do produto, descrição detalhada, valor, a avaliação
+   - semelhante a tela criada no sprint 2 (Visualizar um produto como é vendido na loja)
+   - clicando em comprar o produto é colocado no carrinho.
+   - O carrinho acumula os produtos selecionados
+
+### Requisito #0303
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado/Cliente não logado.
+- **Eu quero/Eu posso:**Colocar um produto no carrinho de compras.
+- **Para que:**Possa adicionar o produto ao meu carrinho de compras.
+
+### **Critério(s) de aceite:**
+
+1. Posso comprar 2 vezes o mesmo produto e irá adicionar mais 1 item a quantidade.
+    - ao clicar em comprar, na página de detalhe ou principal, deve ser redirecionado para o carrinho ou página inicial (continuar comprando - o indicador do carrinho precisa adicionar mais um item)
+    - Este item deve estar gravado no carrinho (sessão, banco, o que escolher).
+
+
+### Requisito #0304
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado/Cliente não logado.
+- **Eu quero/Eu posso:**Adicionar mais um produto ao carrinho
+- **Para que:**Possa incluir um produto a mais no carrinho de compras.
+
+### **Critério(s) de aceite:**
+
+1. Conta automatizada dos valores
+   - O subtotal deve ser recalculado
+   - O subtotal deve levar em consideração o frete calculado
+
+### Requisito #0305
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado/Cliente não logado.
+- **Eu quero/Eu posso:**Diminuir um produto no carrinho
+- **Para que:**Eu posssa diminuir o número do mesmo produto no carrinho
+
+### **Critério(s) de aceite:**
+
+1. Diminuir os itens  de um produto no carrinho.
+   - O subtotal deve ser recalculado
+   - O subtotal deve levar em consideração o frete calculado
+
+### Requisito #0306
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado/Cliente não logado.
+- **Eu quero/Eu posso:**Remover um produto do carrinho.
+- **Para que:**Eu possa Remover um produto do carrinho.
+
+### **Critério(s) de aceite:**
+
+1. Posso remover o item de um produto no carrinho.
+   - O subtotal deve ser recalculado
+   - O subtotal deve levar em consideração o frete calculado
+
+
+### Requisito #0307
+#### **Narrativa**
+
+- **Como Um:** Cliente não logado.
+- **Eu quero/Eu posso:** Informar um CEP.
+- **Para que:** Possa ver o total estimado da compra para o CEP informado.
+
+### **Critério(s) de aceite:**
+
+1. O frete para cliente não logado é de livre escolha
+   - Escolher entre 3 valores de frete.
 
 # Sprint 04
 
-Sprint 
-Como um 
-Eu quero, Eu posso 
-Para que 
-Critérios de aceite 
-4 
-Cliente não logado 
-Escolher Cadastrar-se na tela de login (criar nova conta) 
-Possa informar os dados de cadastro 
-- O email do cliente não pode existir na base. 
- - O cpf deve ser único e validado. 
- - O endereço de faturamento é obrigatório (endereço completo no formato dos correios- CEP, logradouro, Número, complemento, bairro, cidade, uf) 
- - Dados, nome completo, data de nascimento, genero também devem ser lidos. 
- - O cep deve vir validado por uma api - ex - https://viacep.com.br/ws/09760280/json/ 
- - O endreço de entrega é obrigatório e pode ser copiado do endereço de faturamento. 
- - O endreço de entrega pode ter mais de um. (vários). 
- - O nome do cliente tem que ter 2 palavras e no mínimo 3 letras em cada palavra. 
- - Senha encriptada no banco de dados. 
- - Ao final do cadastro o cliente armazenado na base de dados. 
- - O cliente deve ser direcionado a tela de login. 
-4 
+### Requisito #0401
+#### **Narrativa**
+
+- **Como Um:** Cliente não logado.
+- **Eu quero/Eu posso:**Escolher Cadastrar-se na tela de login(criar nova conta).
+- **Para que:**Possa informar os dados de cadastro.
+
+### **Critério(s) de aceite:**
+
+1. Dados do Cliente
+   - O email do cliente não pode existir na base. 
+   - O cpf deve ser único e validado. 
+   - O endereço de faturamento é obrigatório (endereço completo no formato dos correios - CEP, logradouro, Número, complemento, bairro, cidade, uf) 
+   - Dados, nome completo, data de nascimento, genero também devem ser lidos. 
+   - O cep deve vir validado por uma api - ex - https://viacep.com.br/ws/09760280/json/ 
+   - O endereço de entrega é obrigatório e pode ser copiado do endereço de faturamento. 
+   - O endereço de entrega pode ter mais de um. (vários). 
+   - O nome do cliente tem que ter 2 palavras e no mínimo 3 letras em cada palavra. 
+   - Senha deve ser encriptada no banco de dados. 
+   - Ao final do cadastro o cliente armazenado na base de dados. 
+ 2. O cliente deve ser direcionado a tela de login. 
+
+### Requisito #0302
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado
+- **Eu quero/Eu posso:**Escolher um produto na pagina principal.
+- **Para que:**Eu posssa ver os detalhes desse produto.
+
+### **Critério(s) de aceite:**
+
 Cleinte  logado 
 Alterar os dados do cliente 
 Para que eu possa modificar os dados do meu cadastro. 
