@@ -276,6 +276,7 @@ Por questões de visualização enumeramos os requisitos em 04 digitos em sequê
     - deve conter no card, pelo menos, a imagem principal cadastrada, o nome do produto, preço e um botão para detalhe.
     - Ao clicar no detalhe abrir a página de detalhe do produto.
 
+---
 
 ### Requisito #0302
 #### **Narrativa**
@@ -293,6 +294,8 @@ Por questões de visualização enumeramos os requisitos em 04 digitos em sequê
    - clicando em comprar o produto é colocado no carrinho.
    - O carrinho acumula os produtos selecionados
 
+---
+
 ### Requisito #0303
 #### **Narrativa**
 
@@ -306,6 +309,7 @@ Por questões de visualização enumeramos os requisitos em 04 digitos em sequê
     - ao clicar em comprar, na página de detalhe ou principal, deve ser redirecionado para o carrinho ou página inicial (continuar comprando - o indicador do carrinho precisa adicionar mais um item)
     - Este item deve estar gravado no carrinho (sessão, banco, o que escolher).
 
+---
 
 ### Requisito #0304
 #### **Narrativa**
@@ -320,6 +324,8 @@ Por questões de visualização enumeramos os requisitos em 04 digitos em sequê
    - O subtotal deve ser recalculado
    - O subtotal deve levar em consideração o frete calculado
 
+---
+
 ### Requisito #0305
 #### **Narrativa**
 
@@ -332,6 +338,8 @@ Por questões de visualização enumeramos os requisitos em 04 digitos em sequê
 1. Diminuir os itens  de um produto no carrinho.
    - O subtotal deve ser recalculado
    - O subtotal deve levar em consideração o frete calculado
+
+---
 
 ### Requisito #0306
 #### **Narrativa**
@@ -346,6 +354,8 @@ Por questões de visualização enumeramos os requisitos em 04 digitos em sequê
    - O subtotal deve ser recalculado
    - O subtotal deve levar em consideração o frete calculado
 
+
+---
 
 ### Requisito #0307
 #### **Narrativa**
@@ -365,7 +375,7 @@ Por questões de visualização enumeramos os requisitos em 04 digitos em sequê
 #### **Narrativa**
 
 - **Como Um:** Cliente não logado.
-- **Eu quero/Eu posso:**Escolher Cadastrar-se na tela de login(criar nova conta).
+- **Eu quero/Eu posso:**Escolher cadastrar-se na tela de login - Criar uma nova conta.
 - **Para que:**Possa informar os dados de cadastro.
 
 ### **Critério(s) de aceite:**
@@ -383,7 +393,9 @@ Por questões de visualização enumeramos os requisitos em 04 digitos em sequê
    - Ao final do cadastro o cliente armazenado na base de dados. 
  2. O cliente deve ser direcionado a tela de login. 
 
-### Requisito #0302
+---
+
+### Requisito #0402
 #### **Narrativa**
 
 - **Como Um:** Cliente Logado
@@ -398,133 +410,241 @@ Para que eu possa modificar os dados do meu cadastro.
 -Permitido a troca do nome do cliente logado, data de nascimento e genero. 
  - Deve ser permitido também a alteração da senha. 
  - Você pode incluir mais endereços de entrega. 
-4 
-Cleinte  logado 
-adicionar novos endereços de entrega 
-Poder adicionar novos endereços de entrega e ecolher os endereços padrões. 
-- Deve permitir a alteração do cadastro para incluir um novo endereço de entrega. 
- - A partir do segundo endereço, é possível escolher qual endereço é o endereço Padrão (que será pré-carregado) no checkout. 
- A validação e funcionalidade (consulta a api) do endereço é a mesma do cadastramento. 
-4 
-Cliente logado 
-Editar o endereço padrão de entrega  
-Fazer a loja faça a entrega no endereço correto 
-- Permitir a mudança se o endereço de entrega é padrão ou não. Não é permitido alterar os dados de endereço de entrega. Deve-se adicionar um novo. 
-4 
-cliente não logado 
-Informar meus dados de login 
-Possa me identificar no sistema 
--Validar usuário e senha (usuário = email) no banco de dados. 
- - Se existir, cria sessão com o cliente logado. 
- - Caso não exista ele deve gerar erro informando que não localizou o usuário e/ou senha 
-4 
-Cliente logado 
-Deslogar do Sistem 
-Possa limpar a sessão do sistema 
-- Alertar que está da sainda da sessão 
- - Limpar a sessão do login do cliente 
+
+ 
+---
+
+### Requisito #0403
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado
+- **Eu quero/Eu posso:**Adicionar novos endereços de entrega 
+- **Para que:**Poder adicionar novos endereços de entrega e ecolher os endereços padrões.
+
+### **Critério(s) de aceite:** 
+
+1. Deve permitir a alteração do cadastro para incluir um novo endereço de entrega. 
+    - A partir do segundo endereço, é possível escolher qual endereço é o endereço Padrão (que será pré-carregado) no checkout.
+    - A validação e funcionalidade (consulta a api) do endereço é a mesma do cadastramento.
+ 
+
+---
+
+### Requisito #0404
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado
+- **Eu quero/Eu posso:**Editar o endereço padrão de entrega  
+- **Para que:**Fazer a loja faça a entrega no endereço correto 
+
+### **Critério(s) de aceite:** 
+
+1. Permitir a mudança se o endereço de entrega é padrão ou não.
+    - Não é permitido alterar os dados de endereço de entrega. Deve-se adicionar um novo. 
+  
+
+---
+
+### Requisito #0405
+#### **Narrativa**
+
+- **Como Um:** Cliente não Logado
+- **Eu quero/Eu posso:**Informar meus dados de login
+- **Para que:**Possa me identificar no sistema 
+
+### **Critério(s) de aceite:** 
+
+1. Validar usuário e senha (usuário = email) no banco de dados. 
+    - a. Se existir, cria sessão com o cliente logado. 
+    - b. Caso não exista ele deve gerar erro informando que não localizou o usuário e/ou senha 
+
+---
+
+### Requisito #0406
+#### **Narrativa**
+
+- **Como Um:** Cliente não Logado
+- **Eu quero/Eu posso:**Deslogar do Sistema 
+- **Para que:**Possa limpar a sessão do sistema 
+
+### **Critério(s) de aceite:** 
+
+1. Alertar que está da sainda da sessão 
+    - Limpar a sessão do login do cliente 
 
 # Sprint 05
 
-print
-Agrupador
-Como Um
-Eu quero
-Para quê
-Critérios de Aceitação
-5
-Carrinho de compras
-Cliente não Logado ou Cliente Logado
-Fazer o checkout do carrinho (Finalizar a Compra)
-Possa me registrar no sistema e finalziar compra
-- Caso o cliente não esteja logado, ao clicar em finalizar pedido o sistema deve enviar para a tela de login do cliente.
-- Se for cliente logado, tela de inicio de checkout
-- Na tela de login o cliente pode selecionar cadastre-se e ser enviando ao cadastro de cliente.
-- Ao finalizar o cadastro, o cliente deve ser redirecionado ao carrinho (pode ser manual). - O carrinho não se perde no cadastro do cliente.
-5
-Chechout
-Cliente Logado
-Escolher meu endereço de entrega
-Possa me registrar no sistema e finalziar compra
-- Opção de escolher um dos endereços cadastrados como endereço de entrega
-- O cliente deverá escolher um dos endereços válidos (marcados como endereço de entrega) para entrega do produto.
-- O sistema só deve permitir passar para a próxima etapa (escolher a forma de pagamento) se um endereço estiver selecionado.
-5
-Chechout
-Cliente Logado
-Adicionar um endereço de entrega
-Possa adicionar um endereço de entra a mais para o cliente
- - Opção de adicionar um endereço de entraga
-- O sistema só deve permitir passar para a próxima etapa (escolher a forma de pagamento) se um endereço estiver selecionado.
-5
-Chechout
-Cliente Logado
-Escolher uma forma de pagamento
-possa escoher como pagar meu pedido
- - O cliente poderá escolher entre, pelo menos, 2 formas de pagamento. No Mínimo – boleto ou cartão.
-- No caso de cartão, o mesmo deve pedir o número, código verificador, Nome Completo, data de vencimento e quantidade de parcelas.
-- O sistema só deve permitir passar para a próxima etapa (Validar pedido final) se uma forma de pagamento estiver selecionado e/ou preenchida.
-5
-Chechout
-Cliente Logado
-Visualizar o resumo de meu pedido
-Possa corrigir qualquer produto ou endereço no pedido
-- Tela de resumo do pedido, com todos os produtos, valores unitários, quantidades, valores totais, frete, total geral, endereço de entrega, forma de pagamento e apresentar o botão de concluir compra e voltar.
-- clicou em voltar o sistema volta para escolha de pagamento.
-- Esta tela pode estar buscando da sessão ou do banco
-5
-Chechout
-Cliente Logado
-Finalizar a compra
-Possa adquirir os produtos da cesta com entrega no endereço selecionado e forma de pagamento selecionada
--- Ao ser concluído o pedido, o mesmo deve ser criado no banco com o status de “aguardando pagamento”.
-- Um número sequencial do pedido deve ser gerado
-- Um aviso na tela informando o número do pedido, valor e se foi gravado com sucesso ou erro deve ser mostrado ao cliente
-5
-Meus Pedidos
-Cliente Logado
-Visualizar a lista de pedidos e status
-Possa ver o histórico e acompanhar o status de entrega do pedido
-- No cliente, ter um ítem de menu para poder visualizar os pedidos criados.
-- Este menu lista todos os pedidos informando o número, data, valor total, status e botão de mais detalhe.
+### Requisito #0501
+#### **Narrativa**
 
+- **Como Um:** Cliente Logado/Cliente não Logado.
+- **Eu quero/Eu posso:**Fazer o checkout do carrinho (Finalizar a Compra)
+- **Para que:**Possa me registrar no Sistema e finalziar compra.
+
+### **Critério(s) de aceite:** 
+
+1. Caso o cliente não esteja logado, ao clicar em finalizar pedido o sistema deve enviar para a tela de login do cliente.
+    - Se for cliente logado, tela de inicio de checkout
+    - Na tela de login o cliente pode selecionar cadastre-se e ser enviando ao cadastro de cliente.
+    - Ao finalizar o cadastro, o cliente deve ser redirecionado ao carrinho (pode ser manual). - O carrinho não se perde no cadastro do cliente.
+
+---
+
+### Requisito #0502
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado
+- **Eu quero/Eu posso:**Escolher meu endereço de entrega
+- **Para que:**Possa me registrar no sistema e finalizar compra
+
+### **Critério(s) de aceite:**
+
+1. Opção de escolher um dos endereços cadastrados como endereço de entrega
+    - O cliente deverá escolher um dos endereços válidos (marcados como endereço de entrega) para entrega do produto.
+    - O sistema só deve permitir passar para a próxima etapa (escolher a forma de pagamento) se um endereço estiver selecionado.
+
+---
+
+### Requisito #0503
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado
+- **Eu quero/Eu posso:**Adicionar um endereço de entrega
+- **Para que:**Possa adicionar um endereço de entra a mais para o cliente
+
+### **Critério(s) de aceite:**
+
+ 1. Opção de adicionar um endereço de entraga
+    - O sistema só deve permitir passar para a próxima etapa (escolher a forma de pagamento) se um endereço estiver selecionado.
+
+---
+
+### Requisito #0504
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado
+- **Eu quero/Eu posso:**Escolher uma forma de pagamento
+- **Para que:**possa escoher como pagar meu pedido
+
+### **Critério(s) de aceite:**
+
+ 1. O cliente poderá escolher entre, pelo menos, 2 formas de pagamento. No Mínimo – boleto ou cartão.
+    - No caso de cartão, o mesmo deve pedir o número, código verificador, Nome Completo, data de vencimento e quantidade de parcelas.
+    - O sistema só deve permitir passar para a próxima etapa (Validar pedido final) se uma forma de pagamento estiver selecionado e/ou preenchida.
+ 
+
+---
+
+### Requisito #0505
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado
+- **Eu quero/Eu posso:**Visualizar o resumo de meu pedido
+- **Para que:**Possa corrigir qualquer produto ou endereço no pedido
+
+### **Critério(s) de aceite:**
+
+1. Tela de resumo do pedido, com todos os produtos, valores unitários, quantidades, valores totais, frete, total geral, endereço de entrega, forma de pagamento e apresentar o botão de concluir compra e voltar.
+    - clicou em voltar o sistema volta para escolha de pagamento.
+    - Esta tela pode estar buscando da sessão ou do banco
+
+
+---
+
+### Requisito #0506
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado
+- **Eu quero/Eu posso:**Finalizar a compra
+- **Para que:**Possa adquirir os produtos da cesta com entrega no endereço selecionado e forma de pagamento selecionada
+
+### **Critério(s) de aceite:**
+
+1. Ao ser concluído o pedido, o mesmo deve ser criado no banco com o status de “aguardando pagamento”.
+    - Um número sequencial do pedido deve ser gerado
+    - Um aviso na tela informando o número do pedido, valor e se foi gravado com sucesso ou erro deve ser mostrado ao cliente
+
+---
+
+### Requisito #0507
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado
+- **Eu quero/Eu posso:**Visualizar a lista de pedidos e status
+- **Para que:**Possa ver o histórico e acompanhar o status de entrega do pedido
+
+### **Critério(s) de aceite:**
+
+1. No cliente, ter um ítem de menu para poder visualizar os pedidos criados.
+    - Este menu lista todos os pedidos informando o número, data, valor total, status e botão de mais detalhe.
 
 
 # Sprint 06
 
-Sprint
-Como Um
-Eu quero
-Para quê
-Critérios de Aceitação
-6
-Cliente Logado
-Visualizar detalhe do pedido
-(semelhante a história do sprint 5 "visualizar o resumo do meu pedido")
-Possa visualizar os detalhes dos itens pedido, o endereço e forma pagamento do pedido.
-- Semelhante a tela de "visualizar o resumo do meu pedido" sem o botão de concluir compra e voltar.
-- Os dados recuperados para esta tela devem vir do banco de dados.
+### Requisito #0601
+#### **Narrativa**
+
+- **Como Um:** Cliente Logado
+- **Eu quero/Eu posso:**Visualizar detalhe do pedido (semelhante a história do sprint 5 "visualizar o resumo do meu pedido")
+- **Para que:**Possa visualizar os detalhes dos itens pedido, o endereço e forma pagamento do pedido.
+
+### **Critério(s) de aceite:**
+
+1. Semelhante a tela de "visualizar o resumo do meu pedido" sem o botão de concluir compra e voltar.
+    - Os dados recuperados para esta tela devem vir do banco de dados.
 Tela de resumo tem que trazer a lista de produtos, suas quantidades, valores totais por produto, valor frete, valor total do pedido, endereço de entrega e forma de pagamento
-6
-Usuário Estoquista
-Visualizar a lista de pedidos e status
-(semelhante a história do sprint 5 "Visualizar a lista de pedidos e status")
-Para que serja possível mudar o status do pedido
-- Uma lista com todos os pedidos feitos, odenados por data de forma decrescente.
-- Semelhante a "Visualizar a lista de pedidos e status" - Data de pedido, número do pedido, valor total e status -   e botão de editar pedido
-6
-Usuário Estoquista
-Alterar o pedido
-Possa registrar a etapa da entrega do pedido.
-- Alterar o status entre os valores (aguardando pagamento, pagamento rejeitado, pagamento com sucesso, aguardando retirada, em transito, entregue).
-- Uma vez alterado o status o mesmo deve ser registrado no banco.
-6
-Usuário não Logado ou usuário logado
-Filtrar um produto
-possa localizar um  ou mais produto na loja
- Opcional
-6
-Usuário não Logado ou usuário logado
-Selecionar uma categoria
-possa licalizar um ou mais produtos daquela categoria
- Opciona
+
+---
+
+### Requisito #0602
+#### **Narrativa**
+
+- **Como Um:** Estoquista
+- **Eu quero/Eu posso:**Visualizar a lista de pedidos e status(semelhante a história do sprint 5 "Visualizar a lista de pedidos e status")
+- **Para que:**Para que serja possível mudar o status do pedido
+
+### **Critério(s) de aceite:**
+
+1. Uma lista com todos os pedidos feitos, odenados por data de forma decrescente.
+    - Semelhante a "Visualizar a lista de pedidos e status" - Data de pedido, número do pedido, valor total e status -   e botão de editar pedido
+
+---
+
+### Requisito #0603
+#### **Narrativa**
+
+- **Como Um:** Estoquista
+- **Eu quero/Eu posso:**Alterar o pedido
+- **Para que:**Possa registrar a etapa da entrega do pedido.
+
+### **Critério(s) de aceite:**
+
+1. Alterar o status entre os valores (aguardando pagamento, pagamento rejeitado, pagamento com sucesso, aguardando retirada, em transito, entregue).
+    - Uma vez alterado o status o mesmo deve ser registrado no banco.
+
+---
+
+### Requisito #0604 (Opcional)
+#### **Narrativa**
+
+- **Como Um:** Usuário não Logado ou usuário logado
+- **Eu quero/Eu posso:**Filtrar um produto
+- **Para que:**possa localizar um  ou mais produto na loja
+
+### **Critério(s) de aceite:**
+
+1. Requisito
+
+--- 
+
+### Requisito #0605 (Opcional)
+#### **Narrativa**
+
+- **Como Um:** Usuário não Logado ou usuário logado
+- **Eu quero/Eu posso:**Selecionar uma categoria
+- **Para que:**possa licalizar um ou mais produtos daquela categoria
+
+### **Critério(s) de aceite:**
+
+1. Requisito
+
