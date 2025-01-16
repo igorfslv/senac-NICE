@@ -53,7 +53,7 @@ Por questões de visualização enumeramos os requisitos em 04 digitos em sequê
   1. Os dados de login devem ser validados no banco de dados _(O login é o email do_ `Usuário` _cadastrado)._
      - A senha do `Usuário` deve ser encriptada no início antes de validação no banco de dados _( o dado no banco de dados também estará encriptado)._ 
         - (A). Não localizando o `Usuário`, o Sistema deve negar a entrada no Backoffice.
-        - (B). Com `Usuário` localizado, o `Sistema` deve cair na tela principal do Backoffice _(somente se o `email` e `senha` estiverem corretos e o campo `Status = ativo`)_, onde terão os botões de `listar produtos` _(para todos os personas*)_; E `lista de usuários` para `Administrador`.
+        - (B). Com `Usuário` localizado, o `Sistema` deve cair na tela principal do Backoffice _(somente se o `email` e `senha` estiverem corretos e o campo `Status = ativo`)_, onde terão os botões de `listar produtos` _(para todos os personas*)_; E `lista de usuários` somente para `Administrador`.
         - (C). Se o `Usuário` estiver com o `Status = inativo` o `Sistema` deve negar a entrada no Backoffice.
 >   
 > *Personas* ou *personagens* são todos os tipos de perfis que podemos classificar dentro do `Sistema`, em _Nice Store_ temos os personas `Administrador`, `Estoquista` e `Cliente`.      
