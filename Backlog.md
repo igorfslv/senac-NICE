@@ -4,16 +4,16 @@ Inicialmente é apresentado pelo _Instrutor_ da matéria de PI o Backlog geral d
 
 No primeiro dia da Sprint _(que sempre cai no dia da aula)_,  é apresentado os requisitos da Sprint, neste momento é reservado um tempo para que os alunos possam entrar em maiores detalhes e tire suas dúvidas, os grupos tem 14 dias corridos _(2 semanas)_ até a próxima Sprint para desenvolver os requisitos solicitados. 
 
-No último dia de cada Sprint o _Instrutor_ realiza uma avaliação do requisitos atendidos pelo `Sistema` e atribui uma nota ao grupo sobre aquela Sprint. _A apresentação de cada grupo é realizada de forma individual._ 
+No último dia de cada Sprint o _Instrutor_ realiza uma avaliação dos requisitos atendidos pelo `Sistema` e atribui uma nota ao grupo sobre aquela Sprint. _A apresentação de cada grupo é realizada de forma individual._ 
 
 Após todas a avaliações, é apresentada a próxima Sprint e seus requisitos, _o último dia da Sprint anterior é o primeiro dia da Sprint seguinte_.
 
-Por conta da grade curricular e cronograma de aulas, as Sprints não podem sofrer alterações para que não haja imprevistos na data final de entrega do Sistema. O(s) grupo(s) que não entregarem ou atenderem todos os requisitos de uma Sprint entram em `débito técnico`, podendo entregar os requisitos em atraso na próxima Sprint com 50% da nota daquele requisito. 
+Por conta da grade curricular e cronograma de aulas, as Sprints não podem sofrer alterações para que não haja imprevistos na data final de entrega do `Sistema`. O(s) grupo(s) que não entregarem ou atenderem todos os requisitos de uma Sprint entram em `débito técnico`, podendo entregar os requisitos em atraso na próxima Sprint com 50% da nota daquele requisito. 
 
 
 ## Esquema de Data/Nota de cada Sprint
 
-A tabela a seguir informa a quantidade de Sprints, seus pesos correspondentes para cada avaliação, e a data que foi realizada a avaliação _(que corresponde ao último dia da Sprint)_. Após as 06 Sprints concluídas acontece a última avaliação chamada _Final_, nela o instrutor passar por todas funcionalidades cruciais do `Sistema`, com todas elas com funcionamento correto é atribuido a nota com base no peso.
+A tabela a seguir informa a quantidade de Sprints, seus pesos correspondentes para cada avaliação, e a data que foi realizada a avaliação _(que corresponde ao último dia da Sprint)_. Após as 06 Sprints concluídas acontece a última avaliação chamada _Final_, nela o instrutor passar por todas funcionalidades cruciais do `Sistema`, com todas elas em funcionamento correto é atribuido a nota com base no peso.
 
 Sprint|Sprint 1|Sprint 2|Sprint 3|Sprint 4|SPrint 5|Sprint 6|Final|
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
