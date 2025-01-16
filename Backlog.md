@@ -15,7 +15,7 @@ Por conta da grade curricular e cronograma de aulas, as Sprints não podem sofre
 
 A tabela a seguir informa a quantidade de Sprints, seus pesos correspondentes para cada avaliação, e a data que foi realizada a avaliação _(que corresponde ao último dia da Sprint)_. Após as 06 Sprints concluídas acontece a última avaliação chamada _Final_, nela o instrutor passar por todas funcionalidades cruciais do `Sistema`, com todas elas em funcionamento correto é atribuido a nota com base no peso.
 
-Sprint|Sprint 1|Sprint 2|Sprint 3|Sprint 4|SPrint 5|Sprint 6|Final|
+Sprint|Sprint 1|Sprint 2|Sprint 3|Sprint 4|Sprint 5|Sprint 6|Final|
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |Data|09/09/24|23/09/24|07/10/24|21/10/24|11/11/24|25/11/24|02/12/24|
 |Peso|1|2|4|8|16|32|64|
