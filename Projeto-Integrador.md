@@ -17,25 +17,35 @@
 >
 >Alguns exemplos de projetos integradores do Senac são: _Podcast "Papo de Aprendiz, Carteira Inteligente, Vestuário Digital, Gestão de negócios para microempreendedores, E-book para comunidade da área da enfermagem_. 
 >
->Em _Análise e Desenvolvimento de Sistemas_, os projetos integradores são pequenos sistemas que desenvolvem de forma prática todas as habilidades aprendidas em cada semestre.
+>Em _Análise e Desenvolvimento de Sistemas_, os projetos integradores são pequenos Sistemas desenvolvidos utilizando as habilidades aprendidas em cada semestre.
 
 _Texto gerado pela IA Generativa do Google._ 
 
 ---
 # Projeto Integrador - Desenvolvimento de Sistema Orientado a Web 
-### 4ºSemestre de Análise e Desenvolvimento de Sistemas.
-O _Projeto Integador_ ou _PI_ do **4ºSemestre do curso de Análise e Desenvolvimento de Sistemas - ADS,** trás dois pontos cruciais como exigência no plano de ensino do curso, o primeiro ponto é fazer com que os alunos desenvolvam um _Sistema Orientado a Web_, ou seja, um sistema que funcione na internet.
 
-O segundo ponto (proposto pelo instrutor), é que os alunos utilize a metodologia ágil _Scrum_ para execução do projeto, para que dessa forma, possam adquirir uma breve experiência de como funcionam seus pontos principais. Assim, o aluno conhece uma, entre as metodologias mais utilizadas no _desenvolvimento de sistemas_ que existem mo mercado e ficam por dentro de como funciona o dia a dia de um Programador. 
+### 4º Semestre de Análise e Desenvolvimento de Sistemas.
 
-**No decorrer das aulas os alunos aprendem todos os detalhes de como o Scrum é executado, para isso seguem estas instruções:**
+O _Projeto Integador_ ou _PI_ do **4ºSemestre do curso de Análise e Desenvolvimento de Sistemas - ADS,** trás dois pontos cruciais como exigência no plano de ensino do curso:
 
-1. Formam grupos, cada grupo deve conter um nome, um tema de produto que possa ser utilizado em um E-Commers, exemplo: Pet e Animais; Alimentos ou Mercado; Produtos Gerais, Eletrônicos e Eletrodomésticos, Roupas e Calçados, entre outros. Um número mínimo e máximo de integrantes é estiupulado;
-2. O instrutor realiza todo o passo a passo da metodologia com os papeis de **PO - Product Owner** e **SM - Scrum Master** tendo em mãos a descrição do sistema ou _Blacklog do Produto._ Cada grupo interpreta o papel da equipe de desenvolvimento.
+1. Fazer com que os alunos desenvolvam um _Sistema Orientado a Web_, ou seja, um sistema que funcione na internet.
+2. _Este foi proposto pelo instrutor_, os alunos utilizarem a metodologia ágil _Scrum_ para execução do projeto, dessa forma, adquirirem uma breve experiência de como ela funciona e participam de um _'dia a dia'_ de um Programador. 
+
+### **No decorrer das aulas os alunos aprendem todos os detalhes de como o Scrum é executado, para isso seguem estas instruções:**
+
+1. Formam grupos, cada grupo deve conter:
+    - Um nome para ser representado; 
+    - Um tema de produto que possa ser utilizado em um E-Commers, exemplo: _Pet, Alimentos, Mercado, Produtos Eletrônicos ou Eletrodomésticos, Roupas ou Calçados, entre outros_. 
+    - Um número mínimo e máximo de integrantes é estiupulado;
+    
+2. O instrutor realiza todo o passo a passo da metodologia com os papeis de **PO - Product Owner** e **SM - Scrum Master** tendo em mãos a descrição do sistema ou _Backlog do Produto_. Cada grupo interpreta o papel da **Equipe de Desenvolvimento** ou também conhecido _'Time de Devs'_.
+
 3. O Instrutor realiza a _SprintPlanning_ com base no _Blacklog_ e define os requisitos de cada _Sprint_ e suas datas;
-4. De forma intercalada, a cada aula o grupo ou time de desenvolvimento fica responsável em desenvolver os requisitos de determinada Sprint, cada requisito é utilizado como critério de nota. Após revisão ou verificação em cada grupo pelo instrutor(Scrum Master) é passada para proxima Sprint. Cada Sprint dura 15 dias.
-5. Caso o grupo não consiga atender todos os requisitos propostos dentro do prazo, é indicado como débito tecnico, tendo que ser corrigido na e verificado na proxima Sprint. Uma forma de evitar atrasos na entrega final.
+
+4. De forma intercalada, a cada aula o _grupo_ ou _time de desenvolvimento_ fica responsável em desenvolver os requisitos de determinada Sprint, cada requisito é utilizado como critério de nota. Após avaliação em cada grupo pelo instrutor _(Scrum Master)_ é passada para proxima Sprint. _Cada Sprint dura 14 dias._
+
+5. Caso o grupo não consiga atender todos os requisitos propostos dentro do prazo, é indicado como _débito tecnico_, tendo que ser corrigido e verificado na proxima Sprint.
+
 6. Após conclusão de todas as Sprints uma avaliação final é realizada, avaliando requisitos 'chave' para o funcionamento correto do Sistema.
 
-Para entender mais a fundo, disponibilizamos mais detalhes [aqui](./Backlog.md).
-
+_Para entender mais a fundo sobre o planejamento das Sprints, disponibilizamos mais detalhes [aqui](./Backlog.md)._
