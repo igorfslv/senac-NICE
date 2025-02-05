@@ -1,6 +1,6 @@
 # Projeto Integrador Senac
 
-## O Projeto Integrador é um componente curricular do Senac que tem como objetivo: 
+O Projeto Integrador é um componente curricular do Senac que tem como objetivo: 
 - Promover uma aprendizagem mais completa e significativa.
 - Integrar conhecimentos e habilidades de diferentes áreas.
 - Estimular a autonomia e a responsabilidade dos alunos.
@@ -48,4 +48,4 @@ O _Projeto Integador_ ou _PI_ do **4ºSemestre do curso de Análise e Desenvolvi
 
 6. Após conclusão de todas as Sprints uma avaliação final é realizada, avaliando requisitos 'chave' para o funcionamento correto do Sistema.
 
-_Para entender mais a fundo sobre o planejamento das Sprints, disponibilizamos mais detalhes [aqui](./Backlog.md)._
+_Para entender mais a fundo sobre o planejamento das Sprints, disponibilizamos mais detalhes [aqui](../files-docs/Project/Backlog.md)._

@@ -1,5 +1,7 @@
 
- <img src="front/nice-store/img/img-logotipo-branco.png" width=100 alt=Logo Nice Store>
+<div style="display: flex; justify-content: center;">
+ <img src="front/nice-store/img/img-logotipo-branco.png" width=150 class=img alt=Logo Nice Store>
+ </div>
 
 ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
@@ -16,6 +18,7 @@ _Nice Store_ é o resultado do projeto acadêmico de Sistema Web desenvolvido pe
 
  
 <img src="files-docs/img/pagina-principal.png" width=100%>
+<figcaption>Imagem da tela inicial do Site</figcaption>
 
 ## O Projeto - Desenvolvimento de Sistemas Orientado a Web.
 
@@ -35,10 +38,7 @@ Na entrega final, o projeto de Sistema E-Commerce deve atender a uma lista de re
 - Durante o processo de compra, o `Cliente` logado deve passar por todas as etapas de conclusão de pedido: escolher `produto` e colocar produto no `carrinho`, adicionar um `endereço` fictício de entrega, adicionar `pagamento` fictício, `visualizar` um resumo e detalhes do pedido na tela de `checkout`.
 - `Cliente` deve _visualizar_ uma `lista de pedidos` realizados e seus detalhes dentro do seu `perfil`.
 
-O Objetivo final do Projeto é simular uma aplicação de um Sistema Web de E-Commers de vendas, contribuindo para experiência prévia do aluno ao mercado de trabalho. [_Mais detalhes sobre o Projeto Integrador do Senac_](./Projeto-Integrador.md).
-
->Mais informações sobre o Desenvolvimento do Projeto, detalhes da Metodologia, _[SprintPlaning](./files-docs/Project/Sprints.md 'Mais Detalhes Sprints') e [Backlog do Produto](./files-docs/Project/Backlog.md 'Mais detalhes Backlog')_.
-
+Outro ponto importante que o Projeto disponibiliza é a experiência para aluno ao mercado de trabalho, pois realiza o dia-a-dia real de uma aplicação. [_Mais sobre o Projeto Integrador do Senac_](../senac-NICE/files-docs/Projeto-Integrador.md).
 
 
 # Ferramentas Utilizadas
@@ -50,11 +50,17 @@ O Objetivo final do Projeto é simular uma aplicação de um Sistema Web de E-Co
 
 Para executar a metodologia ágil _**Scrum**_ foi utilizada a plataforma _**Trello**_ como _To Do List_ e gerenciamento das _Sprints._
 
->Acesse mais detalhes técnicos do Sistema como [Telas](); [API e EndPoints](); [Modelagem Banco de Dados](); [Estrutura do Banco de Dados]() e [Documentação]().
-
 # Como executar Nice Store
-Se você tem interesse em visualizar o projeto final e sua execução disponibilizamos a sessão [Instruções de Uso](./files-docs/Uso.md) para visualização completa do funcionamento em sua máquina.
+Se você tem interesse em instalar e visualizar o projeto na sua execução disponibilizamos as [Instruções de Uso](./files-docs/Uso.md) ou você pode visualizar uma demonstração em [qqui]().
 
+# Documentação
+Separamos uma lista de links para informações sobre o desenvolvimento do projeto e detalhes técnicos do Sistema: 
+- [SprintPlaning](./files-docs/Project/Sprints.md 'Mais Detalhes Sprints').
+- [Backlog do Produto](./files-docs/Project/Backlog.md 'Mais detalhes Backlog').
+- [Imagens das Telas]().
+- [API e EndPoints]().
+- [Modelagem e Estrutura do Banco de Dados]().
+- [Documentação]().
 
 # Contribuintes
 Nice Store foi desenvolvido em grupo pelos integrantes:
